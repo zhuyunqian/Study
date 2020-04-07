@@ -1,0 +1,422 @@
+//定义主体颜色
+@opposize:14px;
+@oppofamily:"微软雅黑";
+@oppogray:#999;
+@oppogreen:#008a56;
+@oppoblack:#2b2b2b;
+@bgsprite:url('../images/sprite.png')no-repeat;
+
+//resetcss
+a{
+  cursor:pointer;
+}
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float:right;
+}
+
+.banxin{
+  margin:auto;
+  width:1200px;
+}
+
+//定义混合函数
+.block(@w,@h,@bg){
+  width:@w;
+  height: @h;
+  background-color: @bg;
+}
+
+body{
+  font-size:@opposize;
+  color:@oppogreen;
+  font-family: @oppofamily;
+}
+
+//topbar
+.topbar{
+  height:3px;
+  background:@oppogreen;
+}
+
+.top{
+  height:37px;
+  background:@oppoblack;
+  
+  span{
+    float: left;
+    margin:10px 24px 0 0;
+  }
+  .weibo{
+    width:24px;
+    height:19px;
+    background:@bgsprite left top;
+  }
+  .tencent{
+    width:20px;
+    height:20px;
+    background:@bgsprite left -26px;
+  }
+  .tel{
+    color:#fff;
+  }
+
+  ul{
+    color:#fff;
+    margin:10px 0 0 0;
+
+    li{
+      padding:0 10px;
+      border-right:1px solid #fff;
+
+      &:last-child{
+        padding-left:48px;
+        background:@bgsprite 16px -140px;
+      }
+    }
+  }
+}
+
+.header{
+  height:88px;
+  line-height:88px;
+
+  .logo{
+    a{
+      display:block;
+      margin:12px 0 0 0;
+    }
+  }
+
+  ul{
+    li{
+      padding:0 10px;
+      color:@oppoblack;
+      font-weight:bold;
+
+      &:hover{
+        color:@oppogreen;
+        cursor:pointer;
+      }
+
+    }
+    .current{
+      color:@oppogreen;
+    }
+
+
+  }
+
+}
+
+.banner{
+
+  img{
+    display:block;
+    width:100%;
+  }
+
+}
+
+.star{
+  overflow: hidden;
+  background:#f2f2f2;
+  padding:40px 0;
+
+  .title{
+    text-align:center;
+  }
+
+  ul{
+
+    li{
+      margin:0 0 0 20px;
+
+      &:first-child{
+        margin:0;
+      }
+
+      text-align: center;
+      
+      h3{
+        font-size:18px;
+        font-weight:bold;
+        color:@oppoblack;
+        margin:10px 0 0 0;
+      }
+      
+      p{
+        font-size:14px;
+        color: @oppogray;
+        margin:20px 0 10px 0;
+      }
+      
+      .money{
+        font-size:16px;
+        font-weight:bold;
+        color: @oppogreen;
+
+        &:after{
+          content: '';
+          display:inline-block;
+          width:16px;
+          height:16px;
+          background:@bgsprite left -115px;
+        }
+      }
+    }
+
+  }
+}
+
+.peijian{
+  padding:40px 0;
+  text-align: center;
+  overflow: hidden;
+  background:#f5f5f5;
+
+  .title{
+  }
+  .con{
+
+    overflow:hidden;
+    margin-top:20px;
+
+    .pjleft{
+      width:50%;
+
+      .img1{
+        margin:20px 0 0 0;
+      }
+      .img2{
+        margin:0 0 20px 0;
+      }
+    }
+
+    img{
+      display:block;
+    }
+
+    .box{
+
+      overflow: hidden;
+
+      .plt{
+        margin:0 0 0 20px;
+
+        img{
+
+          &:first-child{
+            margin:0 0 20px 0;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.tansuo{
+
+  background:#f2f2f2;
+  overflow: hidden;
+  padding:40px 0;
+  
+  .title{
+    text-align:center;
+    margin:0 0 30px 0;
+  }
+
+  ul{
+
+    li{
+      float:left;
+      width:32%;
+      margin:0 0 0 20px;
+
+      img{
+        width:100%;
+
+        &:first-child{
+          margin:0 0 20px 0;
+        }
+      }
+
+      &:first-child{
+        margin:0;
+      }
+    }
+  }
+  
+}
+
+
+.footer{
+
+  .top{
+    padding:30px 0;
+    background:none;
+    overflow: hidden;
+    
+    li{
+      float: left;
+      width:180px;
+      padding:0 30px;
+      &:before{
+        content:'';
+        width:48px;
+        height:42px;
+        display:block;
+        float:left;
+        background:@bgsprite left -228px;
+      }
+
+      h4{
+        color:@oppoblack;
+        margin:0 0 5px 0;
+      }
+      p{
+        color:@oppogray;
+      }
+    }
+  }
+
+  .line{
+    display:block;
+    width:100%;
+    height:1px;
+    background:@oppoblack;
+  }
+
+  .foot{
+    overflow: hidden;
+    background:@oppoblack;
+    padding:20px 0;
+
+    p{
+      color:#f5f5f5;
+      margin:0 0 0 40px;
+    }
+
+    .nav{
+      overflow:hidden;
+
+      li{
+        margin:0 0 0 20px;
+
+        a{
+          color:#f5f5f5;
+          text-decoration:none;
+        }
+      }
+
+    }
+
+  }
+
+  .bot{
+    padding:40px 0;
+    overflow:hidden;
+
+    .pull-left{
+      padding:0 40px;
+
+      &:last-child{
+        h4{
+          margin:0 0 10px 0;
+        }
+
+        dl{
+          width:156px;
+          overflow:hidden;
+          margin:0 0 15px 0;
+
+          dt{
+            font-size:14px;
+          }
+
+          dd{
+            font-size:12px;
+            color:@oppogray;
+            margin:5px 0 0 0;
+          }
+
+          &:before{
+            display:block;
+            float: left;
+            content: '';
+            width:40px;
+            height:40px;
+            background:@bgsprite left -439px;
+          }
+        }
+      }
+
+      &:nth-child(5){
+
+        li{
+          &:before{
+            height:16px;
+            background:@bgsprite left top;
+            line-height:0;
+            float:left;
+            margin:6px 0 0 0;
+
+          }
+
+          &:nth-child(2){
+            &:before{
+              background-position:left -27px;
+            }
+          }
+
+          &:nth-child(3){
+            &:before{
+              background-position:left -57px;
+            }
+          }
+
+          &:nth-child(4){
+            &:before{
+              background-position:left -86px;
+            }
+          }
+
+        }
+      }
+      
+      h4{
+        font-size:14px;
+        color:@oppoblack;
+        font-weight:bold;
+      }
+
+      ul{
+        overflow:hidden;
+        margin:10px 0 0 0;
+        li{
+          list-style:circle;
+          font-size:12px;
+          color:@oppogray;
+          height:28px;
+          line-height:28px;
+
+          &:before{
+            content: '';
+            display: inline-block;
+            height:14px;
+            width:25px;
+            background:@bgsprite left -190px;
+          }
+        }
+
+
+
+      }
+    }
+  }
+
+
+}
