@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="../js/zepto.js"></script>
+    <script src="../js/touch.js"></script>
+    <script src="../js/fx.js"></script>
+</head>
+<body>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+    body{
+        touch-action:none;
+    }
+    body,html{
+        width:100%;
+        font-size:14px;
+    }
+    div{
+        width:100%;
+        overflow:hidden;
+        position: relative;
+    }
+    span{
+        width:49%;
+        position:absolute;
+        left:0;
+        bottom:0;
+        border:2px solid #ff6600;
+    }
+    .tab{
+        width:100%;
+        overflow: hidden;
+    }
+    .tab li{
+        width:50%;
+        float:left;
+        text-align:center;
+        height:40px;
+        line-height:40px;
+        box-sizing:border-box;
+
+    }
+    .tab li:first-child{
+        border-right:1px solid #ddd;
+    }
+
+    section{
+        width:200%;
+    }
+    section .con{
+        width:100%;
+        position: relative;
+        left:0;
+        top:0;
+    }
+    .con li{
+        float: left;
+        width:50%;
+        line-height:40px;
+    }
+</style>
+<div>
+    <ul class="tab">
+        <li>新闻</li>
+        <li>资讯</li>
+    </ul>
+    <span></span>
+</div>
+<section>
+    <ul class="con">
+        <li>
+            <p>列表1</p>
+            <p>列表1</p>
+            <p>列表1</p>
+            <p>列表1</p>
+            <p>列表1</p>
+            <p>列表1</p>
+        </li>
+        <li>
+            <p>列表2</p>
+            <p>列表2</p>
+            <p>列表2</p>
+            <p>列表2</p>
+            <p>列表2</p>
+            <p>列表2</p>
+        </li>
+    </ul>
+</section>
+</body>
+</html>
+<script>
+    //封装事件
+    function fn(index){
+
+        //点击动画效果-- 下划线移动
+        //0*50%  1*50%
+        $('span').animate({'left': index*50+'%'},500);
+
+        //动画效果tab栏移动
+        $('.con').animate({'left': -index*50+'%'},500)
+    }
+
+    //按钮点击事件 移动端--touch
+    $('.tab li').tap(function(){
+
+        //获取当前索引值
+        let index = $(this).index();
+
+        //调用动画
+        fn(index);
+
+    })
+
+    //左右滑动事件
+
+    $('.con').swipeLeft(function(){
+
+        fn(1);
+    })
+
+    $('.con').swipeRight(function(){
+
+        fn(0);
+    })
+</script>

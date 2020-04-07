@@ -1,0 +1,39 @@
+.mui-pull-left{
+    margin:10px 0 0 0;
+}
+.mui-bar .mui-title{
+    left:80px;
+    right:80px;
+}
+input[type=search]{
+    border-radius:20px;
+    background:hsla(0,0%,92.2%,.72);
+}
+.mui-search .mui-placeholder{
+    top:5px;
+}
+.mui-card{
+    margin:0 0 10px 0;
+    padding:10px;
+}
+.mui-card-content img{
+    width:100%;
+}
+.mui-btn-primary .mui-icon{
+    color:#fff;
+}
+.mui-default{
+    border:0;
+}
+.mui-default .mui-icon{
+    color:#333;
+}
+.mui-popover{
+    width:120px;
+}
+.mui-off-canvas-left, .mui-off-canvas-right{
+    background:none;
+}
+.mui-scroll-wrapper{
+    overflow: auto;
+}

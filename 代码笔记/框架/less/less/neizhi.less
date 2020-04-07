@@ -1,0 +1,22 @@
+@bgcolor :#ccc;
+
+//内置函数 可以调用使用ligten
+//选择期，伪类声明调用 &:
+div{
+  width:200px;
+  height:200px;
+  background: @bgcolor;
+  &:hover{
+    background: pink;
+  }
+  &:nth-child(2){
+    width:600px;
+    &:after{
+      content:'';
+      display:block;
+      width:200px;
+      height:10px;
+      background:#0bb20c;
+    }
+  }
+}

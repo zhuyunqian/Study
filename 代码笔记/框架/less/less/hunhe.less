@@ -1,0 +1,13 @@
+@bgcolor:skyblue;
+
+
+//函数方式调用使用css
+.whbg(@w,@h,@bg){
+  width:@w;
+  height:@h;
+  background:@bg;
+}
+
+div{
+  .whbg(200px,300px,@bgcolor)
+}

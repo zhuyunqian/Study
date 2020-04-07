@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/zepto.js"></script>
+    <script src="../js/touch.js"></script>
+    <script src="../js/fx.js"></script>
+</head>
+<body>
+<style>
+    body{
+        touch-action:none;
+    }
+    div{
+        width:100px;
+        height:100px;
+        background:#f0ad4e;
+        margin:100px auto;
+    }
+</style>
+<div></div>
+</body>
+</html>
+<script>
+
+    //注意：touch-action一定要加，否则不响应
+    $('div').swipeLeft(function(){
+
+        $(this).animate({'margin':'50px auto'},300)
+
+    })
+</script>

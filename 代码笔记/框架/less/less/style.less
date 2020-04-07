@@ -1,0 +1,21 @@
+@bgcolor:blue;
+@wdh:100px;
+
+div{
+  width:@wdh;
+  height:@wdh;
+  background:@bgcolor;
+}
+
+//嵌套使用
+//可以清晰的选择
+section{
+  li{
+    background:#0bb20c;
+  }
+}
+div{
+  li{
+    background:#f0ad4e;
+  }
+}

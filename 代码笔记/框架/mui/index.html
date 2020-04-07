@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知乎</title>
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/style.js"></script>
+</head>
+<body>
+<div class="mui-off-canvas-wrap mui-draggable">
+    <!-- 菜单容器 -->
+    <aside class="mui-off-canvas-right mui-slide-in">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">Item 1</li>
+                    <li class="mui-table-view-cell">Item 2</li>
+                    <li class="mui-table-view-cell">Item 3</li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <!-- 主页面容器 -->
+    <div class="mui-inner-wrap">
+        <!-- 主页面标题 -->
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">
+                <div class="mui-input-row mui-search">
+                    <input type="search" placeholder="请输入搜索内容" class="mui-input-clear"/>
+                </div>
+            </h1>
+            <a href="javascript:;" class="mui-pull-left">知乎</a>
+            <a class="mui-icon mui-icon-bars mui-action-menu mui-icon-left-nav mui-pull-right"></a>
+        </header>
+        <div class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <div class="mui-content">
+                    <div id="popover" class="mui-popover">
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell"><a href="#">喜欢</a></li>
+                            <li class="mui-table-view-cell"><a href="#">举报</a></li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+    //去掉滚动条
+    $('#scroll').scroll({indicators: true});
+
+    mui.plusReady(function(){
+        plus.webview.currentWebview().setStyle({
+            scrollIndicator:'none',
+            softinputMode: "adjustResize"
+        });
+    })
+    <!--遍历-->
+    //数组
+    let arr  = [
+        {head:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',con:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',img:'images/banner.jpeg', num:'1000'},
+        {head:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',con:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',img:'images/banner.jpeg', num:'10'},
+        {head:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',con:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',img:'images/banner.jpeg', num:'200'},
+        {head:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',con:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',img:'images/banner.jpeg', num:'1000'},
+        {head:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',con:'王老板疫情期间还让公司业绩上涨，原来是用了这个神器',img:'images/banner.jpeg', num:'500'},
+    ]
+
+    //遍历增加盒子
+    mui(arr).each(function(index,element){
+
+        let muicardText = `<div class="mui-card">
+                <div class="mui-card-header">${element.head}</div>
+                <div class="mui-card-content">
+                <img class="mui-img" src="${element.img}" alt="">
+                <p>${element.con}<a class="" href="javascript:;">查看详情</a><a class="mui-icon mui-icon-arrowdown" href="javascript:;"></a></p>
+                </div>
+                <div class="mui-card-footer">
+                <button type="button" class="mui-btn mui-btn-primary agree"><a class="mui-icon mui-icon-arrowup" href="javascript:;"></a> 赞同<span>${element.num}</span></button>
+                <button type="button" class="mui-btn mui-btn-primary oppose"><a class="mui-icon mui-icon-arrowdown" href="javascript:;"></a></button>
+                <button type="button" class="mui-btn mui-default"><a class="mui-icon mui-icon-chatbubble" href="javascript:;"></a>评论</button>
+                <a class="mui-icon mui-icon-star" href="javascript:;"></a>
+                <a href="#popover" id="openPopover" class="mui-icon mui-icon-plus" href="javascript:;"></a>
+                </div>
+               </div>`
+
+        $('.mui-content').append(muicardText);
+
+    })
+
+
+
+
+    //点击收藏
+    mui(".mui-card-footer").on('tap','.mui-icon-star',function(){
+        $(this).css('color','#f00');
+    })
+
+
+    //点击增加
+    mui(".mui-card-footer").on('tap','.agree',function(){
+        let num = $(this).children('span').html().replace(/\D+/g,"");
+        num++;
+        $(this).children('span').html(num);
+
+    })
+
+
+    //点击减少
+
+    mui(".mui-card-footer").on('tap','.oppose',function(){
+        let num = $(this).siblings('.agree').children('span').html().replace(/\D+/g,"");
+        num--;
+        $(this).siblings('.agree').children('span').html(num);
+
+    })
+
+    //点击菜单栏实现
+    let isClick = true;
+    mui('header').on('tap','.mui-icon-bars',function(){
+        //菜单栏
+
+        if(isClick){
+            $('.mui-off-canvas-right').attr('class','mui-off-canvas-right mui-slide-in mui-transitioning mui-active');
+            $('.mui-off-canvas-right').attr('style','visibility: visible; z-index: 0;');
+            $('.mui-off-canvas-wrap').addClass('mui-active');
+            $('.mui-inner-wrap').addClass('mui-transitioning');
+            $('.mui-inner-wrap').attr('style','transform: translate3d(-262px, 0px, 0px);');
+            isClick = false;
+        }else{
+            $('.mui-off-canvas-right').attr('class','mui-off-canvas-right mui-slide-in');
+            $('.mui-off-canvas-right').removeAttr('style');
+            $('.mui-off-canvas-wrap').removeClass('mui-active');
+            $('.mui-inner-wrap').removeClass('mui-transitioning');
+            $('.mui-inner-wrap').removeAttr('style');
+            isClick = true;
+        }
+
+    })
+
+</script>

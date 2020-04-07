@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/zepto.js"></script>
+    <script src="../js/selector.js"></script>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+
+</body>
+</html>
+<script>
+    //主要运用于移动端zepto
+    //基础使用，与jquery。js 一样使用
+    $('button').click(function(){
+        //alert(123);
+    })
+
+    //因为zepto.js只有50多kb ，少于jquer，所以很多功能都不可以使用
+    $('button').eq(1).click(function(){
+        //alert(123);
+    })
+
+    //想要使用对应功能，需要引入相应的js
+    $('button:eq(1)').click(function(){
+        alert(123);
+    })
+
+</script>
