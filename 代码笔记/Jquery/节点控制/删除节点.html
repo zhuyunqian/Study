@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除节点</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+<a href="javascript:;" class="copy">复制节点</a>
+<a href="javascript:;" class="remove">删除节点</a>
+<ul>
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+</ul>
+</body>
+</html>
+<script>
+    $(function(){
+
+        $('.copy').click(function(){
+            //复制节点
+            let aLi = '<li>内容'+$('li').length+'</li>'
+
+            $('ul').append(aLi);
+        })
+
+        $('.remove').click(function(){
+            //删除节点
+            //$('ul').remove();
+
+            //删除节点内容，不删除当前节点
+            //$('ul').empty();
+
+            //删除指定节点
+            $('li').eq(0).remove();
+        })
+    })
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加节点</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+<a href="javascript:;">添加节点</a>
+<ul>
+
+    <li>
+        标签1
+    </li>
+</ul>
+</body>
+</html>
+<script>
+    $(function(){
+
+        let pTag = `<li>
+                        标签3
+                    </li>`
+
+
+        let ppTag = `<li>
+                        标签4
+                    </li>`
+
+        //添加到节点内最后一个
+        $('ul').append(pTag);
+
+        //添加到节点内第一个
+        $('ul').prepend(pTag);
+
+
+        //节点前添加
+        $('ul').before(pTag);
+
+        //节点后添加
+        $('ul').after(pTag);
+
+
+        //需要转化为节点，进行添加 -- 使用appendTo函数
+        $(ppTag).appendTo($('ul'));
+
+        $('a').click(function(){
+            let algh = $('li').length
+
+            console.log($(ppTag).text()+algh)
+            $(ppTag).html($(ppTag).text()+algh)
+            $('ul').append(ppTag)
+
+            //$('ul').append('<li>标签'+algh+'</li>');
+        })
+
+
+    })
+</script>

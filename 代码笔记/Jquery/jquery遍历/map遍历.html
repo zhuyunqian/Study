@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map遍历</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+<ul>
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+</ul>
+</body>
+</html>
+<script>
+$(function(){
+
+    //map--方法遍历 li节点  index--索引  element文本/节点
+    $('li').map(function(index,element){
+
+        //$(element)为节点，可获取节点内容
+        console.log($(element).html());
+
+    })
+
+    console.log('=======================')
+
+    //map遍历  与 each遍历  不同
+
+    $.each($('li'), function (index,element) {
+
+        //同楼上注释
+        console.log($(element).html())
+
+    })
+
+    console.log('======================')
+
+    console.log('each与map的不同')
+
+
+    //声明返回值
+    let mapText = $('li').map(function(index,element){
+        //打印输出文本
+        //console.log($(element).text())
+        //返回文本节点
+        return $(element).text();
+    })
+
+    //输出对象
+    console.log('maptext'+mapText);
+
+    //遍历声明的返回值，打印element--直接获取到文本内容
+    $(mapText).each(function(index,element){
+        console.log(element)
+    })
+
+
+    //声明返回值
+    let eachText = $('li').each(function(index,element){
+        //打印输出文本
+        //console.log($(element).text())
+        //返回文本节点
+        return $(element).text();
+    })
+
+    //输出对象
+    console.log('eachtext'+eachText);
+
+    ///遍历声明的返回值，打印element--获取到节点与文本
+    $(eachText).each(function(index,element){
+        console.log(element)
+    })
+
+    congsole.log('=======不同总结=========')
+    //map 返回文本的节点，可直接获取文本内容，而each返回的文本节点，不能直接获取文本内容
+})
+</script>

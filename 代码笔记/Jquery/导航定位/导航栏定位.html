@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+    ol{
+        width:100px;
+        position:fixed;
+        left:100px;
+        top:50%;
+        margin-top:-100px;
+        border:1px solid #ddd;
+    }
+    ol li{
+        width:100%;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+    }
+    li.on{
+        color:#fff;
+    }
+    ul{
+        width:800px;
+        margin:auto;
+    }
+</style>
+<ol>
+    <li class="on">口红</li>
+    <li>包包</li>
+    <li>护肤品</li>
+    <li>首饰</li>
+    <li>衣服</li>
+</ol>
+<ul>
+    <li>口红</li>
+    <li>包包</li>
+    <li>护肤品</li>
+    <li>首饰</li>
+    <li>衣服</li>
+</ul>
+</body>
+</html>
+<script>
+    $(function(){
+
+        //声明颜色数组
+        let colorArr = ['yellowgreen','red','green','pink','yellow'];
+
+        //声明高度数组
+        let heiArr = ['1000px','400px','800px','300px','500px'];
+
+        //封装函数--遍历颜色--遍历高度--给css赋值
+
+        function fn(chanode,charr,chacss){
+            $.each(charr,function(index,element){
+                $(chanode).eq(index).css(chacss,element);
+            })
+        }
+
+        //调用
+        //nav节点背景色
+        fn('ol li',colorArr,'background');
+        //content节点背景色
+        fn('ul li',colorArr,'background');
+        //content节点高度
+        fn('ul li',heiArr,'height');
+
+        //后期添加--用于判断是否处于点击事件，修改点击滚动bug
+        let isClick = false;
+
+        //点击事件，点击定位，需要获取每个节点的高度固定位置，然后进行滚动条事件
+
+        $('ol').on('click','li',function(){
+            //赋值处于点击事件
+            isClick = true;
+
+            //获取li高度
+            let ulliHgt = $('ul li').eq($(this).index()).offset().top;
+            $(this).addClass('on').siblings().removeClass('on');
+            //点击animate -- 滑动到固定位置
+            $('html,body').stop().animate({scrollTop:ulliHgt},function(){
+                //回调函数--函数执行完后执行
+                isClick = false;
+            });
+
+        })
+
+
+        //滚动条事件
+        $(window).scroll(function(){
+
+            //声明窗口高度一半
+            let winHgt = $(window).height()/2;
+            //获取滚动高度
+            let scrTop = $('body,html').scrollTop();
+
+            //在滚动事件夏
+            if(isClick == false){
+                //遍历li
+                $('ul li').each(function(index,element){
+                    //获取li的高度
+                    let ulliHgt = $(element).offset().top;
+                    //判断事件，当前li的高度-滚动高度 <= 窗口一半的时候  获取他的li的index值，定位nav的li
+                    if(ulliHgt - scrTop <= winHgt){
+
+                        //定位li并添加样式
+                        $('ol li').eq(index).addClass('on').siblings().removeClass('on');
+
+                    }
+
+                })
+            }
+
+
+        })
+    })
+</script>
