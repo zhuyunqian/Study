@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var books = [
+        {name:"活着", price:27.7, press:"作家出版社"},
+        {name:"流浪地球", price:37.6, press:"中国华侨出版社"},
+        {name:"罗生门", price:36.3, press:"开明出版社"},
+        {name:"三体", price:51.5, press:"重庆出版社"}
+    ]
+
+    //**需求1：查询三体这本书的相关信息**
+
+    for(var i = 0; i<books.length; i++){
+        if(books[i].name == "三体"){
+            console.log(books[i]);
+            break;
+        }
+    }
+    console.log(books);
+
+    //**需求2：增加一本书,书名菊与刀，价格24，开明出版社**
+    books.push({name:'菊与刀',price:24,press:'开明出版社'});
+    console.log(books);
+
+    //**需求3：将罗生门这本书的价格修改为40**
+    for(var i =0; i<books.length; i++){
+        if(books[i].name == '罗生门'){
+            books[i].price = 40;
+            console.log(books[i]);
+            break;
+        }
+    }
+    console.log(books);
+
+
+    //**需求4：将三体这本书从书单中删除**
+    for(var i=0; i<books.length; i++){
+        if(books[i].name == '三体'){
+            books.splice(i,1);
+            break;
+        }
+    }
+    console.log(books);
+
+
+    //封装
+    function search(arr,name){
+        for(var i = 0; i<arr.length; i++){
+            if(arr[i].name == name){
+                return arr[i]
+            }
+        }
+        return "查无此书"
+    }
+    var search1 = search(books,"活着");
+    console.log(search1);
+
+    function add(arr,obj){
+        arr.push(obj);
+        return arr;
+    }
+    var add1 = add(books,{name:'蓝色大海',price:10,press:'开明出版社'});
+    console.log(add1);
+
+    function change(arr,name,changename){
+        for(var i=0; i<arr.length; i++){
+            if(arr[i].name == name){
+                arr.splice(i,1,changename);
+                break;
+            }
+        }
+        return arr;
+    }
+    var change1 = change(books,'罗生门',{name:"罗生门", price:20, press:"开明出版社"});
+    console.log(change1);
+
+
+    function remove(arr,name){
+        for(var i=0; i<arr.length; i++){
+            if(arr[i].name == name){
+                arr.splice(i,1);
+                break;
+            }
+        }
+        return arr;
+    }
+    var reomve1 = remove(books,'菊与刀');
+    console.log(reomve1)
+
+
+    //构造函数封装
+    function BookManager(arr){
+        this.arr = arr;
+    }
+    BookManager.prototype = {
+        construtor:BookManager,
+        search:function(name){
+            for(var i = 0; i<this.arr.length; i++){
+                if(this.arr[i].name == name){
+                    return this.arr[i]
+                }
+            }
+            return "查无此书"
+        },
+        add:function(obj){
+            this.arr.push(obj);
+            return this.arr;
+        },
+        change:function(name,changename){
+            var book = this.search(name);
+            var i = this.arr.indexOf(book);
+            this.arr.splice(i,1,changename);
+            return this.arr;
+        },
+        remove:function(name){
+            var book = this.search(name);
+            var i = this.arr.indexOf(book);
+            this.arr.splice(i,1);
+            return this.arr;
+        }
+
+    }
+
+    var book = new BookManager(books);
+    var book1 = book.add({name:'绿色钻石',price:190,press:'开明出版社'})
+    console.log(book1)
+    var book2 = book.remove('流浪地球');
+    console.log(book2)
+    var book3 = book.change('绿色钻石',{name:'绿色钻石',price:100,press:'开明出版社'});
+    console.log(book3)
+
+
+</script>

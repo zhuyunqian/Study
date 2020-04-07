@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function add() {
+        var sum = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    console.log(add(1, 2, 3, 4, 5));//15
+
+
+    //eval函数
+
+    var jsonStr = "({name:'Neld',age:10})";
+    console.log(eval(jsonStr));//转换成JS的对象
+</script>

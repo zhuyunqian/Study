@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //数组
+    var array1 = [1, 2, 3];
+    console.log(array1);
+
+    //方式二：构造函数创建数组对象
+    var array2 = new Array(3,2,1);
+    console.log(array2);
+
+    //创建一个长度为5的空数组
+    var array3 = new Array(5);
+    console.log(array3);
+
+    //判断array对象 instanceof isArray
+    console.log(array1 instanceof Array);
+    console.log(Array.isArray(array2));
+
+    //数组后添加  result -- 数组长度
+    var result = array1.push('2','3');
+    console.log(array1,result);
+
+    //数组前添加
+    var result = array2.unshift('1','0');
+    console.log(result,array2);
+
+    //数组最后一个删除 result-删除值
+    var result=array1.pop();
+    console.log(array1,result);
+
+    //数组第一个删除
+    var result = array2.shift();
+    console.log(array2,result);
+
+    //undeined
+
+    var un;
+    if(un == undefined){
+        console.log(123);
+    }
+    if(un == 'undefined'){
+        console.log(456);
+    }
+
+
+
+</script>

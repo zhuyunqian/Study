@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name, age) {
+        var className = "H5";
+        this.name = name;
+        this.age = age;
+        this.showName = function () {
+            console.log(this.name);
+        }
+        function getClassName() {
+            return className;
+        }
+        this.showClass = function () {
+            console.log("姓名：",this.name,"班级：",getClassName());
+        }
+    }
+    Person.prototype.des = "H5-JS面向对象";
+    Person.info = "H5 Information";
+
+    //实例成员：实例对象的属性和方法  //name  age  showname  showclass
+    //静态成员：构造函数自己的成员和方法 info
+    //原型成员：构造函数对应的原型对象的属性和方法  des
+    //私有成员：构造函数中声明的变量和函数，只能在函数内部访问  getclassname  classname
+    //特权方法: 在函数内部使用了私有成员的方法  showclass
+
+</script>

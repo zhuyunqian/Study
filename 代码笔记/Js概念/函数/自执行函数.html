@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //自执行函数
+    //方式1
+    (function(){
+       console.log('自执行函数1')
+    })();
+
+    //方式2
+    (function(){
+        console.log('自执行函数2')
+    }());
+
+    //方式3
+    !function(){
+        console.log('自执行函数3')
+    }();
+
+    //方式4
+    +function(){
+        console.log('自执行函数4')
+    }();
+
+    //方式5
+    -function(){
+        console.log('自执行函数5')
+    }();
+
+    //方式6
+    ~function(){
+        console.log('自执行函数6')
+    }()
+
+    //分离语句
+
+    // 现在这个函数声明的语法是正确的，但还是有报错
+    // 表达式后面的括号是非法的， 因为分组运算符必须包含表达式
+    function fun(){
+        console.log('分离语句')
+    }(1);
+    fun();
+    // 如果你在括号内放置了表达式， 没有错误抛出...
+    // 但是函数也不会执行，因为它与一个函数声明后面放一个完全无关的表达式是一样的
+
+
+</script>

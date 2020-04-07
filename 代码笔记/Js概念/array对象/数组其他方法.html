@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //.indexOf(元素值)查看某个元素在数组里面的索引，如果没有这个元素返回值是-1
+    var arr2=[10,20,30,40,50];
+    var index=arr2.indexOf(30);
+    console.log(index); //2
+    /*
+     * 返回值是该元素在数组中的索引值，如果没有返回-1
+     indexOf（n，m）从索引m开始查看n在数组里面的索引值
+     lastIndexOf（）从后往前看
+     * */
+
+    //join("字符串")把数组按照指定的字符串拼接成一个字符串,如果没有参数就按默认的逗号拼接成字符串，如果有参数就按照指定的字符串拼接成字符串
+    var arr2=["小白","小黑","小红","小芳","小绿","小花"];
+    var str = arr2.join("|");
+    console.log(str);  //小白|小黑|小红|小芳|小绿|小花
+
+
+    //reverse() 数组反转 参数无 返回值是反转后的数组，(改变原有数组)
+    var arr3=[10,20,30,40,50];
+    var temp=arr3.reverse();//反转
+    console.log(temp,arr3);//[50, 40, 30, 20, 10]两个结果一样
+
+    //sort()数组排序 返回值是排好序的数组，改变原有数组。参数可传可不传，如果传参数，参数是回调函数。如果不传参数的时候只能排10以内的数字
+    //不传参数的sort（）排序----从小到大
+    var ary=[1,2,3,6,5,4];
+    var temp=ary.sort();
+    console.log(temp); //结果：[1, 2, 3, 4, 5, 6]
+    console.log(ary);  //结果：[1, 2, 3, 4, 5, 6]
+
+    //sort（）带有参数的升序和降序
+    //1、从小到大排序 a-b
+    var ary=[1,2,3,6,5,4,13,12,15,16];
+    var temp=ary.sort(function (a,b) {
+        return a-b;//把原数组升序排 从小到大
+    });
+    console.log(temp);//结果：[1, 2, 3, 4, 5, 6, 12, 13, 15, 16]
+
+    //2、从大到小排列 b-a
+    var temp=ary.sort(function (a,b) {
+        return b-a;
+    });
+    console.log(temp);//结果：[16, 15, 13, 12, 6, 5, 4, 3, 2, 1]
+
+    //slice（n,m）从索引n开始获取到索引m（不包含m）返回值是获取到的元素组成的新数组
+    var ary=[10,20,30,40,50,60,70,80,90,100];
+    var temp=ary.slice(2,6);
+    console.log(temp); //结果是[30, 40, 50, 60] 从索引2开始获取到索引6不包括索引6
+    //注意：slice();和slice(0);都是把原数组复制一份
+
+    //splice(n,m,x/y/z...) 把数组从索引n开始删除m个元素，用x，y...替换删除的m项。返回值是删除的m项组成的新数组
+    var ary=[1,2,3,4,5,6];
+    var temp=ary.splice(1,2,7,8,9,10);
+    console.log(temp);//返回结果是：[2, 3]这个是删除的项组成的新数组，就是删除了2，3
+    console.log(ary);//返回结果是：[1, 7, 8, 9, 10, 4, 5, 6]
+
+    //当m项是0的时候，它把x,y...替换项放到索引n的前面  --相当于插入
+    var ary=[1,2,3,4,5,6];
+    var temp=ary.splice(1,0,7,8,9,10);
+    console.log(temp);//[] 返回空数组，因为没有删除
+    console.log(ary); //结果：[1, 7, 8, 9, 10, 2, 3, 4, 5, 6]
+
+    //当不写x、y替换项的时候代表删除数组的元素
+    var ary=[1,2,3,4,5];
+    var temp=ary.splice(1,2);
+    console.log(temp);//结果：[2, 3]  删除的数组值组成数组
+    console.log(ary);//结果：[1, 4, 5]  删除后数组
+
+    //当splice（）里面什么都不写的时候，代表没有对数组做任何操作，返回一个空数组
+    var ary=[1,2,3,4,5];
+    var temp=ary.splice();
+    console.log(temp); //结果：[] 返回空数组 ，未进行任何操作
+    console.log(ary);//结果：[1, 2, 3, 4, 5]
+
+    //当splice(0)  里面是0 的时候，代表删除整个数组，返回的是原数组的数据，原数组变为空数组
+    var ary=[1,2,3,4,5];
+    var temp=ary.splice(0);
+    console.log(temp); //结果： [1, 2, 3, 4, 5]
+    console.log(ary);//结果：[]原数组变为空数组
+</script>

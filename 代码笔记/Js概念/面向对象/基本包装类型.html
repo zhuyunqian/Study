@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //基本类型：字符串（string）, 数字（number），布尔值（boolean），null，undefined
+    //基本包装类型：Number String Boolean
+    //基本包装类型特点：有原型链，可以引用其本身自带方法
+
+    //方式一：
+
+    var str = new String('123');
+
+    var num = new Number(23);
+
+    var boo = new Boolean(false);
+
+    console.log(str)
+    console.log(num)
+    console.log(boo)
+
+    str = str.replace('12','wode');
+    console.log(str);
+
+    var str1 = "test";
+    var str2 = new String("test");
+    var str3 = "test2";
+    var str4 = new String("test");
+    console.log(str1 == str2);//① true --不比较类型，数值相等为true
+    console.log(str1 == str3);//② false --数值不等为false
+    console.log(str2 == str4);//③ false --数值相等，引用地址不同，两个为对象，开辟的内存地址不同
+    console.log(str1 === str2);//④ false -- 三个等号，类型不同，一个为对象，一个为字符串
+    console.log(str1 === str3);//⑤ false -- 类型相等，数值不等
+    console.log(str2 === str4);//⑥ false -- 内存地址不等
+
+
+
+
+
+
+</script>

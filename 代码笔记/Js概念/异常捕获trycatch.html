@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">检测输入</button>
+<input type="text" id="inp" placeholder="请输入内容">
+<p id="message"></p>
+
+</body>
+</html>
+<script>
+     try{
+         console.log(a)
+         console.log(b)
+
+     }catch(e){
+         throw {
+             errorMsg:e,
+             errorCode:10001
+         }
+     }finally {
+         var a = 10;
+         function c(){
+             console.log('这是c函数')
+         }
+         console.log(c)
+     }
+
+    function $(id){
+        return document.getElementById(id);
+    }
+
+    function  fun(){
+        var val = $('inp').value;
+        $('message').innerText = '';
+        try{
+            if(val == '') throw '请输入';
+            if(val >10) throw '大于10';
+            if(val<5) throw '小于5';
+        }catch(e){
+            $('message').innerText = '输入的值'+e;
+        }finally{
+            $('inp').value = '';
+        }
+    }
+
+    $('btn').onclick = function(){
+        fun();
+    }
+
+    // function myFunction() {
+    //     var message, x;
+    //     message = $("message");
+    //     message.innerHTML = "";
+    //     x = $("inp").value;
+    //     try {
+    //         if(x == "")  throw "为空";
+    //         if(isNaN(x)) throw "不是一个数字";
+    //         if(x > 10)   throw "太大";
+    //         if(x < 5)    throw "太小";
+    //     }
+    //     catch(err) {
+    //         message.innerHTML = "输入的值 " + err;
+    //     }
+    //     finally {
+    //         $("inp").value = "";
+    //     }
+    // }
+
+    // $('btn').onclick = function(){
+    //     myFunction();
+    // }
+
+
+</script>

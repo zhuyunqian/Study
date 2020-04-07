@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var arr = [1,2,3,4,3,5,3,4,5,6,7,8,9,0,9,8,6];
+
+    //封装函数
+    function norepition(arr){
+
+        //定义新数组，用于接收非重复数字
+        var newarray = [];
+
+        //循环所有数值
+        for(var  i = 0; i<arr.length; i++){
+            //等于-1 则代表数组不包含 ，不包含的情况下，push添加
+            if(newarray.indexOf(arr[i]) == -1){
+                newarray.push(arr[i]);
+            }
+        }
+
+        return newarray
+    }
+
+    var newarray = norepition(arr);
+    console.log(newarray);
+
+
+    //最大值
+    function max(arr){
+        var temp = 0;
+        for(var i=0;i<arr.length;i++){
+            if(temp<arr[i]){
+                temp = arr[i]
+            }
+        }
+        return temp
+    }
+
+    var max = max(arr);
+    console.log(max);
+
+    //最小值
+    function min(arr){
+        var temp = 0;
+        for(var i=0;i<arr.length;i++){
+            if(temp>arr[i]){
+                temp = arr[i]
+            }
+        }
+        return temp
+    }
+
+    var min = min(arr);
+    console.log(min);
+</script>

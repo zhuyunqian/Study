@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>
+<script>
+    //减少.语法 用于优化
+
+    var a ={
+        name:'mary',
+        b : {
+            color:'green',
+            c:{
+                age:20
+            }
+        }
+    }
+    console.log(a.b.c.age);
+
+    with(a.b.c){
+        console.log(age)
+    }
+
+    //代替with  -- with{} 指向 window  -- 传参函数
+
+    var div = document.getElementById('div');
+    (function(style){
+        style.width = '100px'
+        style.height = '100px'
+        style.backgroundColor = 'pink'
+    })(div.style);
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //惰性函数：在函数中会进行一些分支判断或者初始化更新操作，然后将函数修改函数的指向，
+    // 那么再次调用该函数的时候，执行的是修改之后指向的函数。
+
+    function foo(){
+        console.log('第一次调用');
+        foo = function foo(){
+            console.log('业务逻辑使用')
+        }
+    }
+    foo.des = '123'
+    console.log(foo.des)
+
+    foo();  // 调用函数  - 同时指向发生了改变
+    foo.des = '456'
+//    foo();  // 指向改变  - 调用改变后的函数
+//    foo();
+//    foo();
+//    foo();
+    console.log(foo.des)
+
+    var f = foo;  // = 的是改变后的foo函数
+    f();
+    f();
+</script>

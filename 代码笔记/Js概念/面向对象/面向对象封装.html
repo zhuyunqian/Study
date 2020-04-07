@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="tt"></h2>
+<h2 class="tt"></h2>
+<h2 class="tt"></h2>
+<section id="sec"></section>
+</body>
+</html>
+<script>
+    var $ = {
+        addDiv:function(ele){
+            return document.createElement(ele);
+        },
+        appendDiv:function(eleaddd){
+            return document.body.appendChild(eleaddd);
+        },
+        getElement:{
+            tagName :function(tag){
+                return document.getElementsByTagName(tag);
+            },
+            className:function(classname){
+                return document.getElementsByClassName(classname);
+            },
+            idName:function(id){
+                return [document.getElementById(id)];
+            }
+        },
+        chageDiv:function(eles,bgcolor){
+            for(var i=0;i<eles.length;i++){
+                eles[i].style.backgroundColor = bgcolor;
+                eles[i].style.border = '1px solid #ddd';
+                eles[i].innerText = '这是修改的盒子'+i;
+            }
+        }
+    }
+    var box = $.addDiv('div');
+    var box1 = $.addDiv('div');
+    var box2 = $.addDiv('div');
+    $.appendDiv(box);
+    $.appendDiv(box1);
+    $.appendDiv(box2);
+
+    var pbox = $.getElement.tagName('p');
+    var div = $.getElement.tagName('div');
+    var tt = $.getElement.className('tt');
+    var id = $.getElement.idName('sec');
+    $.chageDiv(pbox,'pink');
+    $.chageDiv(tt,'yellowgreen');
+    $.chageDiv(div,'skyblue');
+    $.chageDiv(id,'lightpink');
+
+</script>

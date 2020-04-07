@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function maxResult() {
+        var max = arguments[0];
+        for(var i = 0; i < arguments.length; i++){
+            if(max < arguments[i]){
+                max = arguments[i];
+            }
+        }
+        return max;
+    }
+    var result = maxResult(10,20,30,50,80,100,8,6);
+    console.log(result);
+
+    function minResult() {
+        var min = arguments[0];
+        for(var i = 0; i < arguments.length; i++){
+            if(min > arguments[i]){
+                min = arguments[i];
+            }
+        }
+        return min;
+    }
+    var result = minResult(10,20,30,50,80,100,8,6);
+    console.log(result);
+</script>

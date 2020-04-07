@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //**hasOwnProperty**：判断当前实例对象中是否存在指定的属性
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    var per = new Person('mary',20);
+
+    console.log(per.hasOwnProperty('name')); //true
+
+    //**isPrototypeOf**：判断当前对象是否在指定对象的原型链中
+
+    console.log(Person.prototype.isPrototypeOf(per));  //ture
+    console.log(Object.prototype.isPrototypeOf(per));  //true
+    console.log(Array.prototype.isPrototypeOf(per));  //false
+
+    //**propertyIsEnumerable**：属性是否可以枚举（循环遍历）
+
+    console.log(per.propertyIsEnumerable('name'));  //true
+    console.log(per.propertyIsEnumerable(constructor));  //fasle
+
+//    valueOf:
+//    ​基本包装类型：返回对应的值
+//    引用类型：返回this，对象本身
+//    ​日期类型：返回时间戳
+
+    var str = new String('111111');
+    var num = new Number(123);
+    var obj = {
+        name:'mary',
+    }
+    var time = new Date();
+
+    console.log(str.valueOf())  //111111
+    console.log(num.valueOf())  //返回 123
+    console.log(obj.valueOf())   //返回当前对象内容
+    console.log(time.valueOf())  //时间戳
+
+
+    //引用类型：返回[objectObject]格式的字符串，object为对象的类型，Object为对象对应的构造函数
+
+</script>

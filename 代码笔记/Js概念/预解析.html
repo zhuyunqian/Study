@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    1. 提升变量声明：把变量的声明提升到当前作用域的最前面，只会提升声明，不会提升赋值。
+//    2. 提升函数声明：把函数的声明提升到当前作用域的最前面，只会提升声明，不会提升调用。
+
+    //预解析处理：
+    //在代码执行之前，对代码做全局扫描，对代码中出现的变量或者函数提前声明处理；
+    //​解析之后我们的代码：
+
+    console.log(a);//undefined
+    var a = 123;
+    console.log(a);//123
+
+    console.log(f);//函数对象
+    f();//声明提升 ，调用未提升
+    function f() {
+        console.log("函数声明提升");
+    }
+
+    console.log(a);//undefined
+    var a = 123;
+    console.log(a);//123
+
+    console.log(f);//函数对象
+    f();//声明提升 ，调用未提升
+    function f() {
+        console.log("函数声明提升");
+    }
+
+    console.log(a);//undefined
+    var a = 123;
+    console.log(a);//123
+
+    console.log(f);//函数对象
+    f();//声明提升 ，调用未提升
+    function f() {
+        console.log("函数声明提升");
+    }
+</script>

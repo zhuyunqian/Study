@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    div{
+        width:300px;
+        height:300px;
+        margin:100px auto;
+        background-color: pink;
+    }
+    button{
+        margin:10px auto;
+    }
+</style>
+<button id="btn">点击更换颜色</button>
+<div id="div"></div>
+</body>
+</html>
+<script>
+    function getCorlor(){
+        var str = '#';
+
+        var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+
+        for(var i=0; i<6;i++){
+            var num = parseInt(Math.random()*arr.length);
+
+            str+= arr[num];
+        }
+
+        return str;
+    }
+
+
+
+    var div = document.getElementById('div');
+    var btn = document.getElementById('btn');
+
+    btn.onclick = function(){
+        var result = getCorlor();
+        div.style.backgroundColor = result;
+    }
+
+
+
+</script>

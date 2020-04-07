@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<div>div4</div>
+<div>div5</div>
+<div>div6</div>
+<div>div7</div>
+<div>div8</div>
+<div>div9</div>
+<div>div10</div>
+</body>
+</html>
+<script>
+    //需求：获取到10个div元素，为每个元素绑定一个点击事件，在点击对应的元素的时候，就打印出我是第几个div
+
+    var div = document.getElementsByTagName('div');
+    for(var i=0; i<div.length; i++){
+
+
+        div[i].onclick = (function(i){
+            return function (){
+                console.log(i+1);
+            }
+        })(i);
+
+
+    }
+
+
+</script>

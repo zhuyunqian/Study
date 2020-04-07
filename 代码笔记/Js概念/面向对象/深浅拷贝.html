@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //浅拷贝 -- 只拷贝属性  引用类型及方法都没有拷贝成功，一个修改都会修改
+    var p1 = {
+        name:"zs",
+        age:10,
+        favs:["H5","Java","C"],
+        wife:{
+            name:"lily",
+            age:8
+        }
+    }
+    var p2 = {};
+    for(var key in p1){
+        p2[key] = p1[key];
+    }
+    console.log(p2);
+
+    p2.favs = ['123'];
+    console.log(p1.favs)
+
+    var p3 ={}
+
+    //深拷贝
+    //封装拷贝函数，调用
+    //判断，为私有属性和值类型，直接浅拷贝  ， 非私有和值类型 深层拷贝  ，用对象想接收 递归
+    //判断引用类型为对象还是数组，进行赋值
+
+    function deepCopy(source,target){
+
+        for(var key in source){
+            if(source.hasOwnProperty(key)){
+                if(typeof source[key] == 'object'){
+                    console.log(source[key])
+                    console.log(target[key])
+                    //target[key] = {};
+                    target[key] = Array.isArray(source[key]) ? [] : {};
+
+                    deepCopy(source[key],target[key]);
+
+                }else{
+                    target[key] = source[key];
+                }
+            }
+        }
+    }
+
+    deepCopy(p1,p3);
+
+    console.log(p3)
+
+</script>

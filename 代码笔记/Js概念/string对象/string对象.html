@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+//    当我们给String变量重新赋值的时候，栈中的临时变量的值会被修改成另一个地址，
+//    此时这个变量就指向了另一块堆内存，旧的内存空间将不再被引用，
+//    浏览器将自动回收旧值所占的内存空间（我们不能确定该内存什么时候被回收）。
+//    这个字符串的重新赋值的过程，并没有修改旧的内存中的值，而是将变量指向了一块新的内存，这就是字符串的不可变特性！
+
+    var a = '123';
+    console.log(a);
+    a = '123456';
+    console.log(a);
+
+    //关于字符串回收机制
+    var s = '';
+    for(var i=0; i<10;i++){
+        s+= i;
+    }
+    console.log('最终结果'+s);
+
+    //字符串长度
+    var str = '新123 990 646新536 894380';
+    console.log(str.length);
+
+    //索引值字符串
+    console.log(str.charAt(10));
+
+    //拼接字符串
+    var newstr = str.concat('新的字符串');
+    console.log(newstr);
+
+    //查找字符串索引值
+    var c =0;
+    var index = newstr.indexOf('新',0);
+    console.log(index)
+    for(var i=0; i<newstr.length;i++){
+        if(newstr[i] == '新'){
+            console.log(i)
+        }
+    }
+
+    //从后往前找索引
+    var c = newstr.lastIndexOf('新');
+    console.log('lastindexof='+c)
+
+
+    //字符串替换
+    if(newstr.indexOf('新') != -1){
+        newstr = newstr.replace('新','超级')
+    }else{
+        console.log('不存在')
+    }
+    console.log(newstr);
+
+    for(var i=0; i<newstr.length; i++){
+        if(newstr[i] == '新'){
+           newstr[i] = '旧';
+        }
+        console.log(newstr);
+    }
+    console.log(newstr);
+
+
+    //5-10的索引，截取索引内的数值
+    newstr = newstr.slice(4,10);
+    console.log(newstr);
+
+    //截取字符串为数组
+    var cc = '11 22 33 44 55 66 77 88 99 1010';
+    cc = cc.split(' ');
+    console.log(cc)
+
+    //截取位置和个数 .substr(开始的位置，个数)
+    str = str.substr(3,5);
+    console.log(str);
+
+
+    //.substring(开始的索引，结束的索引),截取出来的不包含结束索引
+    var str2 = '1234567890';
+    str2 = str2.substring(2,5);
+    console.log(str2);
+
+    //.toLocaleLowerCase() 转小写字母
+    //.toLowerCase();转小写,两个方法都是转小写。
+    var str3 = 'ADCDE';
+    //str3= str3.toLocaleLowerCase();
+    str3= str3.toLowerCase();
+    console.log(str3);
+
+    //.trim() 删除两端空格
+    var str4 = '  123  356  ';
+    str4 = str4.trim();
+    console.log(str4)
+
+    //截取字符串 -- 思想  先获取索引 -- 再通过substr截取
+    var str5 = '006600';
+    var key = '66';
+    var num = str5.indexOf(key);
+    console.log(num)
+    str5 = str5.substr(2,2)
+    console.log(str5);
+
+    //查找位置  //设置开始位置 -- 锁定查找字符串  循环，如果索引不等于-1的情况，开始查找，否则完毕
+    var str6 = "111o wod11 o11 fbo nhyo";
+    var index=0;
+    var key="o";
+
+    while((index=str.indexOf(key,index))!=-1){//如果是-1情况，说明找完了
+        console.log(index);//这个必须放到上面，要不然多加了1
+        index+=key.length;//等价于index+=1或者index++，上面就不用定义var key="o"了
+    }
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name,age){
+
+//        if(this == window){
+//            return new Person(name,age);
+//        }else{
+//            this.name =name;
+//            this.age= age;
+//        }
+
+//        if(!(new.target)){
+//            return new Person(name,age);
+//        }else{
+//            this.name =name;
+//            this.age= age;
+//        }
+
+        if(new.target  == undefined){
+            return new Person(name,age);
+        }else{
+            this.name =name;
+            this.age= age;
+        }
+
+    }
+    var ss = Person('mary',20);
+    console.log(ss)
+    console.log(ss.name)
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    var per = new Person('arry',10);
+
+    //寻找父级的三种方法
+    console.log(per instanceof Person)  //true
+    console.log(per.constructor == Person) //true
+    //作用：检测一个对象是否是另一个对象的原型。或者说一个对象是否被包含在另一个对象的原型链中
+    console.log(Person.prototype.isPrototypeOf(per)) //true
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    //函数提升
+    f(); //3
+    function f() {
+        console.log("1");
+    }
+    f(); //3
+    function f() {
+        console.log("2");
+    }
+    f(); //3
+    function f() {
+        console.log("3");
+    }
+    //函数提升
+    f(); //3
+    function f() {
+        console.log("1");
+    }
+    f(); //3
+    function f() {
+        console.log("2");
+    }
+    f(); //3
+    function f() {
+        console.log("3");
+    }
+    //函数提升
+    f(); //3
+    function f() {
+        console.log("1");
+    }
+    f(); //3
+    function f() {
+        console.log("2");
+    }
+    f(); //3
+    function f() {
+        console.log("3");
+    }
+
+
+
+
+    //调用后才会执行
+    console.log(a);//un
+    var a = 123;
+    console.log(a);//123
+    function f1() {
+        console.log(a);//un
+        var a = 456;
+        console.log(a);//456
+    }
+    f1();
+    console.log(a);//123
+
+    //调用后才会执行
+    console.log(a);//un
+    var a = 123;
+    console.log(a);//123
+    function f1() {
+        console.log(a);//un
+        var a = 456;
+        console.log(a);//456
+    }
+    f1();
+
+    console.log(a);//123
+    //调用后才会执行
+    console.log(a);//un
+    var a = 123;
+    console.log(a);//123
+    function f1() {
+        console.log(a);//un
+        var a = 456;
+        console.log(a);//456
+    }
+    f1();
+    console.log(a);//123
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    ///删除未使用var定义的变量，JS是属于弱类型语言，定义变量不严谨，可以使用var也可以不使用var。后面我们学习严格模式那就回必须使用var了。
+    // 现在还不是严格模式呢。JS属于松散语言，不像Java是属于强类型的语言，定义变量必须写关键字声明
+
+    //总结：因为未使用var声明的变量，会自动挂载到window上面，浏览器对象--属于全局的，能使用delete删除的
+    //delete能不能删除使用var声明的变量呢？是不能的
+
+
+    var demo = '123';
+    demo1 = '456';
+    console.log(delete demo); //false
+    console.log(delete demo1); //true
+
+    window.demo2 = demo;
+    console.log(window.demo)
+    console.log(delete window.demo2); //false
+
+    console.log('00'+demo)
+</script>

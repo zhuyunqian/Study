@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    console.dir(Object);
+
+    //打印出来的属性
+//    arguments: (...)
+//    caller: (...)
+//    length: 1     //形参个数
+//    name: "Object"   //方法名称
+//    prototype: {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}  //原型对象
+//    assign: ƒ assign()  //
+//    getOwnPropertyDescriptor: ƒ getOwnPropertyDescriptor()  //获取当前对象中的指定的属性描述对象 //console.log(Object.getOwnPropertyDescriptor(obj,"name"));
+//    getOwnPropertyDescriptors: ƒ getOwnPropertyDescriptors() //获取所有属性的描述对象
+//    getOwnPropertyNames: ƒ getOwnPropertyNames()  //获取当前对象所有属性的名称，包括不可枚举的属性
+    // console.log(Object.getOwnPropertyNames(obj));
+//    getOwnPropertySymbols: ƒ getOwnPropertySymbols()
+//    is: ƒ is()  //判断两个参数是否相等，等同于===
+//    preventExtensions: ƒ preventExtensions() 阻止当前对象的可扩展性，就是添加不了属性了
+    Object.preventExtensions(obj);
+    obj.color ="red";
+    console.log(obj.color);//颜色就添加不了了
+
+//    seal: ƒ seal() //密封当前对象、添加删除不了，可以修改
+    Object.seal(obj);
+    obj.age = 99;//可以修改
+    obj.color= "red";//添加不了
+    delete obj.name;//删除不了
+
+
+//    create: ƒ create()   //创建对象，并设置原型对象
+//    defineProperties: ƒ defineProperties()  //一次定义多个属性的可操作性（configurable|enumerable|value|writable）
+
+
+//    Object.defineProperties(obj,{
+//        name:{
+//            configurable:true
+//        },
+//        age:{
+//            configurable:false
+//        }
+//    });
+//    delete obj.name;
+//    delete obj.age;
+//    console.log(obj);//{age:10},name属性已被删除
+
+//    每个属性描述对象都存在下面四个属性：
+//
+//    ​	configurable：属性可配置型，false，当前属性不能被删除，并且后面不能再改变该描述对象
+//
+//    ​	enumerable：可枚举性，false，当前属性不是被循环遍历到
+//
+//    ​	value：当前属性的值
+//
+//    ​	writable：可写性，false，当前属性的值不能被修改
+
+
+
+//    defineProperty: ƒ defineProperty()  //定义当前指定属性的可操作性（configurable|enumerable|value|writable）
+//    Object.defineProperty(obj,"name",{
+//        configurable:false//当前属性不能被删除
+//    })
+//    freeze: ƒ freeze() 冻结当前对象、不能删除、不能修改、不能删除
+
+//    getPrototypeOf: ƒ getPrototypeOf()
+//    setPrototypeOf: ƒ setPrototypeOf()
+//    isExtensible: ƒ isExtensible()  //检查当前对象是否可扩展，false，不能添加属性  console.log(Object.isExtensible(obj));
+//    isFrozen: ƒ isFrozen() 检查当前对象是否是被冻结的，false，不能添加，删除和修改属性 console.log(Object.isFrozen(obj));
+//    isSealed: ƒ isSealed() 检查当前对象是否是被密封的，false，不能添加和删除属性 console.log(Object.isSealed(obj));
+//    keys: ƒ keys()  //获取当前对象所有属性的名称，不可枚举的属性除外  console.log(Object.keys(obj));
+//    entries: ƒ entries()   获取到所有成员，以数组形式返回
+    var obj = {name:"Neld", age:10,fun:function () {}};
+    console.log(Object.entries(obj));
+
+
+//    fromEntries: ƒ fromEntries()
+//    values: ƒ values()
+//    __proto__: ƒ ()
+
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        this.say = function(){
+            console.log('1111111')
+        }
+    }
+
+    Person.prototype.hello = {
+        constructor:Person,
+        hello:function(){
+            console.log(this.name+this.age+'22222');
+        }
+    }
+
+    var per = new Person('mary',10);
+
+    console.log(Person.length);  // 2  --属性个数
+    console.log(Person.name);  // Person
+
+    console.log(Object.assign(Person,{info:'000'},{ss:'abc'}));
+
+
+
+</script>

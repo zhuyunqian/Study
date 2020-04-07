@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //自定义构造函数创建对象 - 解决代码冗余 - 以及工厂模式的继承问题
+
+    function Person(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.say = function(){
+            console.log('他叫'+this.name+'今年'+this.age+'岁了是个'+this.sex+'孩子');
+        }
+    }
+
+    var per = new Person('mary',20,'女');
+    per.say();
+    console.log(per instanceof Person); // true
+
+
+    //返回值问题
+    function Dog(name,age){
+        this.name = name;
+        this.age = age;
+        return 2;  //无效--值类型-修改无效
+    }
+    var dog = new Dog('beibei',10);
+    console.log(dog)
+
+    function Dog1(name,age){
+        this.name = name;
+        this.age = age;
+        return [];
+    }
+    var dog1 = new Dog1('beibei',10);
+    console.log(dog1)  // []  引用类型--修改成功
+
+
+    //创建无原型链对象 -- 面试题
+    var a = Object.create(null);
+    a.name = 1;
+    a.age = 2;
+    a.say= function(){
+        console.log('hello')
+    }
+    //同时也无法添加原型对象方法
+    console.log(a);
+</script>

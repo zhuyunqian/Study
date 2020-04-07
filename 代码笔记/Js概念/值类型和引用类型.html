@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //值类型:基本类型
+    //引用类型就是对象类型 -- 内存地址的引用
+
+
+    //值类型形参  函数重新开辟地址--存储值
+    var num = 20;
+    function fun2(num) {
+        num = 10;
+        console.log(num);//10
+    }
+    fun2(num);
+    console.log(num);// 20
+
+    //引用类型形参  --  引用地址 --修改--地址内key修改
+    var obj = {name:"Neld",age:10};
+    function fun(objM) {
+        console.log(objM.name);//Neld
+        objM.name = "Song";
+        console.log(objM.name);//Song
+    }
+    fun(obj);
+    console.log(obj.name);//Song
+
+</script>

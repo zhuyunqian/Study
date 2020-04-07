@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机点名</title>
+</head>
+<body>
+<button id="btn">点击开始点名</button>
+<button id="bbtn">停</button>
+
+<div id="div">11111</div>
+</body>
+</html>
+<script>
+    var button   = document.getElementById('btn');
+    var btn   = document.getElementById('bbtn');
+    var div = document.getElementById('div');
+    var arr = ['1111','2222','33333','444444','555555','6666666','88888','324','23567','0968','1345']
+
+    button.onclick = function(){
+
+        var timer  = setInterval(function(){
+            var i = parseInt(Math.random()*arr.length);
+            div.innerText = arr[i]
+
+        },200);
+
+        btn.onclick = function(){
+            clearInterval(timer);
+        }
+    }
+
+
+
+
+
+</script>

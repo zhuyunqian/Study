@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //混入式继承
+    var obj1 = {
+        name:11,
+        age:11,
+        car:{
+            name:1
+        }
+    }
+    var obj2 = {
+
+    }
+    for(var key in obj1){
+        obj2[key] = obj1[key];
+    }
+
+    obj1.car.name = 5;
+    console.log(obj1.car.name)
+    console.log(obj2.car.name)
+
+
+    //原型式继承
+    function Animal(){
+
+    }
+    Animal.prototype = Person.prototype;
+    var ani = new Animal();
+    console.log(ani)
+    ani.hi();
+
+
+    //原型链继承  优点：就是简单  缺点：无法向父类传参--引出了组合式继承、call继承、经典继承--都是一环扣一环
+
+    function Student(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Student.prototype = {
+        constructor:Student,
+        say:function(){
+            console.log('原型链添加对象和方法');
+        }
+    }
+
+    function Per(name,age,socre){
+        //借用构造函数继承 - 继承属性方便修改
+        Student.call(this,name,age);
+        this.socre = socre;
+    }
+
+    //原型链继承 - 继承方法
+    Per.prototype = new Student();
+    Per.prototype.hello = function(){
+        console.log('原型链继承后添加的方法')
+    }
+
+    var pp = new Per('lala',20,'sansan');
+    console.log(pp.name , pp.age , pp.socre)
+    pp.say();
+    pp.hello();
+    var pp1 = new Per('aa',10,'feifei');
+    console.log(pp1.name , pp1.age , pp1.socre)
+    pp1.say();
+    pp1.hello();
+
+
+    //组合继承  借用构造函数 + 原型链继承
+
+
+
+
+
+</script>

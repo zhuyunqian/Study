@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数作为参数使用，为回调函数
+
+    function fn(say){
+        console.log('hello 你好');
+        say();
+
+    }
+
+    function say(){
+        console.log('是的，我很好');
+    }
+
+    fn(say);
+
+    //匿名函数-及调用
+    (function(){
+        console.log('123')
+    })();
+
+    //回调函数-匿名函数
+    function  func(fn){
+        console.log('111');
+        fn();
+    }
+
+    func(function(){
+        console.log('222');
+    })
+</script>

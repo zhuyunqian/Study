@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //从局部作用域往上级一级一级查找  这种 查找机制 我们称之为作用域链。
+    //函数中定义的变量称为局部变量，它只属于当前函数的作用域及其嵌套函数的作用域中，外界无法访问。也就是一种由内而外的访问，反之则不行。
+
+    var num = 10;
+    function f1() {
+        //var num = 20;
+        function f2() {
+            //var num = 30;
+            function f3() {
+                //var num = 50;
+                console.log(num);  //10
+            }
+            f3();
+        }
+        f2();
+    }
+    f1();
+
+    var num = 10;
+    function f1() {
+        //var num = 20;
+        function f2() {
+            //var num = 30;
+            function f3() {
+                var num = 50;
+                console.log(num);  //50
+            }
+            f3();
+        }
+        f2();
+    }
+    f1();
+
+    var num = 10;
+    function f1() {
+        //var num = 20;
+        function f2() {
+            var num = 30;
+            function f3() {
+                //var num = 50;
+                console.log(num);  //30
+            }
+            f3();
+        }
+        f2();
+    }
+    f1();
+</script>

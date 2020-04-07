@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //借用 call apply  借用后直接调用了
+
+   var obj = {
+       name: 123,
+       age: 10,
+       say: function () {
+           console.log(234);
+       },
+       hi:function(){
+           console.log(this.name+'999')
+       },
+       add: function (a,b) {
+           return a+b;
+       }
+   }
+   var obj1 = {
+        name:'lw'
+   }
+
+    obj.say.apply(obj1);
+    obj.hi.call(obj1);
+
+    //call 可以传递任意数据
+    //apply 只可以传递数组
+
+   console.log( obj.add.call(obj1,2,2))
+    console.log(obj.add.apply(obj1,[12,22]))
+
+</script>

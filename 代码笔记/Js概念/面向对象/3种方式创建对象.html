@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //大黄3岁，260斤的体重，喜欢吃大骨头，每次走路都很慢
+    //手机型号 颜色 打电话 发短信
+
+    //字面量
+    var dog = {
+        name:'大黄',
+        age:3,
+        weight:260,
+        go:function(){
+           console.log(this.name+'今年'+this.age+'岁了'+this.weight+'斤的体重,喜欢吃大骨头，每次走路都很慢')
+        }
+
+    }
+    dog.go();
+
+    var phone ={
+        name:'iphone',
+        color:'whrie',
+        use:function(){
+            console.log('这款手机是'+this.name+'颜色是'+this.color+'可以打电话，发短信')
+        }
+    }
+
+    phone.use();
+
+
+    //内置构造函数方式创建对象
+    var dog1 = new Object();
+    dog1.name = '贝贝';
+    dog1.age = 3;
+    dog1.weight =260;
+    dog1.go = function(){
+        console.log(this.name+'今年'+this.age+'岁了'+this.weight+'斤的体重,喜欢吃大骨头，每次走路都很慢')
+    }
+    dog1.go();
+
+    var phone1 = new Object();
+    phone1.name = 'sanxing';
+    phone1.color = 'purple';
+    phone1.use = function () {
+        console.log('这款手机是'+this.name+'颜色是'+this.color+'可以打电话，发短信')
+    }
+    phone1.use();
+
+    //工厂模式构造函数
+    function Dog(name,age,weight){
+        var dog2 = new Object();
+        dog2.name = name;
+        dog2.age = age;
+        dog2.weight = weight;
+        dog2.go = function(){
+            console.log(this.name+'今年'+this.age+'岁了'+this.weight+'斤的体重,喜欢吃大骨头，每次走路都很慢')
+        }
+        return dog2;
+    }
+    var dogObj = Dog('旺财',5,10);
+    dogObj.go();
+
+
+    function Phone(name,color){
+        var phone3 = new Object();
+        phone3.name =name;
+        phone3.color = color;
+        phone3.use = function(){
+            console.log('这款手机是'+this.name+'颜色是'+this.color+'可以打电话，发短信');
+        }
+        return phone3;
+    }
+
+    var phoneObj = Phone('huawei','blue');
+    phoneObj.use();
+
+</script>

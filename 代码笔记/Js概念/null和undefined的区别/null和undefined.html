@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值。
+    //为什么 typeof 运算符对于 null 值会返回 "object"。这实际上是 JavaScript 最初实现中的一个错误，然后被 ECMAScript 沿用了。
+    //现在，null 被认为是对象的占位符，从而解释了这一矛盾，但从技术上来说，它仍然是原始值。
+
+
+    //undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined。
+    //null可以用来消除变量对对象的引用，从而让垃圾回收器回收对应的内存。
+
+    //Null类型只有一个值null，由于undefined是从null派生而来，因此ECMAScript把他们定义为相等
+    console.log(null == undefined);//true
+    console.log(typeof null);//"object"
+
+    //obj引用创建好的Object对象
+    //如果Object对象有被引用，那么就不会被回收，一直存在于内存中
+    var obj = new Object();
+    console.log(obj)
+    //obj不再对Object对象继续引用，那么该对象会在特定的时间点被回收
+    obj = null;
+    console.log(obj)
+
+</script>

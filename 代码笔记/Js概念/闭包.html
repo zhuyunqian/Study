@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    闭包：作用---就是为了缓存数据的，想办法把数据缓存下来就解决了我们上面的问题
+//    优势：缓存数据
+//    缺点：内存泄漏，消耗内存
+
+//闭包语法：首先是函数套函数，子函数调用了父函数的变量或者说参数，并且子函数被外界所引用了，此时就形成了闭包。
+
+    function fun(){
+        var num = 10;
+        function fun1(){
+            return num;
+        }
+        return fun1;
+    }
+    var result = fun();
+    console.log(result());
+
+
+    function arr(){
+        var a = 10;
+        var b= 20;
+        return[
+                function(){
+                    return a;
+                },
+                function(){
+                    return b;
+                }
+        ]
+    }
+
+    var arra = arr();
+    var a = arra[0]();
+    var b = arra[1]();
+    console.log(a,b)
+
+
+
+    function obj(){
+        var a = 20;
+        var b = 30;
+        function getA(){
+            return a;
+        }
+        function getB(){
+            return b;
+        }
+        return{
+            geta:getA,
+            getb:getB
+        }
+    }
+    var obj = obj();
+    var obja = obj.geta();
+    var objb = obj.getb();
+    console.log(obja,objb)
+
+    //闭包模块
+    var mou = (
+        function fun(){
+            var a = 100;
+            var b = 200;
+            function anum(){
+                return a;
+            }
+            function bnum(){
+                return b;
+            }
+            return{
+                anum: anum,
+                bnum: bnum
+            }
+        }
+    )();
+
+    var anum = mou.anum();
+    var bnum = mou.bnum();
+    console.log(anum,bnum);
+
+
+    //需求：定时器+闭包实现输出0123456789
+
+    var set = (
+        function fun(){
+            var num = 0123456789;
+            function settime(){
+                setTimeout(function(){
+                    console.log(num);
+                },1000);
+            }
+            return {
+                settime:settime
+            };
+        }
+    )();
+
+    set.settime();
+
+
+    for(var i = 0; i<10;  i++){
+        function fun(){
+            return function (i){
+                console.log(i);
+            }
+        }
+        setTimeout(fun(),1000,i)
+    }
+
+
+</script>

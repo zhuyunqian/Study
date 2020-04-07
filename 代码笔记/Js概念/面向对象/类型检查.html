@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+$END$
+</body>
+</html>
+<script>
+    //**typeof: 主要用来判断基本类型**
+    console.log(typeof "abc");//"string"
+    console.log(typeof 123);//"number"
+    console.log(typeof true);//"boolean"
+    console.log(typeof null);//"object"
+    console.log(typeof Function);//"function"
+    console.log(typeof {name:"Neld", age: 10});//"object"
+
+
+    //**constructor: 可以用来判断创建对象的构造器的类型**
+    function Person() {}
+    function Dog() {}
+
+    var p = new Person();
+    var d = new Dog();
+
+    console.log(p.constructor == Person);//true
+    console.log(d.constructor == Dog);//true
+
+    //**instanceof: 判断指定构造函数的原型对象是否在当前实例对象的原型链上**
+    function Person() {}
+    function Dog() {}
+
+    var p = new Person();
+    var d = new Dog();
+
+    console.log(p instanceof Person);//true
+    console.log(d instanceof Dog);//true
+    console.log(p instanceof Object);//true
+    console.log(d instanceof Object);//true
+
+
+    //**Object.prototype.toString(): 获取数据类型对应的字符串**
+    console.log(Object.prototype.toString.call("Neld"));//[object String]
+    console.log(Object.prototype.toString.call(10));//[object Number]
+    console.log(Object.prototype.toString.call(p));//[object Object]
+    console.log(Object.prototype.toString.call([]));//[object Array]
+</script>

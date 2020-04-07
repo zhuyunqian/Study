@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p></p>
+<p></p>
+<p></p>
+<h1 class="tt"></h1>
+<h1 class="tt"></h1>
+<h1 class="tt"></h1>
+</body>
+</html>
+<script>
+    //创建3个盒子
+    //3个p标签添加背景色和border
+    //3个h1标签添加背景色和border
+
+    var box = document.createElement('div');
+    var box1 = document.createElement('div');
+    var box2 = document.createElement('div');
+    document.body.appendChild(box)
+    document.body.appendChild(box1)
+    document.body.appendChild(box2)
+
+    function tagName(tagname){
+        return document.getElementsByTagName(tagname);
+    }
+
+    function className(classname){
+        return document.getElementsByClassName(classname);
+    }
+
+    function changeDiv(eles,bgcolor){
+        for(var i= 0; i<eles.length;i++){
+            eles[i].style.backgroundColor = bgcolor;
+            eles[i].style.border = '1px solid #ddd';
+            eles[i].innerText = '这是修改的盒子'+i;
+        }
+    }
+
+    var divP = tagName('p');
+    var h1 = className('tt');
+    var div = tagName('div');
+
+    changeDiv(div,'pink');
+    changeDiv(h1,'yellow');
+    changeDiv(divP,'yellowgreen');
+
+</script>

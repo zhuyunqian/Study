@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //缺陷代码冗余
+
+    var obj = new Object();
+    obj.name = 'mary';
+    obj.age = 20;
+    obj.referral = function () {
+        console.log(this.name+'今年'+this.age+'岁了')
+    }
+
+    var obj1 = new Object();
+    obj1.name = 'lili';
+    obj1.age = 21;
+    obj1.referral = function () {
+        console.log(this.name+'今年'+this.age+'岁了')
+    }
+
+    var obj2 = new Object();
+    obj2.name = 'zhuli';
+    obj2.age = 22;
+    obj2.referral = function () {
+        console.log(this.name+'今年'+this.age+'岁了')
+    }
+
+    obj.referral();
+    obj1.referral();
+    obj2.referral();
+</script>

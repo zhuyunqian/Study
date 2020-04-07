@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //逻辑运算符有三种：与（AND）、或（OR）、非（NOT）。
+    //逻辑非运算符返回和运算数相反的数据，结果一定是布尔值。
+
+    //1. 逻辑与，如果表达式1为真，则返回表达式2的值，如果表达式1为假，则返回表达式1的值；
+    //2. 逻辑或，如果表达式1为真，则返回表达式1的值，如果表达式1为假，则返回表达式2的值；
+
+    console.log(!true); //false
+    console.log(!false); //true
+
+    console.log(true && true); //true
+    console.log(true && false); //false
+    console.log(false && true); //fasle
+    console.log(false && false); //fasle
+
+    console.log(true || true); //true
+    console.log(false || true); //true
+    console.log(true || false); //true
+    console.log(false || false); //false
+
+    //测试题：逻辑与&&  1为真 返回 2  1为假返回1
+    console.log(0 && 0); //0
+    console.log(0 && 1); //0
+    console.log(1 && 0); //0
+    console.log(1 && 2); //2
+    console.log(2 && 3); //3
+    //测试题：逻辑或||  1为真 返回1 1为假 返回2
+    console.log(0 || 0); //0
+    console.log(0 || 1); //1
+    console.log(1 || 0); //1
+    console.log(1 || 2); //1
+    console.log(2 || 3); //2
+
+    //逻辑等于 == ===  赋值=   == 是否相等   ==== 类型与值是否相等
+    var sNum = "66";
+    var iNum = 66;
+    console.log(sNum == iNum);//输出 "true"
+    console.log(sNum === iNum);//输出 "false"
+
+    //!= !==    !=非等于 不判断数据类型   !== 非等于 判断数据类型
+    var sNum = "66";
+    var iNum = 66;
+    console.log(sNum != iNum);	//输出 "false"
+    console.log(sNum !== iNum);	//输出 "true"
+
+
+</script>

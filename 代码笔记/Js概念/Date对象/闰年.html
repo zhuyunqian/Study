@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闰年</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function rn(year){
+        return year % 4 == 0 && year % 100 != 0 || year%400 ==0
+    }
+
+
+    function fn(year,month,days){
+        var mdays = days;
+
+        if(month ==1){
+            return mdays
+        }
+
+
+        var months = [31,29,31,30,31,30,30,31,31,30,31,30,31];
+
+        for(var i=0; i<month; i++){
+            mdays += months[i];
+        }
+
+        if(rn(year) && month>2){
+            mdays++;
+        }
+
+
+        return mdays
+    }
+
+    var result = fn(2020,5,10)
+
+    console.log(result)
+
+//    function rn(year){
+//        return year % 4 == 0 && year % 100 != 0 || year%400 ==0
+//    }
+//
+//
+//    function fn(year,month,days){
+//        var mdays = days;
+//
+//        if(month ==1){
+//            return mdays
+//        }
+//
+//
+//        var months = [31,29,31,30,31,30,30,31,31,30,31,30,31];
+//
+//        for(var i=0; i<month; i++){
+//            mdays += months[i];
+//        }
+//
+//        if(rn(year) && month>2){
+//            mdays++;
+//        }
+//
+//
+//        return mdays
+//    }
+//    var result = fn(2020,5,10)
+//
+//    console.log(result)
+//
+//    function rn(year){
+//        return year % 4 == 0 && year % 100 != 0 || year%400 ==0
+//    }
+//
+//
+//    function fn(year,month,days){
+//        var mdays = days;
+//
+//        if(month ==1){
+//            return mdays
+//        }
+//
+//
+//        var months = [31,29,31,30,31,30,30,31,31,30,31,30,31];
+//
+//        for(var i=0; i<month; i++){
+//            mdays += months[i];
+//        }
+//
+//        if(rn(year) && month>2){
+//            mdays++;
+//        }
+//
+//
+//        return mdays
+//    }
+//
+//    var result = fn(2020,5,10)
+//
+//    console.log(result)
+
+</script>

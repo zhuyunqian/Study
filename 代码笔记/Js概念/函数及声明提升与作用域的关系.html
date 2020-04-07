@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    console.log(a);//① un
+    var a = 123;
+    console.log(a);//② 123
+
+    console.log(f);//③ 函数体
+    f();//④  //函数声明提升
+    function f() {
+        console.log("函数声明提升");
+    }
+
+    console.log('==============');
+
+    f();  //3
+    function f() {
+        console.log("1");
+    }
+    f();  //3
+    function f() {
+        console.log("2");
+    }
+    f();  //3
+    function f() {
+        console.log("3");
+    }
+
+    console.log('==============');
+
+    console.log(a);  //un
+    var a = 123;
+    console.log(a);  //123
+    function f1() {
+        console.log(a);  //un
+        var a = 456;
+        console.log(a);  //456
+    }
+    f1();
+    console.log(a);
+
+    console.log('==============');
+
+    console.log(a);  //un
+    var a = 123;
+    console.log(a);  //123
+    var a = 456;
+    console.log(a);  //456
+
+    console.log('==============');
+
+    f();  //3
+    function f() {
+        console.log("1");
+    }
+    f();  //3
+    function f() {
+        console.log("2");
+    }
+    f();  //3
+    function f() {
+        console.log("3");
+    }
+
+    console.log('==============');
+
+    console.log(a);  //函数体
+    var a = 123;
+    console.log(a);  //123
+    function a() {}
+    console.log(a);  //123
+    function a() {}
+    console.log(a);  //123
+
+    console.log('==============');
+
+    console.log(fn1);  //函数体
+    function fn1() {
+    }
+    console.log(fn1);  //函数体
+    console.log(fn2);  //un
+    var fn2 = function () {
+    }
+    console.log(fn2);  //函数体
+
+    console.log('==============');
+
+    console.log(a,b); //undefined undefined
+    var a=12;
+    var b=13;
+
+    sum(); //1
+    function sum(){
+        console.log(1);
+    }
+
+    console.log('==============');
+
+    console.log(a); //undefined
+    var a=12;
+    function fn(){
+        console.log(a); //undefined
+        var a=13;
+
+    }
+    fn();
+    console.log(a); //12
+
+    console.log('==============');
+
+    console.log(a); //un
+    var a=12;
+    function fn(){
+        console.log(a);//12
+        a=13;
+    }
+    fn();
+    console.log(a)//13
+
+    console.log('==============');
+
+    console.log(a);//这个就直接报错了，因为没有变量提升 a is not defined
+    a=12;
+    function fn(){
+        console.log(a);  //un
+        var a = 13;
+    }
+    fn();
+    console.log(a) //12
+
+    console.log('==============');
+    console.log('**************');
+
+    console.log(a);//undefined
+    var a=12;
+    function fn(a){
+        console.log(a);// 12
+        a = 13;
+
+    }
+    fn(a);
+    console.log(a);//12
+
+    console.log('**************');
+    console.log('==============');
+
+    var foo=1;
+    function bar(){
+        //不管条件是否成立，都要进行变量提升
+        //这时的foo属于私有变量 给的默认值是undefined,undefined取反就为真
+        if(!foo){
+            var foo=10;
+        }
+        console.log(foo);
+    }
+    bar();//10
+
+    console.log('==============');
+
+    var n=13;
+    function fn(n) {
+        alert(n); // 13
+        var n=14;//有形参赋值了，就不在走变量提升了
+        alert(n); // 14
+    }
+    fn(n);
+    console.log(n);//13
+
+    console.log('==============');
+
+    console.log(a);// undefined
+    a=12;
+    function fn(a) {
+        console.log(a); //undefined
+        a=13;
+    }
+    fn();//注意这里没有传值
+    var a;
+    console.log(a); //12
+
+    console.log('==============');
+
+    function test() {
+        if("a" in window){
+            var a=10;
+        }
+        console.log(a);// undefined
+    }
+    test();
+
+    console.log('==============');
+    console.log('**************');
+
+    console.log(a, b, c);// undefined undefined undefined
+    var a=10,b=20,c=30;
+    function f(a) {
+        console.log(a, b, c);// 10 undefined 30
+        var b=a=c=100;
+        console.log(a, b, c);//100 100 100
+    }
+    f(10,20);
+    console.log(a, b, c);// 10,20,100
+
+
+
+</script>

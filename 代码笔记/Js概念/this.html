@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数外部
+    //函数外部的作用域是全局作用域（window），所以，在全局作用域中使用的this指向window
+    //普通函调用 例如直接调用 fn()，那么  this指向window
+
+    console.log(this);
+
+    function fn() {
+        console.log(this);
+    }
+    fn();
+
+    console.log(this);
+
+    function fn() {
+        console.log(this);
+    }
+    fn();
+
+    console.log(this);
+
+    function fn() {
+        console.log(this);
+    }
+    fn();
+</script>

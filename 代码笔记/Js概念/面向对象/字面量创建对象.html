@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var obj = {
+        name:'mary',
+        age:20,
+        eat:function(){
+            console.log('吃点东西');
+        },
+        play:function(){
+            console.log(this.name+'玩一会');
+        }
+    }
+    var obj1 = {
+        name:'lili',
+        age:20,
+        eat:function(){
+            console.log('吃点东西');
+        },
+        play:function(){
+            console.log(this.name+'玩一会');
+        }
+    }
+    var obj2 = {
+        name:'zhuli',
+        age:20,
+        eat:function(){
+            console.log('吃点东西');
+        },
+        play:function(){
+            console.log(this.name+'玩一会');
+        }
+    }
+
+    obj.play()
+    obj1.play()
+    obj2.play()
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //命名函数
+    function fun(){
+        console.log('命名函数创建');
+    }
+    fun();
+
+    //匿名函数创建
+    var fun1 = function(){
+        console.log('匿名函数创建');
+    }
+    fun1();
+
+    //函数构造函数创建对象
+    var fun2 = new Function();
+    console.log(fun2());   //undefined   打印function 打印的是return的值 -- 如果没有 返回undefined
+
+    //构造函数创建有参数函数对象
+    var fun3 = new Function('a','b','return a+b');
+    console.log(fun3(2,3));
+
+</script>

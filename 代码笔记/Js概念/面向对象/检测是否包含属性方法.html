@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //检测对象是否包含属性方法
+
+    //in - 全部可以检测  （'属性/方法' in 实力化对象）
+    //hasOwnProperty  -- 私有检测  (实力对象.hasOwnProperty('属性/方法'))
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(this.name+this.age);
+        }
+    }
+
+    Person.prototype = {
+        hello:function(){
+            console.log('他今年'+this.age);
+        }
+    }
+
+    var per = new Person('margy',10);
+
+    //所有检测
+
+    console.log('name' in per) //true
+    console.log('age' in per) //true
+    console.log('say' in per) //true
+    console.log('hello' in per) //true
+
+    //私有检测
+    console.log(per.hasOwnProperty('name')) //true
+    console.log(per.hasOwnProperty('age')) //true
+    console.log(per.hasOwnProperty('say')) //true
+    console.log(per.hasOwnProperty('hello')) //false
+
+
+    //检测封装
+    function test(key,obj){
+        return key in obj && !obj.hasOwnProperty(key);
+    }
+
+    console.log(test('name',per)); // 1为真，2为假  //false
+    console.log(test('hello',per)) // 1为真 2为真  //true
+</script>

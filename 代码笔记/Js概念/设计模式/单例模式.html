@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var _instance;
+    function Person(name,age){
+        if(Person._instance){
+            console.log('之前已经创建过,直接返回之前创建的对象');
+            return Person._instance;
+
+        }
+
+        this.name = name;
+        this.age = age;
+
+        Person._instance = this;
+
+
+
+        console.log('创建了对对象');
+    }
+
+    var p1 = new Person('mary',20);
+    var p2 = new Person('lili',10);
+
+    //console.log(p1 === p2);
+    console.log(p1.name);
+    console.log(p2.name);
+</script>

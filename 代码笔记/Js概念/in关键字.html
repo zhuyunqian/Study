@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //判断一个成员（属性或函数）是否在对象中存在，如果存在返回true，反之返回false
+
+    //语法：“成员名” in 对象
+    var obj = {
+        name:'123',
+        age:20,
+        eat:function(){
+            console.log('eat方法')
+        }
+    }
+
+    console.log('name' in obj); //true
+
+    var a = "name";
+    console.log(a in obj);//true
+
+
+    //for in 对象
+    for(var key in obj){
+        console.log(key)
+        console.log(obj[key]);
+    }
+
+
+    //in 数组
+    //判断数组中是否存在B字符串这个元素
+    var arr = ["1", "2", "3"];
+    //方式一
+    for(key in arr){
+        if (arr[key] == "B"){
+            console.log("存在");
+        }else{
+            console.log('不存在')
+        }
+    }
+    //方式二 判断是否存在
+    if(arr.indexOf("B") != -1){
+        console.log("存在");
+    }else{
+        console.log('不存在')
+    }
+    //方式三  索引in数组
+    if(1 in arr){
+        console.log("存在");
+    }else{
+        console.log('不存在')
+    }
+
+
+</script>

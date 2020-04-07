@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*单线程和多线程
+    操作系统是多线程任务 c++
+    JS---单线程：同一个时间只能做一件事情;
+    同步编程和异步编程：有很多里面我给大家铺垫完善知识点。前面就自然懂了啊
+    同步编程(sync):我们的js里面的任务会按照顺序依次执行，当前的任务没有完成，后面的任务是不会完成的（同一时间只能做一件事情）---我们的同步任务放在如任务队列里面。
+
+    异步编程(async):我们的JS当遇到异步任务的时候，不会停止执行任务，会先把异步编程放到等待任务队列里面去。程序会继续往下执行。先把主任务队里里面的任务执行完毕了，并且到了等待时间了，继续执行异步任务（"机器人去等待任务队列里面去找异步任务，找到之后把等待任务放在主任务队列里面去执行"）
+
+    同步任务都是放在主任务队列里面
+    异步编程都是放在等待任务队列
+
+    JS里面哪些是同步编程哪些是异步编程？
+    第一、定时器都是异步编程
+    第二、所有的点击事件都是异步的
+    第三、Ajax是异步编程
+    第四、promise是异步的
+
+    其余的都是同步编程*/
+
+
+//    var startTime = new Date();
+//    for(var i=0; i<10000; i++){
+//        if(i===9999){
+//            console.log('yes');
+//        }
+//    }
+//    console.log(new Date() - startTime);
+//    console.log('no');
+
+    setTimeout(function(){
+        console.log('1')
+    },1000)
+    setTimeout(function(){
+        console.log('2')
+    },2000)
+    setTimeout(function(){
+        console.log('3')
+    },500)
+    setTimeout(function(){
+        console.log('4')
+    },200)
+    for(var i=0; i<1000000000; i++){
+
+    };
+    console.log('1111')
+
+</script>

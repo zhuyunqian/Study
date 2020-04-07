@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var num = 1;            //声明一个全局变量
+    function fun() {
+        var num = 2;        //声明一个局部变量
+        return num;
+    }
+    console.log(fun());    //输出：2
+
+    console.log("======================")
+
+    function funn() {
+        console.log(num);	//输出：undefined，而非报错，因为变量num在整个函数体内都是有定义的
+        var num = 1;        //声明num 在整个函数体func内都有定义
+        console.log(num);   //输出：1
+    }
+    funn();
+
+    //块级作用域:一对大括号就可以看成是一块,在这块区域中定义的变量,只能在这个区域中使用,但是在js中在这个块级作用域中定义的变量,外面也能使用;说明:js没有块级作用域,只有函数除外
+    {
+        var num = 10;
+        console.log(num);
+    }
+    console.log(num);//10
+    for(var i=0;i<5;i++){
+        var number=20;
+    }
+    console.log(number);
+    function f1() {
+        var num=10;
+    }
+    f1();
+    //console.log(num); 这句话会报错，看讲义里面说的函数作用域
+</script>

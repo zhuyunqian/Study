@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function oBj(name,age){
+        //工厂模式：就解决了代码冗余--函数封装
+        //总结：工厂模式其实就是把内置对象的方式放到函数里面，--函数封装
+
+        //缺点：instanceof 无法找到父级，无法实现继承    对象 instanceof 父级
+
+        var stu = new Object();
+
+        stu.name = name;
+        stu.age = age;
+        stu.ref = function(){
+            console.log(this.name+'今年'+this.age+'岁了')
+        }
+        stu.__proto__ = oBj.prototype;//默认
+
+        return stu;
+    }
+
+    var per = oBj('zhuli',20);
+    per.ref();
+
+    console.log(per instanceof oBj); // fasle --无法找到父级
+</script>

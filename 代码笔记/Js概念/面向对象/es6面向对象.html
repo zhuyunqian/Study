@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Person{
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        say(){
+            console.log('原型方法')
+        }
+        static hello(){
+            console.log('8888888')
+        }
+    }
+
+    var per = new Person('mary','20');
+    console.log(per.name)
+    console.log(per.age)
+    per.say();
+    Person.hello();
+
+    class Animal extends Person{
+
+        constructor(name,age){
+            super(name,age);
+        }
+        play(){
+            console.log('dadoudou')
+        }
+
+    }
+
+    var an = new Animal('lili',10);
+    console.log(an.age);
+    console.log(an.name);
+    an.say()
+    an.play();
+    Animal.hello();
+
+
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var f1 = function f2(){
+        console.log('命名函数')
+    }
+
+    var f2 = function(){
+        console.log('匿名函数')
+    }
+
+    var f3 = new Function();
+
+    function f5(){
+        console.log('命名函数2')
+    }
+
+    console.log(f1.name)  //f2
+    console.log(f2.name)  //f2
+    console.log(f3.name)  //anonymous  -- 代表是一个匿名函数
+    console.log(f5.name)  //f5
+</script>
