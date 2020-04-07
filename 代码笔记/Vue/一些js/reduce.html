@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script>
+    //  prev第一次拿到就是reduce的第二个参数，从第二次起prev拿到的值是上一次回调函数的return的值
+    // reduce:
+    // 1. reduce有两个参数 第一个回调函数，第二个是回调函数里面的第一个参数第一次遍历的初始值（prev第一次的值就是0）
+    // 2. 回调函数里面的return 的值作为下一次遍历的prev的值
+    // 3. reduce方法的返回值是遍历最后一次回调函数的return的值
+
+    var arr = [1,2,3,4,4,2,54353,6456,1,2,3,5,6];
+    //求和
+    var arr1 = arr.reduce(function(prev,current){
+        //prev 第一遍为0
+        //第二遍为上一个回调函数返回的值
+        //current ， 回调函数第一个值
+        //console.log(prev)
+        return prev+current
+    },0)
+    console.log(arr1)
+
+
+    //过滤大于30的人
+    var arr4 = [
+        { id: 1, name: '张三', age: 20 },
+        { id: 2, name: '张四', age: 50 },
+        { id: 3, name: '张五', age: 33 },
+        { id: 4, name: '张六', age: 28 },
+    ]
+
+    var arr5 = arr4.reduce(function(prev,current){
+        //console.log(prev)
+        if(current.age > 30){
+            prev.push(current)
+        }
+        return prev
+    },[]);
+    //这里的prev设置为一个数组，则prev为数组空，则每次push可获得自己想要的
+    console.log(arr5)
+
+    // JSON.stringify() 可以把json对象转换成字符串类型
+    // JSON.parse() 可以把json对象字符串转成是json格式
+
+    console.log(arr);
+    var json = {
+        "name":"mary",
+        "age":"20"
+    }
+    console.log(json)
+    var str = JSON.stringify(json);
+    console.log(str)
+    var json1 = JSON.parse(str);
+    console.log(json1)
+
+</script>

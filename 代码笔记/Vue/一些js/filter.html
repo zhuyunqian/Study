@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+</html>
+<script>
+    /*
+        filter方法主要用作过滤数组
+        1. 回调函数的返回值是true：那么就保留下来
+        2. 回调函数返回值是false：过滤
+        3. 最后会返回新的数组，但是不会改变原来的数组
+        4. return的过滤的条件
+    */
+    var arr = [1,2,3,4,5,6,7,8,9,10,11,12,1111,12333,1342534];
+    var total = 0
+    var arr1 = arr.filter(function(item,index){
+        total += item;
+        console.log(index)
+        return item>6;
+        //return total
+    })
+    console.log(arr1)
+    console.log(arr1.length)
+</script>

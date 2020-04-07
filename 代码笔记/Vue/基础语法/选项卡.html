@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        p {
+            background-color: skyblue;
+            width: 200px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="handleClick(1)">按钮1</button>
+        <button @click="handleClick(2)">按钮2</button>
+        <button @click="handleClick(3)">按钮3</button>
+        <p v-show="index == 1">1</p>
+        <p v-show="index == 2">2</p>
+        <p v-show="index == 3">3</p>
+    </div>
+</body>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            index: 1,
+        },
+        methods: {
+            // es6语法 属性：function () {} 简写成 属性() {}
+            handleClick(idx) {
+                console.log(idx);
+                this.index = idx;
+            },
+            /* 
+                把data里面的bool1的值改成是true, data里面的bool2和bool3的值改成是false
+            */
+            //    通过this去访问data里面定义的属性（变量）
+            // console.log(this.bool1, this.bool2, this.bool3)
+            // this.bool1 = true;
+            // this.bool2 = false;
+            // this.bool3 = false;
+
+            /* handleClick2() {
+                this.bool1 = false;
+                this.bool2 = true;
+                this.bool3 = false;
+            } */
+        }
+    })
+</script>
+
+</html>

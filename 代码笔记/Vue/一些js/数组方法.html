@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script>
+    var arr =[1,2,3,4,5,6,7,8,9] 
+    var arr1;
+    // 往数组最后添加一个元素 push
+    arr1 = arr.push(0);  // 原数组添加0  arr1 = 数组长度
+    console.log(arr1)
+
+    // 数组最前面添加一个元素 unshift
+    arr1 = arr.unshift(0) //原数组第一个添加0
+    console.log(arr)
+
+    // 删除数组最后一个元素 pop
+    arr1 = arr.pop() //不管里面数值是几，删除最后一个元素
+    console.log(arr)
+
+    // 删除数组最前面的一个元素shift
+    arr1 = arr.shift();
+    console.log(arr)
+
+     // 截取字符串 split
+     arr1 = '5+6+7'.split('+');
+     console.log(arr1)
+
+     // 转换成字符串 join 
+     arr1 = arr.join('-');
+     console.log(arr1)
+     console.log(arr)
+
+     //splice  替换 (起始下标，删除的个数，添加的元素1 ，....)
+     arr1 = arr.splice(1,1)
+     console.log(arr1)//删除索引值
+     console.log(arr)
+
+     arr1 = arr.splice(1,0,22)
+     console.log(arr1)
+     console.log(arr)
+
+     //计算数组总和
+     var total = 0;
+     arr.forEach(function(item,index){
+        total+=item;
+     })
+     console.log(total);
+
+
+</script>

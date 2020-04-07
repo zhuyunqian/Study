@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ti-tle></ti-tle>
+        <my-con></my-con>
+    </div>
+</body>
+</html>
+<template id="title">
+    <div class="wrap">
+        <div class="center">
+            <div class="logo left">
+                ToDoList
+            </div>
+            <div class="search right">
+                <input type="text" placeholder="添加ToDo" @keydown="keydown"  v-model="val">
+            </div>
+        </div>
+     </div>
+</template>
+<template id="con">
+    <div class="wrap wrapcon">
+        <con-tit :doing='doing' :donum='donum' ></con-tit>
+        <con-mou :imgs='imgs'></con-mou>
+        <con-tit :doing='was' :donum = 'wasnum'></con-tit>
+        <con-mou class="wasmou" :imgs='imgs1' v-on:changeimgs1='rec'></con-mou>
+    </div>
+</template>
+<template id="contt">
+    <div class="contit">
+        <div class="left">
+            {{doing}}
+        </div>
+        <div class="right">
+            {{donum}}
+        </div>
+    </div>
+</template>
+<template id="mou">
+    <div class="mou" >
+        <div class="mouborder" v-for="(item,index) in imgs" :key="index">
+            <div class="line left"></div>
+            <input class="left" type="checkbox" name="" id=""  @click="move(index)">
+            <div class="left text">{{item}}</div>
+            <button class="right" @click="remove(index)">-</button>
+        </div>
+    </div>
+</template>
+<script>
+    var bus = new Vue({});
+    var app = new Vue({
+        el:'#app',
+        data:{
+            
+        },
+        components:{
+            TiTle:{
+                data(){
+                    return{
+                        val:''
+                    }
+                },
+                template:'#title',
+                methods: {
+                    keydown(e){
+                        if(e.keyCode == 13){
+                            //console.log(this.val)
+                            bus.$emit('changeval',{
+                                val:this.val
+                            });
+                            this.val = ''
+                        }
+                    }
+                },
+            },
+            MyCon:{
+                //中间组件监听事件，并触发
+                created() {
+                    var _this = this;
+                    bus.$on('changeval',function(val){
+                        _this.imgs.push(val.val);
+                        _this.donum = _this.imgs.length
+                    });
+                    bus.$on('changeimgs1',function(val){
+                        _this.imgs1 = val.imgs1;
+                        _this.donum = val.index;
+                        _this.wasnum  = val.wasnum;
+                    });
+                    bus.$on('changeindex',function(val){
+                        _this.donum = val.index
+                    });
+                    
+                    
+                },
+                data() {
+                    return {
+                        doing:'正在进行',
+                        donum:0,
+                        was:'已完成',
+                        wasnum:0,
+                        imgs:[],
+                        imgs1:[],
+                    }
+                },
+                methods:{
+                    rec(val){
+                        console.log(val)
+                        this.imgs1 = val.imgs1
+                    }
+                },
+                template:'#con',
+                components:{
+                    ConTit:{
+                        props:{
+                            doing:{
+                                type:String,
+                                default:'正在进行',
+                            },
+                            donum:{
+                                type:Number,
+                                default:1,
+                            },
+                            was:{
+                                type:String,
+                                default:'11',
+                            },
+                            wasnum:{
+                                type:Number,
+                                default:1,
+                            },
+                            
+                        },
+                        template:'#contt'
+                    },
+                    ConMou:{
+                        data(){
+                            return{
+                                //设置toggle  input按钮
+                                index:0,
+                            }
+                        },
+                        //接收两个数组  已完成 和 正在进行
+                        props:{
+                            imgs:{
+                                type:Array,
+                                default:[]
+                            },
+                            imgs1:{
+                                type:Array,
+                                default:()=>[]
+                            }
+                        },
+                        template:'#mou',
+                        //点击删除 当前数组删除 以前传输个数到父组件
+                        methods:{
+                            remove(index){
+                                console.log(index);
+                                this.imgs.splice(index,1);
+                                console.log(this.imgs1)
+                                bus.$emit('changeindex',{
+                                    index:this.imgs.length,
+                                })
+                            },
+                            //点击input 传输新的 已完成数组 到父组件
+                            move(index){   
+                                //console.log(index)
+                                //console.log(this.imgs[index])
+                                this.imgs1.push(this.imgs[index]);
+                                this.imgs.splice(index,1)
+                                bus.$emit('changeimgs1',{
+                                    imgs1:this.imgs1,
+                                    index:this.imgs.length,
+                                    wasnum:this.imgs1.length
+                                })
+                            }
+                        }
+                    }
+                }
+            },
+            
+        }
+    })
+</script>
+<style scoped>
+    *{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+    html,body,#app{
+        width:100%;
+        height:100%;
+        background:#CDCDCD;
+    }
+    .center{
+        width:600px;
+        margin:0 auto;
+        overflow: hidden;
+        padding:10px;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .wrap{
+        width:100%;
+        background:#333;
+        color:#ddd;
+        overflow: hidden;
+    }
+    .logo{
+        font-size:22px;
+    }
+    .search{
+        width:60%;
+    }
+    .search input{
+        width:96%;
+        background:#fff;
+        height:32px;
+        line-height:32px;
+        border-radius:5px;
+        padding:0 10px;
+        border:0;
+        box-shadow:2px 2px 7px 1px #666 inset;
+    }
+    /* content */
+    .wrapcon{
+        background:none;
+        width:600px;
+        margin:0 auto;
+        padding:20px 0;
+    }
+    .contit{
+        margin:0 0 20px 0;
+    }
+
+    .mou{
+        
+    }
+    
+    .mouborder{
+        overflow: hidden;
+        height:40px;
+        background:#fff;
+        border-radius:8px;
+        margin:0 0 15px 0;
+    }
+    .wasmou .mouborder{
+        opacity:0.5;
+    }
+    .wasmou .line{
+        background:#999;
+    }
+    .line{
+        width:10px;
+        height:100%;
+        background:#629A9C;
+        border-radius:8px 0 0 8px;
+    }
+    input.left{
+        margin:6px 0 0 10px;
+    }
+    input[type="checkbox"]{
+        zoom:180%;
+        background:none;
+    }
+    .text{
+        line-height:40px;
+        color:#333;
+        margin:0 0 0 10px;
+    }
+    button.right{
+        width:22px;
+        height:22px;
+        border-radius: 50px;
+        margin:9px 10px 0 0;
+        background:#ddd;
+        color:#fff;
+        font-size:24px;
+        line-height:0;
+        outline:none;
+    }
+    .contit{
+        overflow: hidden;
+        margin:15px 0;
+    }
+    .contit .left{
+        font-size:24px;
+        color:#000;
+        font-weight:700;
+    }
+    .contit .right{
+        width:24px;
+        height:24px;
+        color:#000;
+        text-align:center;
+        border-radius:25px;
+        background:#E6E6FA;
+        margin:8px 0 0 0;
+    }
+
+</style>

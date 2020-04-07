@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- | 管道符 ｜后为方法 管道方法 -->
+        <p>{{time | formDate}}</p>
+    </div>
+    <div id="app1">
+        <p>{{time | formDate | formB}}</p>
+    </div>
+</body>
+</html>
+<script>
+    //全局过滤器
+    Vue.filter('formDate',function(val){
+        var tt = new Date(val);
+            //月份从0开始，所以要+1
+            //getDay -- getDate获取日
+            return tt.getFullYear()+'年'+(tt.getMonth()+1)+'月'+tt.getDate()+'日'
+    })
+    Vue.filter('formB',function(val){
+        //这里的val 获取的是formDate过滤后的值
+        var ss = val + 'oh my god -----';
+        return ss
+    })
+var app = new Vue({
+    el:'#app',
+    data:{
+        time: new Date().getTime(),
+    },
+    //管道方法
+    // filters:{
+    //     //可以设置多个管道方法
+    //     formDate(val){
+    //         var tt = new Date(val);
+    //         //月份从0开始，所以要+1
+    //         //getDay -- getDate获取日
+    //         return tt.getFullYear()+'年'+(tt.getMonth()+1)+'月'+tt.getDate()+'日'
+    //     }
+    // }
+})
+var app1 = new Vue({
+    el:'#app1',
+    data:{
+        time: new Date().getTime(),
+    },
+})
+</script>

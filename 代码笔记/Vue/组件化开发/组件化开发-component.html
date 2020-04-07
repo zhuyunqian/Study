@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <fist-one></fist-one>
+        <sec-two></sec-two>
+        <thr-ee></thr-ee>
+        <my-div></my-div>
+    </div>
+</body>
+</html>
+<template id="tem">
+    <div>
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+        <p>444</p>
+    </div>
+</template>
+<template id="tem1">
+    <div>
+        <p>000</p>
+        <p>000</p>
+        <p>000</p>
+    </div>
+</template>
+<script>
+    // 全局注册
+    Vue.component('FistOne',{
+        template:'<a href="www.baidu.com">百度</a>'
+    })
+    Vue.component('SecTwo',{
+        template:'<a href="www.baidu.com">guge</a>'
+    })
+    Vue.component('ThrEe',{
+        template:'#tem'
+    })
+
+var app = new Vue({
+    el:'#app',
+    //局部注册
+    components:{
+        'MyDiv':{
+            template:'#tem1'
+        }
+    }
+})
+</script>

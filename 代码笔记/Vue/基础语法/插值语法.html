@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- <p id="p"></p> -->
+    <!-- {{}}：插值语法，用来绑定变量值或者普通js语法(表达式) -->
+    <p id="app">{{a}}
+        <span>{{b}}+{{c}}={{b+c}}---- {{ b>c ? '123' : '456'}}---{{d.name}}--{{d.age}}</span>
+        <br />
+        <span>{{arr[1]}}</span>
+    </p>
+    <p>{{a}}</p>
+</body>
+<script>
+    // 有一个变量
+    /* var a = '我是一个变量';
+
+    //1. 通过js来实现
+    document.getElementById('p').innerText = a; */
+    var app = new Vue({
+        el: '#app',
+        data: { // 定义Vue使用的变量的
+            a: 'vue里面定义的变量',
+            b: 1,
+            c: 2,
+            d: {
+                name: '张三',
+                age: 20
+            },
+            arr: [4, 5, 69]
+        }
+    })
+</script>
+
+</html>

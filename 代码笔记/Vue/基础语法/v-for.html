@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <p>Vue</p>
+        <p>React</p>
+        <p>Angular</p> -->
+        <!-- (数组每次遍历的元素, 遍历的下标值) in 需要遍历的数组 -->
+        <!-- v-for 是需要配合key值一起使用 key值需要唯一值, key的作用高效更新虚拟DOM-->
+        <p v-for="(item, index) in arr" :key="index">索引值: {{index}}----名字: {{item.name}}</p>
+    </div>
+</body>
+<script>
+    // 虚拟DOM
+    /* 
+        最耗费性能是操作DOM，虚拟DOM对象，操作虚拟DOM很明显比操作真是DOM性能更好，虚拟DOM映射到真实DOM上
+    */
+    var a = {
+        0: {
+            tag: 'p',
+            text: '索引值: 0----名字: Vue'
+        },
+        1: {
+            tag: 'p',
+            text: '索引值: 1----名字: React'
+        },
+        2: {
+            tag: 'p',
+            text: '索引值: 2----名字: Angular'
+        }
+    }
+    var app = new Vue({
+        el: '#app',
+        data: {
+            arr: [
+                { id: 1, name: 'Vue' },
+                { id: 2, name: 'React' },
+                { id: 3, name: 'Angular' }
+            ],
+        }
+    })
+</script>
+
+</html>

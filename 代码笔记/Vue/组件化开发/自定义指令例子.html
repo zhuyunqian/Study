@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-myshow = "boole">显示标签</p>
+        <button @click="a">切换</button>
+    </div>
+</body>
+</html>
+<script>
+var app = new Vue({
+    el:'#app',
+    data:{
+        boole:true
+    },
+    methods: {
+        a(){
+            this.boole = !this.boole;
+        }
+    },
+    directives:{
+        myshow:{
+            bind:function(el,binding){
+                console.log(binding.value)
+                if(binding.value){
+                    el.style.display = 'block'
+                }else{
+                    el.style.display = 'none'
+                }
+            },
+            update(el,binding) {
+                console.log(binding)
+                if(binding.value){
+                    el.style.display = 'block'
+                }else{
+                    el.style.display = 'none'
+                }
+            },
+        }
+    }
+})
+</script>

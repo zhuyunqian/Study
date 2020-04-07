@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        书本总价格：{{calc()}}
+        书本总价格：{{calc()}}
+        书本总价格：{{calc()}}
+        计算属性总价格： {{booksTotalPrice}}
+        计算属性总价格： {{booksTotalPrice}}
+        计算属性总价格： {{booksTotalPrice}}
+    </div>
+</body>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                { name: 'Vuejs入门', price: 99, count: 3 },
+                { name: 'Vuejs底层', price: 89, count: 1 },
+                { name: 'Vuejs从入门到放弃', price: 19, count: 5 },
+            ]
+        },
+        // 计算属性：是有缓存
+
+        computed: {
+            booksTotalPrice() {
+                console.log('计算属性')
+                var total = 0;
+                for (var i = 0; i < this.books.length; i++) {
+                    total += (this.books[i].price * this.books[i].count)
+                }
+                return total;
+            }
+        },
+        methods: {
+            calc() {
+                console.log('方法')
+                var total = 0;
+                for (var i = 0; i < this.books.length; i++) {
+                    total += (this.books[i].price * this.books[i].count)
+                }
+                return total;
+            }
+        }
+    })
+</script>
+
+</html>

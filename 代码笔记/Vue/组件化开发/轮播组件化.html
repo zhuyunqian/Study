@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-div :imgs="imgs"></my-div>
+        <my-div :imgs="imgs1"></my-div>
+        <my-div :imgs="imgs2"></my-div>
+    </div>
+</body>
+</html>
+<template id="tem">
+    <div class="wrap">
+        <ul  :style="{ transform: 'translateX(-'+ val*520 +'px)'}">
+            <li v-for="(img , index) in imgs" :key="index"><img :src="img" alt=""></li>
+        </ul>
+        <button @click="next()">
+            next
+        </button>
+        <button @click="prev()">
+            prev
+        </button>
+    </div>
+</template>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            imgs:[
+                'https://img.alicdn.com/simba/img/TB1xf5_y7T2gK0jSZPcSuwKkpXa.jpg',
+                'https://img.alicdn.com/simba/img/TB1kLMDwQL0gK0jSZFtSutQCXXa.jpg',
+            ],
+            imgs1:[
+                'https://img.alicdn.com/simba/img/TB1kLMDwQL0gK0jSZFtSutQCXXa.jpg',
+                'https://img.alicdn.com/tfs/TB1m_Svyy_1gK0jSZFqXXcpaXXa-520-280.png_q90_.webp',
+                'https://img.alicdn.com/simba/img/TB1AswNzkY2gK0jSZFgSuw5OFXa.jpg'
+            ],
+            imgs2:[
+                'https://img.alicdn.com/simba/img/TB1xf5_y7T2gK0jSZPcSuwKkpXa.jpg',
+                'https://img.alicdn.com/simba/img/TB1kLMDwQL0gK0jSZFtSutQCXXa.jpg',
+                'https://img.alicdn.com/tfs/TB1m_Svyy_1gK0jSZFqXXcpaXXa-520-280.png_q90_.webp',
+                'https://img.alicdn.com/simba/img/TB1AswNzkY2gK0jSZFgSuw5OFXa.jpg'
+            ],
+            
+        },
+        components:{
+            MyDiv:{
+                data(){
+                    return{
+                        val:0
+                    }
+                },
+                props:{
+                    imgs:{
+                        type:Array,
+                        default:[]
+                    },
+                },
+                template:'#tem',
+                methods: {
+                    next(){
+                        if(this.val == this.imgs.length-1){
+                            this.val = 0
+                        }else{
+                            this.val ++
+                        }
+                        
+                    },
+                    prev(){
+                        if(this.val == 0){
+                            this.val = this.imgs.length-1
+                        }else{
+                            this.val --
+                        }
+                    }
+                },
+            }
+        }
+    })
+</script>
+<style scoped>
+    *{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+   .wrap{
+       width:520px;
+       height:280px;
+       overflow: hidden;
+       margin: 0 auto;
+       position: relative;
+   }
+   button{
+       position:absolute;
+       z-index: 888;
+       left:380px;
+       top:100px;
+       width:120px;
+       line-height:40px;
+       background:none;
+       color:#fff;
+   }
+   button:last-child{
+       left: 20px;
+   }
+    ul{
+        position:absolute;
+        font-size:0;
+        white-space: nowrap;
+        width:2080px;
+        /* transform: translateX(-520px); */
+        transition:all 0.3s;
+    }
+    li{
+        float: left;
+       width:520px;
+       height:280px;
+    }
+</style>

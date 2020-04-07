@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-show是指令:控制标签的显示(true)和隐藏(false) -->
+        <p v-show="bool">bool: 我是一个p标签</p>
+        <p v-show="bool1">bool1: 我是一个p标签</p>
+        <p>----------------v-if----------------</p>
+        <p v-if="bool">bool: 我是一个p标签</p>
+        <p v-if="bool1">bool1: 我是一个p标签</p>
+        
+    </div>
+</body>
+<script>
+    /* 
+        隐藏显示指令
+
+        v-if 和 v-show
+        v-if和v-show都是true显示false隐藏，
+        v-if隐藏：直接移除节点
+        v-show隐藏：通过改变dispaly：none隐藏节点
+        如果频繁切换显示和隐藏的，用v-show
+    */
+    var app = new Vue({
+        el: '#app',
+        data: {
+            bool: false, // false: p隐藏 true: p显示
+            bool1: true
+        }
+    })
+</script>
+</html>

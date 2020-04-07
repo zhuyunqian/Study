@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-demo.num = "1+5">第一个p标签</p>
+        <p v-demo = "3-2">第二个p标签</p>
+    </div>
+</body>
+</html>
+<script>
+var app =  new Vue({
+    el:'#app',
+    directives:{
+        // el, binding, vnode
+        demo:{
+            bind:function(el,binding,vnode){
+                console.log(el);
+                console.log(binding);
+                console.log(vnode);
+
+                if(binding.modifiers.num){
+                    el.innerHTML = '修改内容：123';
+                    el.style.color = 'red';
+                }else{
+                    el.style.color ='blue'
+                }
+            }
+        }
+    }
+})
+</script>

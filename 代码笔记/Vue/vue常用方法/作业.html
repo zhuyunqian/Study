@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    // **1. 将数组中数字内容求和，[2, 6, 7, 1, 20,34]，用for 、forEach、reduce分别写出代码**
+
+    var arr = [2, 6, 7, 1, 20, 34];
+    var total = 0;
+    arr.reduce(function (prev, current) {
+        total += current;
+        return total;
+    }, 0)
+    console.log(total)
+
+    // **2. 两个数组，最终输出：['员工张三，29岁，工作于百度', '员工李四，26岁，工作于阿里巴巴'，...]**
+    // // 员工数组
+    var employees = [
+        {
+            name: '张三', // 员工名字
+            empId: 0,    // 员工id
+            age: 29,     // 员工年龄
+            compId: 1    // 所属公司id
+        }, 
+        { name: '李四', empId: 1, age: 26, compId: 2 }, 
+        { name: '王五',
+            empId: 2,
+            age: 28,
+            compId: 1
+        }, {
+            name: '小明',
+            empId: 3,
+            age: 32,
+            compId: 3
+        }];
+
+    var companies = [{
+        name: '百度', // 公司名称
+        id: 1        // 公司id
+    }, {
+        name: '阿里巴巴',
+        id: 2
+    }, {
+        name: '腾讯',
+        id: 3
+    }];
+    
+    // var ss = employees.map(function(val){
+    //     var bb = companies.map(function(dd){
+    //         if(val.compId == dd.id){
+    //             return dd.name
+    //         }
+    //     })
+    //     return "员工"+val.name+"，"+val.age+"岁，工作于"+bb
+    // })
+    // console.log(ss)
+    
+    var newobj = companies.reduce(function(prev,current){
+        prev[current.id] = current;
+        return prev;
+    },{});
+    //console.log('111111')
+    console.log(newobj)
+    console.log(newobj['1'])
+    console.log('222222')
+    var ss = employees.map(function(val){
+        return "员工"+val.name+"，"+val.age+"岁，工作于" + newobj[val.compId]
+    })
+    console.log(ss)
+
+
+
+
+// **3. 用js实现随机选取10~100之间的10个数字，存入一个数组，按从小到大排序(提示： 冒泡)**
+
+var arr = [];
+for(var i=0; i<10; i++){
+    //10 -100的范围
+    var ss =  Math.floor((Math.random()*90)+10);
+    arr.push(ss);
+}
+arr.sort(function(a, b){return a - b});
+console.log(arr)
+
+// **4. 请把下列的数组变成是: [['苹果','胡萝卜', '花生'], ['梨', '西芹', '坚果']....]**
+
+var basket = [
+    {fruit: "苹果", veg: "胡萝卜", nut: "花生"},
+ 	{fruit: "梨", veg: "西芹", nut: "坚果"},
+ 	{fruit: "香蕉", veg: "土豆", nut: "杏仁"},
+ 	{fruit: "西瓜", veg: "豆芽", nut: "核桃"}
+]
+
+// var ee = basket.reduce(function(prev,current,index){
+//     prev[index] = current.fruit + current.veg + current.nut;
+//     return prev;
+// },[])
+// console.log(ee)
+// var arr7 =[];
+// var ff = {}
+// basket.map(function(val,index){
+    
+//     arr7.push(val.fruit)
+//     arr7.push(val.veg)
+//     arr7.push(val.nut)
+//     ff[index] = arr7
+// })
+// console.log(ff)
+
+var arr5 =[]
+basket.reduce(function(prev,current){
+    // var a = current.fruit;
+    // var b = current.veg;
+    // var c = current.nut;
+    //prev = [a,b,c];
+    prev = [current.fruit,current.veg,current.nut]
+    arr5.push(prev);
+    //return arr5;
+},[])
+console.log(arr5);
+
+
+
+</script>

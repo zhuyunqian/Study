@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script>
+    //存储   js内容--存储到浏览器内
+    //localStorage.setItem(key,value)
+    //特点
+    //本地存储对象
+    //永久存储value值必须必须是字符串
+    //存储大小 4M
+
+    //取值
+    //localStorage.getItem(key)
+
+    //清楚 清空
+    //localStorage.clear()
+    var obj = {
+        name:'arry'
+    }
+    localStorage.setItem('name','mary');
+    localStorage.setItem('age','1000');
+    localStorage.setItem('obj',JSON.stringify(obj))
+
+    console.log(localStorage.getItem('age'));
+    console.log(localStorage.getItem('obj'));
+
+
+    //sessionStorage -- 本地存储  -- 临时
+    //关闭浏览器就会自动删除
+    //方法与localStorage一样
+</script>

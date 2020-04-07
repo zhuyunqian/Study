@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 通过vue里面的v-model指令：绑定输入框的值 -->
+        <input type="text" v-model="val">
+        <p>{{val}}</p>
+    </div>
+</body>
+<script>
+    /* 
+        前端
+        MVVM：M  V  VM
+        M: model(模型层)，相当于数据层
+        VM: ViewModel(视图模型层)，Vue
+            作用：
+                1.（model层）数据发生改变，viewmodel会把数据改变的部分更新到（view层）界面；
+                2. （view层）界面发生改变，viewmodel会把界面发生的改变通知到（model层）数据层更新
+        V: view(视图层)，相当于界面
+    */
+
+    /*
+        后端
+        MVC
+        M:model 
+        V：view
+        C：controller
+
+        访问界面，先到 控制层 controller
+        控制层 查询数据 model
+        拿到数据渲染页面 返回前端
+    
+    */
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            val: ''
+        }
+    }) 
+</script>
+</html>

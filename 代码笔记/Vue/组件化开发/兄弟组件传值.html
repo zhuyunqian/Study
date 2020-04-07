@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        兄弟穿参
+
+        通过中介传值 ，中介就是 实例化的vue对象，
+
+        中介绑定 自定义触发事件$emit('自定义事件名称（methods）','参数，可以是一个对象') 
+     -->
+    <div id="app">
+        <my-div1></my-div1>
+        <my-div2></my-div2>
+    </div>
+</body>
+</html>
+<template id="tem1">
+    <div>
+        组件1
+        <button @click = 'btn' :style="{color:color,background:background,width:width}">点击修改组件2按钮</button>
+    </div>
+</template>
+<template id="tem2">
+    <div >
+        组件2
+        <button :style="{color :color,width:width}" @click="btn2">点击修改组件1按钮</button>
+    </div>
+</template>
+<script>
+var zj = new Vue({});
+var app = new Vue({
+    el:'#app',
+    data:{},
+    methods: {
+    },
+    components:{
+        MyDiv1 : {
+            data(){
+                return{
+                    width:'',
+                    color:'',
+                    background:''
+                }
+            },
+            template:'#tem1',
+            methods:{
+                btn(){
+                    zj.$emit('changecolor',{
+                            col:'red',
+                            wid:'200px',
+                        })
+                }
+            },
+            created() {
+                var _this = this;
+                zj.$on('changeborder',function(val){
+                    console.log(val)
+                    _this.color = val.col;
+                    _this.width = val.wid;
+                    _this.background = val.background
+
+                })
+            },
+        },
+        MyDiv2:{
+            data(){
+                return{
+                    color:'',
+                    width:''
+                }
+            },
+            methods:{
+                btn2(){
+                    zj.$emit('changeborder',{
+                        wid:'200px',
+                        col:'blue',
+                        background:'none'
+                    })
+                }
+            },
+            template:'#tem2',
+            created() {
+                var _this = this;
+                zj.$on('changecolor',function(val){
+                    _this.color = val.col;
+                    _this.width = val.wid
+                })
+            },
+        }
+    }
+})
+</script>

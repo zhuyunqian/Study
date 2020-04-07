@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        父子组件传值
+
+        1. 绑定自定义属性在子标签上 = “传递值”；
+        2. 子组件内定义props 接收自定义属性(自定义属性不可以大写)
+        3. 子组件模板义属性名字 
+     -->
+    <div id="app">
+        <my-div></my-div>
+    </div>
+</body>
+</html>
+<template id="tem1">
+    <!-- 不能有两个父亲 ，必须在一个div内 -->
+    <div>
+        {{val}}
+        <!-- 如果这里没有传自定义属性，则可以获得 ‘默认字符串’ -->
+        <my-com :myval="val"></my-com>
+    </div>
+</template>
+<template id="tem2">
+    <div>
+        儿子组件
+        {{myval}}
+    </div>
+</template>
+
+<script>
+    var app = new Vue({
+        el:'#app',
+        components:{
+            MyDiv:{data(val) {
+                return {
+                    val:'传递参数'
+                }
+            },
+                template:'#tem1',
+                components:{
+                    MyCom:{
+                        template: '#tem2',
+                        // props:['myval']  ---> 对象写法
+                        props:{
+                            myval:{
+                                type:String,
+                                default:'默认字符串'
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    })
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 插值语法 -->
+        <p v-cloak>{{a}}{{a}}{{a}}</p>
+        <!-- 
+            指令：v-text 可以写表达式  
+            绑定数据
+        -->
+        <p v-text="a+b">p标签</p>
+        <p v-text="1 > 2 ? a : b">p标签</p>
+        <!-- 指令：v-html 字符串标签编译成浏览器认识的标签-->
+        <p v-html="html"></p>
+        <!-- v-pre：不会编译当前标签以及字标签的vue模板语法 ，跳过编译，提升速度-->
+        <p v-pre>{{a}}<span>{{b}}</span></p>
+        <!-- v-cloak:斗篷 -->
+        <p v-cloak>{{a}}</p>
+
+        <!-- 
+            xss - 跨站脚本攻击
+            cross site scripting
+
+            csrf - 跨站请求伪造
+            通过js拿到cookie，传回自己的服务器，伪造别人的身份进行操作
+
+            xss是csrf的其中一种方式
+         -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            a: '我是一个a变量',
+            b: '我是一个b变量',
+            html: '<a href="http://www.baidu.com">百度</a>'
+        }
+    })
+</script>
+
+</html>

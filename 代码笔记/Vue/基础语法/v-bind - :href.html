@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 绑定属性 v-bind:指令绑定属性值-->
+        <!-- <a v-bind:href="href">百度</a> -->
+        <!-- v-bind: 可以简写成 ： -->
+        <a :href="3 > 2 ?href : href1">{{3 > 2 ? '百度': '叩丁狼'}}</a>
+        <img :src="imgSrc">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            href: 'https://www.baidu.com',
+            href1: 'http://www.wolfcode.cn',
+            imgSrc: 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2567670815,24101428&fm=26&gp=0.jpg'
+        }
+    })
+</script>
+
+</html>

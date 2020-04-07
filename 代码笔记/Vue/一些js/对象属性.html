@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+</body>
+</html>
+<script>
+    var str = 'height';
+    var obj = {
+        name :'123',
+        a :{
+            age1:'245',
+            fe:'name'
+        },
+        mar:{
+            mar1:'1111'
+        },
+        [str]:'1.222',
+        1:{
+            name:'123'
+        }
+    }
+
+   // console.log(obj.age.age1);  // 245
+    console.log(obj.str)  // [str] = 变量 str  也就是 height
+    console.log(obj.height)
+    //console.log(obj[obj.age.fe]); // 123
+    console.log(obj['name'])
+    console.log(obj['a'])  //对象
+    console.log(obj[a])
+    console.log(obj['123'])  //undefined
+    console.log(obj[1])
+</script>

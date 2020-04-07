@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="(head,index) in headers" :key="index">{{head}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(key, index) in books" :key="index">
+                    <td>{{index+1}}</td>
+                    <td>{{key.name}}</td>
+                    <td>{{key.date}}</td>
+                    <td>{{key.price}}</td>
+                    <td>
+                        <button @click= "rem(index)">-</button>
+                        {{key.num}}
+                        <button @click ="add(index)">+</button>
+                    </td>
+                    <td>
+                        <button @click="a(index)">移除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>总价格：{{price}}</p>
+    </div>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            headers: ['编号', '书本名称', '出版日期', '价格', '数量', '操作'],
+            books: [{
+                price: 85,
+                name: '算法导论',
+                date: '2006-9',
+                num: 1
+            },
+            {
+                name: 'UNIX编程艺术',
+                date: '2006-2',
+                price: 59,
+                num: 1
+            },
+            {
+                name: 'Vue程序设计',
+                date: '2008-10',
+                price: 35,
+                num: 1
+            },
+            {
+                name: '颈椎康复',
+                date: '2006-3',
+                price: 129,
+                num: 1
+            },
+            ]
+        },
+        methods: {
+            a(index){
+                console.log(index)
+                this.books.splice(index,1)
+            },
+            add(index){
+                this.books[index].num++;
+            },
+            rem(index){
+                if(this.books[index].num == 1){
+                    alert('不能再少了！');
+                }else{
+                    this.books[index].num--;
+                }
+                
+            }
+
+        },
+        computed: {
+            //结算属性内的插值，不能在data中设置
+            price(){
+                return this.books.reduce(function(prev,current){
+                    //console.log(current)
+                    var total = current.price*current.num;
+                    prev += total
+                    return prev;
+                },0)
+            }
+        },
+    })
+</script>
+<style scoped>
+    tr{
+        width:100%;
+    }
+    td{
+        width:15%;
+        line-height:40px;
+        text-align:center;
+    }
+</style>

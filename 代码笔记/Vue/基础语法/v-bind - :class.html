@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .font16 {
+            font-size: 16px;
+            color: orange;
+        }
+
+        .font20 {
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            绑定属性
+            v-bind:class 简写 ：class
+            
+            3种方式
+            :class="{'类名':布尔值，｜控制是否使用（判断表达式）}"
+            :class="{判断条件?'类名1':'类名2'}"
+            :class="{判断条件?'类名1':'类名2'}"
+            :style="{'css属性名称':判断表达式?'值1':'值2'}"
+         -->
+        
+
+        <!-- <p :class="{'font20': bool, 'font16': !bool}">p标签</p> -->
+        <p :class="classFn()">p标签</p>
+        <button @click="changeFont">改变字体大小</button>
+        <p>----------------------------</p>
+        <!-- 数组里面的每一个元素，就是对应的class名字 -->
+        <p :class="[bool1 ? 'font20': 'font16']">p标签1111111111</p>
+        <button @click="changeFont1">按钮1</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            bool: true,
+            bool1: false
+        },
+        methods: {
+            changeFont1() {
+                this.bool1 = !this.bool1;
+            },
+            changeFont() {
+                this.bool = !this.bool // 取反赋值
+            },
+            classFn() {
+                return {
+                    'font20': this.bool,
+                    'font16': !this.bool
+                }
+            }
+        }
+    })
+</script>
+
+</html>

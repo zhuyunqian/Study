@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="text" @keyup.enter="add" v-model="text">
+        </div>
+        <div>
+            <p>正在进行</p>
+            <ul>
+                <li v-for="(item, index) in arr" :key='index' v-if='!arr.complete'>
+                    <input type="checkbox" @click = 'changecom(index)'>
+                    <span v-if='!item.edit'  @click = 'changspan(index)'>{{item.val}}</span>
+                    <input type="text" v-model='item.val' v-if='item.edit' v-select @blur='blur(index)'>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p>完成</p>
+            <ul>
+                <li v-for="(item, index) in arr" :key='index' v-if='arr.complete'>
+                    <input type="checkbox">
+                    <span>{{item.val}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var bus = new Vue({});
+    var app = new Vue({
+        el:'#app',
+        data:{
+            arr:[],
+            text:'',
+
+        },
+        directives:{
+            select:{
+                bind(){
+
+                },
+                update() {
+                    
+                },
+            }
+        },
+        methods: {
+            add(){
+                //console.log(this.text)
+                //获取输入内容并添加到数组中
+                this.arr.push({val:this.text,complete:false, edit:false});
+                //console.log(this.arr)
+                //清空输入框
+                this.text = ''
+            },
+            //点击修改input选中状态事件
+            changecom(index){
+                this.arr[index].complete = true
+            },
+            //点击修改成为input事件
+            changspan(index){
+                this.arr[index].edit = true
+            },
+            //失焦事件
+            blur(index){
+                this.arr[index].edit = false
+            }
+        },
+    })
+</script>
+<style scoped>
+    *{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+    html,body,#app{
+        width:100%;
+        height:100%;
+        background:#CDCDCD;
+    }
+    .center{
+        width:600px;
+        margin:0 auto;
+        overflow: hidden;
+        padding:10px;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .wrap{
+        width:100%;
+        background:#333;
+        color:#ddd;
+        overflow: hidden;
+    }
+    .logo{
+        font-size:22px;
+    }
+    .search{
+        width:60%;
+    }
+    .search input{
+        width:96%;
+        background:#fff;
+        height:32px;
+        line-height:32px;
+        border-radius:5px;
+        padding:0 10px;
+        border:0;
+        box-shadow:2px 2px 7px 1px #666 inset;
+    }
+    /* content */
+    .wrapcon{
+        background:none;
+        width:600px;
+        margin:0 auto;
+        padding:20px 0;
+    }
+    .contit{
+        margin:0 0 20px 0;
+    }
+
+    .mou{
+        
+    }
+    
+    .mouborder{
+        overflow: hidden;
+        height:40px;
+        background:#fff;
+        border-radius:8px;
+        margin:0 0 15px 0;
+    }
+    .wasmou .mouborder{
+        opacity:0.5;
+    }
+    .wasmou .line{
+        background:#999;
+    }
+    .line{
+        width:10px;
+        height:100%;
+        background:#629A9C;
+        border-radius:8px 0 0 8px;
+    }
+    input.left{
+        margin:6px 0 0 10px;
+    }
+    input[type="checkbox"]{
+        zoom:180%;
+        background:none;
+    }
+    .text{
+        line-height:40px;
+        color:#333;
+        margin:0 0 0 10px;
+    }
+    button.right{
+        width:22px;
+        height:22px;
+        border-radius: 50px;
+        margin:9px 10px 0 0;
+        background:#ddd;
+        color:#fff;
+        font-size:24px;
+        line-height:0;
+        outline:none;
+    }
+    .contit{
+        overflow: hidden;
+        margin:15px 0;
+    }
+    .contit .left{
+        font-size:24px;
+        color:#000;
+        font-weight:700;
+    }
+    .contit .right{
+        width:24px;
+        height:24px;
+        color:#000;
+        text-align:center;
+        border-radius:25px;
+        background:#E6E6FA;
+        margin:8px 0 0 0;
+    }
+
+</style>

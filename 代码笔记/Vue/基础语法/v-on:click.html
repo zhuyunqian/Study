@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            绑定事件
+            () -- 代表  响应事件函数-- 并不执行该函数 - 只是作为响应事件的函数
+            $event  -- 事件对象MouseEvent
+            handleClick  --  输出MouseEvent（事件对象）
+            handleClick(1)  --  输出1
+            handleClick()  --  undefined
+            handleClick($event)  --  指定输出事件对象MouseEvent
+            区别在于有无穿参
+
+         -->
+        <!-- 通过v-on指令绑定事件 v-on: 可以简写成@ -->
+        <!-- <button v-on:click="handleClick">按钮1</button> -->
+        <button @click="handleClick">按钮1</button>
+        <button @click="handleClick(1)">按钮2</button>
+        <button @click="handleClick()">按钮3</button>
+        <button @click="handleClick($event)">按钮4</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            handleClick: function (e) {
+                console.log(e)
+                console.log('button点击事件')
+            }
+        }
+    })
+</script>
+
+</html>

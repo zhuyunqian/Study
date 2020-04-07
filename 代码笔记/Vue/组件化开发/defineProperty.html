@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        vue的原型方法上的get val 和set val的原型
+
+        defineProperty
+        使用方法
+        Object.defineProperty(obj, prop, desc)
+        1. `obj` 需要定义属性的当前对象
+        2. `prop` 当前需要定义的属性名
+        3. `desc` 属性描述符
+        设置属性
+        1. `value` 表示它的默认值
+        2. `writable` 如果为true标识可以被修改，如果为false标识不能被修改（默认值为false）
+        3. `configrable` 描述属性是否配置，以及可否删除，可以认为是总开关 默认值 false（不可删除）
+        4. `enumerable` 描述属性是否出现在for in 或者 Object.keys()的遍历中 默认值false(不能遍历)
+     -->
+
+    <div id="app"></div>
+</body>
+</html>
+<script>
+// var app =new Vue({
+//     el:'#app',
+//     data:{
+//         value:'123'
+//     }
+// })
+// console.log(app)
+
+var obj = {};
+
+Object.defineProperty(obj,'name',{
+    value:'123',
+    writable:true, //可修改
+    configurable:false,  //不可删除
+    enumerable:false  //不可遍历
+})
+obj.name = '456';
+console.log(obj);
+delete obj.name;
+
+for(var key in obj){
+    console.log(obj[key]);
+}
+</script>

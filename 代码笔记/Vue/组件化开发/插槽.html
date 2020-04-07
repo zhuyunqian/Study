@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-div><span slot="span">123</span> <p slot="p">66666</p> <h2 slot="h2">kkkkk</h2> <h3>yyyy</h3></my-div>
+    </div>
+</body>
+</html>
+<template id="tem">
+    <div>
+        <slot name="p"></slot>
+        <p>11111111这是组件内的数值<slot name="h2"></slot></p>
+        <slot name="span"></slot>
+        <!-- 如果没有设置name 属性和 slot属性，则全部显示  -->
+        <slot></slot> 
+    </div>
+</template>
+<script>
+var app = new Vue({
+    el:'#app',
+    data:{
+
+    },
+    components:{
+        MyDiv:{
+            template:'#tem'
+        }
+    }
+})
+</script>
