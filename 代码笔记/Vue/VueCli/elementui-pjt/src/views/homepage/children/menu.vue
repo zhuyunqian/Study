@@ -9,15 +9,12 @@
                 background-color="#545c64"
                 text-color="#fff"
                 active-text-color="#ffd04b">
-               <el-submenu index="1">
+               <el-submenu index="1" v-for="(menu ,index) in menuConfig " :key="index" >
                 <template slot="title">
                 <i class="el-icon-location"></i>
-                <span>系统管理</span>
+                <span>{{menu.title}}</span>
                 </template>
-                <el-menu-item index="/department">部门管理</el-menu-item>
-                <el-menu-item index="/employee">员工管理</el-menu-item>
-                <el-menu-item index="1-4-3">权限管理</el-menu-item>
-                <el-menu-item index="1-4-4">角色管理</el-menu-item>
+                <el-menu-item v-for="(childenmen,childindex) in menu.subs" :key="childindex">{{childenmen.title}}</el-menu-item>
             </el-submenu>
                 </el-menu>
   
@@ -26,8 +23,13 @@
 </template>
 
 <script>
+import { menuConfig } from '../../../config/menuConfig'
 export default {
-    
+    data() {
+        return {
+            menuConfig,
+        }
+    },
     methods: {
         handleOpen(key, keyPath) {
             console.log(key, keyPath);
