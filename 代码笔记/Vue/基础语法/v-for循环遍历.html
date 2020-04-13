@@ -14,8 +14,8 @@
         <!-- <p>Vue</p>
         <p>React</p>
         <p>Angular</p> -->
-        <!-- (数组每次遍历的元素, 遍历的下标值) in 需要遍历的数组 -->
-        <!-- v-for 是需要配合key值一起使用 key值需要唯一值, key的作用高效更新虚拟DOM-->
+        <!-- (遍历元素, 遍历的下标值) in data中要遍历的数组 -->
+        <!-- v-for 配合key值一起使用 key值需要唯一值, key的作用高效更新虚拟DOM-->
         <p v-for="(item, index) in arr" :key="index">索引值: {{index}}----名字: {{item.name}}</p>
     </div>
 </body>
