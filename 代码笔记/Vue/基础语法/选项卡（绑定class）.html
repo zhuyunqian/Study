@@ -25,6 +25,9 @@
 
 <body>
     <div id="app">
+        <!-- 
+            'red': index == 1(判断条件是否成立) 事件对象传输数值  数值与是否相等  true or false
+         -->
         <button @click="handleClick(1)" class="bold a1 b1" :class="{'red': index == 1}">按钮1</button>
         <button @click="handleClick(2)" :class="{'red': index == 2}">按钮2</button>
         <button @click="handleClick(3)" :class="{'red': index == 3}">按钮3</button>
