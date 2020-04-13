@@ -11,9 +11,11 @@
 
 <body>
     <div id="app">
+        <!-- 方法 -->
         书本总价格：{{calc()}}
         书本总价格：{{calc()}}
         书本总价格：{{calc()}}
+        <!-- 属性 -->
         计算属性总价格： {{booksTotalPrice}}
         计算属性总价格： {{booksTotalPrice}}
         计算属性总价格： {{booksTotalPrice}}
@@ -30,9 +32,10 @@
                 { name: 'Vuejs从入门到放弃', price: 19, count: 5 },
             ]
         },
-        // 计算属性：是有缓存
-
+        // 计算属性：有缓存
+        // 如果data中的数值发生改变，才会调用属性，如果没有改变，多次调用该属性，其实则只执行一次，调用缓存
         computed: {
+            //属性 -- booksTotalPrice
             booksTotalPrice() {
                 console.log('计算属性')
                 var total = 0;
