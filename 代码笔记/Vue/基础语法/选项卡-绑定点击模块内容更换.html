@@ -36,6 +36,9 @@
         methods: {
             // es6语法 属性：function () {} 简写成 属性() {}
             handleClick(idx) {
+                //获取传输参数1 2 3 == idx
+                //进行赋值 this.index = 获取的参数
+                //进行判断 v-show this.index(传输的idx) 是否等于 设定值  等于则显示 不等于则不false
                 console.log(idx);
                 this.index = idx;
             },
