@@ -34,11 +34,14 @@
          -->
         
 
-        <!-- <p :class="{'font20': bool, 'font16': !bool}">p标签</p> -->
+        <p :class="{'font20': bool, 'font16': !bool}">p标签</p>
+        <!-- 
+            classFn()方法 == :class上面的内容
+         -->
         <p :class="classFn()">p标签</p>
         <button @click="changeFont">改变字体大小</button>
-        <p>----------------------------</p>
-        <!-- 数组里面的每一个元素，就是对应的class名字 -->
+        <p>===========================================</p>
+        <!-- 数组里面的每一个元素，就是对应的class名字  三元表达式-->
         <p :class="[bool1 ? 'font20': 'font16']">p标签1111111111</p>
         <button @click="changeFont1">按钮1</button>
     </div>
