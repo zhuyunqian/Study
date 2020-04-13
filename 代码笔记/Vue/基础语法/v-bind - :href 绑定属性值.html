@@ -18,13 +18,21 @@
         <!-- 三元表达式 判断显示 -->
         <a :href="3 < 2 ?href : href1">{{3 < 2 ? '百度': '叩丁狼'}}</a>
         <img :src="imgSrc">
+
+        <!-- 
+        绑定属性值 -- :style
+    
+         -->
+        <p :style="{color:color,}">1111</p>
+        <p :style="{color:(1>2? color:color1,)}">2222</p>
     </div>
 </body>
 <script>
     var app = new Vue({
         el: '#app',
         data: {
-            class:'blue',
+            color:'pink',
+            color1:'yellowgreen',
             href: 'https://www.baidu.com',
             href1: 'http://www.wolfcode.cn',
             imgSrc: 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2567670815,24101428&fm=26&gp=0.jpg'
