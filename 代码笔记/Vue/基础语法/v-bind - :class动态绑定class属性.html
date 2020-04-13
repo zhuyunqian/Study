@@ -16,6 +16,7 @@
         .font20 {
             font-size: 20px;
             color: red;
+            background:pink;
         }
     </style>
 </head>
@@ -43,6 +44,8 @@
         <p>===========================================</p>
         <!-- 数组里面的每一个元素，就是对应的class名字  三元表达式-->
         <p :class="[bool1 ? 'font20': 'font16']">p标签1111111111</p>
+        <!-- 数组方式显示 -->
+        <p :class="['font20','font16']">p标签1111111111</p>
         <button @click="changeFont1">按钮1</button>
     </div>
 </body>
