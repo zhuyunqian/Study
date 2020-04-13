@@ -13,8 +13,10 @@
     <div id="app">
         <!-- 绑定属性 v-bind:指令绑定属性值-->
         <!-- <a v-bind:href="href">百度</a> -->
-        <!-- v-bind: 可以简写成 ： -->
-        <a :href="3 > 2 ?href : href1">{{3 > 2 ? '百度': '叩丁狼'}}</a>
+        <!-- v-bind: 可以简写成 : -->
+        <a v-bind:href="href">百度</a>
+        <!-- 三元表达式 判断显示 -->
+        <a :href="3 < 2 ?href : href1">{{3 < 2 ? '百度': '叩丁狼'}}</a>
         <img :src="imgSrc">
     </div>
 </body>
@@ -22,11 +24,17 @@
     var app = new Vue({
         el: '#app',
         data: {
+            class:'blue',
             href: 'https://www.baidu.com',
             href1: 'http://www.wolfcode.cn',
             imgSrc: 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2567670815,24101428&fm=26&gp=0.jpg'
         }
     })
 </script>
+<style scoped>
+    .blue{
+        background:pink;
+    }
+</style>
 
 </html>
