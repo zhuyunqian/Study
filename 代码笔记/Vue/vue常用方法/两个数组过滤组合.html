@@ -18,9 +18,9 @@
 
     var arr = [2, 6, 7, 1, 20, 34];
     var total = 0;
-    arr.reduce(function (prev, current) {
-        total += current;
-        return total;
+    total = arr.reduce(function (prev, current) {
+        prev += current;
+        return prev;
     }, 0)
     console.log(total)
 
@@ -56,29 +56,15 @@
         id: 3
     }];
     
-    // var ss = employees.map(function(val){
-    //     var bb = companies.map(function(dd){
-    //         if(val.compId == dd.id){
-    //             return dd.name
-    //         }
-    //     })
-    //     return "员工"+val.name+"，"+val.age+"岁，工作于"+bb
-    // })
-    // console.log(ss)
-    
     var newobj = companies.reduce(function(prev,current){
         prev[current.id] = current;
         return prev;
     },{});
-    //console.log('111111')
-    console.log(newobj)
-    console.log(newobj['1'])
-    console.log('222222')
-    var ss = employees.map(function(val){
-        return "员工"+val.name+"，"+val.age+"岁，工作于" + newobj[val.compId]
-    })
-    console.log(ss)
-
+    var str = employees.reduce(function(prev,current){
+        prev.push(current.name+','+current.age+','+newobj[current.compId].name)
+        return prev
+    },[])
+    console.log(str)
 
 
 
