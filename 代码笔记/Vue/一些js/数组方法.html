@@ -36,9 +36,12 @@
     console.log(arr12); //0
     console.log(arr);
 
-     // 截取字符串 split
+     // 截取字符串成为数组 split  
      arr1 = '5+6+7'.split('+');
-     console.log(arr1)
+     arr12 = '1-2-3-4-5-6';
+     arr13 = arr12.split('-'); // 截取后为数组，需要赋值  arr13 为截取后的内容
+     console.log(arr12)  // 依然为原字符串，并未任何更改， 
+     console.log(arr13)
 
      // 转换成字符串 join 
      arr1 = arr.join('-');
