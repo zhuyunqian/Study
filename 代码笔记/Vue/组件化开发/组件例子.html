@@ -19,6 +19,8 @@ var app = new Vue({
     components:{
         
         MyDiv:{
+            // 组件化开发中的data值为一个函数，返回一个对象
+            //组建里面的data值是有使用范围的，即作用域
             data() {
                 return {
                     val:'组件值'
