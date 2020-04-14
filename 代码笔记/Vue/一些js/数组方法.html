@@ -48,10 +48,16 @@
      arr14 = arr13.join('');
      console.log(arr14)
 
-     //splice  替换 (起始下标，删除的个数，添加的元素1 ，....)
-     arr1 = arr.splice(1,1)
-     console.log(arr1)//删除索引值
-     console.log(arr)
+     //splice  删除 替换 (起始下标，/删除的个数/，添加的元素1 ，....)
+     var arr15 = [0,2,3,4,5,6,7,8,9,0]
+     var arr16 = arr15.splice(0,2)
+     console.log(arr16)  // 删除的索引对应的元素
+     console.log(arr15)  // 删除后的数组
+     //替换 (索引值开始，0添加/1替换, 替换元素)
+     var arr17 = arr15.splice(1,1,10)  
+     console.log(arr17) // 空
+     console.log(arr15) // 修改后的数组
+     
 
      arr1 = arr.splice(1,0,22)
      console.log(arr1)
