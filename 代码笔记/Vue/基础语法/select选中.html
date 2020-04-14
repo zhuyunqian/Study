@@ -9,16 +9,18 @@
 </head>
 <body>
     <div id="app">
-        <select v-model="selectVal">
+        <!-- 双向数据绑定 -- 获取选中option值 -->
+        <select v-model="selectValue">
             <!-- 
-                v-for="(item,idx) in arr" :key="idx" :value="idx"
-                in arr 前面一定要有空格
-             -->
+                option多个为数组，v-for遍历 
+            
+                1. 获取-数值
+                2. 获取键值
+            -->
+            <option v-for="(item,idx) in arr" :key="idx" :value="item">{{item}}</option>
             <option v-for="(item,idx) in arr" :key="idx" :value="idx">{{item}}</option>
-            <!-- <option v-for="(item, idx) in arr" :key="idx" :value="idx">{{item}}</option> -->
-            <!-- <option value="" v-for="(item,index)in arr" :key="index"></option> -->
         </select>
-        <p>selectVal: <span>{{selectVal}}</span></p>
+        <p>selectVal: <span>{{selectValue}}</span></p>
     </div>
 </body>
 </html>
@@ -27,8 +29,8 @@
     var app = new Vue({
         el:'#app',
         data:{
-            selectVal:'11',
-            arr:['11','22','33']
+            selectValue:'香蕉',
+            arr:['香蕉','苹果','栗子']
         }
     })
 </script>
