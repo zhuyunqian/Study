@@ -45,8 +45,8 @@
   - 方式二：下载和引入
 
   ```
-  // 开发环境 https://vuejs.org/js/vue.js
-  // 生产环境 https://vuejs.org/js/vue.min.js
+  // 开发环境 https://vuejs.org/js/vue.js
+  // 生产环境 https://vuejs.org/js/vue.min.js
   ```
 
   - 方式三：NPM（包管理器）安装
@@ -774,5 +774,3 @@
   })
 </script>
 ```
-
-
