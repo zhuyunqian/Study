@@ -22,6 +22,12 @@
         2. `writable` 如果为true标识可以被修改，如果为false标识不能被修改（默认值为false）
         3. `configrable` 描述属性是否配置，以及可否删除，可以认为是总开关 默认值 false（不可删除）
         4. `enumerable` 描述属性是否出现在for in 或者 Object.keys()的遍历中 默认值false(不能遍历)
+
+        VUE 当数据发生改变（界面发生改变事件等），自动触发属性defineProperty对应的set方法，set方法里面实现界面更新操作
+
+        vue界面初始化的时候（获取值的时候），自定触发属性（defineProperty）get方法，渲染到页面
+        vue2.x版本 通过defineProperty 实现
+        vue3.x版本 通过proxy实现
      -->
 
     <div id="app"></div>
