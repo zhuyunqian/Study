@@ -30,7 +30,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>总价格：{{price}}</p>
+        <p>总价格：{{totalprice}}</p>
     </div>
 </body>
 </html>
@@ -86,14 +86,14 @@
         },
         computed: {
             //结算属性内的插值，不能在data中设置
-            price(){
-                return this.books.reduce(function(prev,current){
-                    //console.log(current)
-                    var total = current.price*current.num;
-                    prev += total
-                    return prev;
-                },0)
-            }
+            //煮鱼这里的reduce方法和map和filter一样，需要一个变量来接收
+            totalprice(){
+               var total = this.books.reduce(function(total,item,index){
+                   total += item.price * item.num
+                   return total
+               },0)
+               return total
+           }
         },
     })
 </script>
