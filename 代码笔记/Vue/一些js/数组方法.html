@@ -40,13 +40,13 @@
      arr1 = '5+6+7'.split('+');
      arr12 = '1-2-3-4-5-6';
      arr13 = arr12.split('-'); // 截取后为数组，需要赋值  arr13 为截取后的内容
+     arr13.push('7')
      console.log(arr12)  // 依然为原字符串，并未任何更改， 
      console.log(arr13)
 
      // 转换成字符串 join 
-     arr1 = arr.join('-');
-     console.log(arr1)
-     console.log(arr)
+     arr14 = arr13.join('');
+     console.log(arr14)
 
      //splice  替换 (起始下标，删除的个数，添加的元素1 ，....)
      arr1 = arr.splice(1,1)
