@@ -17,15 +17,24 @@
     // 2. 回调函数里面的return 的值作为下一次遍历的prev的值
     // 3. reduce方法的返回值是遍历最后一次回调函数的return的值
 
-    var arr = [1,2,3,4,4,2,54353,6456,1,2,3,5,6];
+    //array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+    // function(total,currentValue, index,arr)	必需。用于执行每个数组元素的函数。
+//                                       total	必需。初始值, 或者计算结束后的返回值。
+    //                            currentValue	必需。当前元素
+    //                            currentIndex	可选。当前元素的索引
+    //                                     arr	可选。当前元素所属的数组对象。
+    //initialValue	可选。传递给函数的初始值（传递值传递给初始值也就是total）
+
+    var arr = [1,2,3,4,4,2,1,2,3,5,6];
     //求和
     var arr1 = arr.reduce(function(prev,current){
         //prev 第一遍为0
         //第二遍为上一个回调函数返回的值
         //current ， 回调函数第一个值
-        //console.log(prev)
+        console.log(prev)
         return prev+current
     },0)
+    //2为第一次prev的值
     console.log(arr1)
 
 
@@ -36,15 +45,15 @@
         { id: 3, name: '张五', age: 33 },
         { id: 4, name: '张六', age: 28 },
     ]
-
-    var arr5 = arr4.reduce(function(prev,current){
-        //console.log(prev)
-        if(current.age > 30){
-            prev.push(current)
-        }
-        return prev
-    },[]);
-    //这里的prev设置为一个数组，则prev为数组空，则每次push可获得自己想要的
+    //设定第一个total为数组，判断后直接push 累加器即可
+   var arr5 = arr4.reduce(function(total,item,index){
+       if(item.age>30){
+           console.log(item)
+           total.push(item)
+       }   
+       return total
+   },[])
+    
     console.log(arr5)
 
     // JSON.stringify() 可以把json对象转换成字符串类型
