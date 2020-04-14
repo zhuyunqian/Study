@@ -11,27 +11,28 @@
 </body>
 </html>
 <script>
+    var obj = {
+        name:'arry'
+    }
     //存储   js内容--存储到浏览器内
     //localStorage.setItem(key,value)
     //特点
     //本地存储对象
     //永久存储value值必须必须是字符串
     //存储大小 4M
-
-    //取值
-    //localStorage.getItem(key)
-
-    //清楚 清空
-    //localStorage.clear()
-    var obj = {
-        name:'arry'
-    }
     localStorage.setItem('name','mary');
     localStorage.setItem('age','1000');
     localStorage.setItem('obj',JSON.stringify(obj))
 
+    //取值
+    //localStorage.getItem(key)
     console.log(localStorage.getItem('age'));
     console.log(localStorage.getItem('obj'));
+
+    //清楚 清空
+    localStorage.clear()
+    console.log(localStorage.getItem('obj'));  //null
+
 
 
     //sessionStorage -- 本地存储  -- 临时
