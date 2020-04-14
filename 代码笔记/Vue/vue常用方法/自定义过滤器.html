@@ -10,10 +10,12 @@
 <body>
     <div id="app">
         <!-- | 管道符 ｜后为方法 管道方法 -->
-        <p>{{time | formDate}}</p>
+        <p>过滤器1：{{time | formDate}}</p>
+        <p>过滤器1-1：{{time | formDate | formB}}</p>
+
     </div>
     <div id="app1">
-        <p>{{time | formDate | formB}}</p>
+        <p>过滤器2：{{time | formDate | formB}}</p>
     </div>
 </body>
 </html>
@@ -27,7 +29,7 @@
     })
     Vue.filter('formB',function(val){
         //这里的val 获取的是formDate过滤后的值
-        var ss = val + 'oh my god -----';
+        var ss = val + '-----';
         return ss
     })
 var app = new Vue({
@@ -35,7 +37,8 @@ var app = new Vue({
     data:{
         time: new Date().getTime(),
     },
-    //管道方法
+    
+    //管道方法-局部过滤器
     // filters:{
     //     //可以设置多个管道方法
     //     formDate(val){
@@ -43,8 +46,12 @@ var app = new Vue({
     //         //月份从0开始，所以要+1
     //         //getDay -- getDate获取日
     //         return tt.getFullYear()+'年'+(tt.getMonth()+1)+'月'+tt.getDate()+'日'
-    //     }
+    //     },
+    //     formB(val){
+    //         return val +"123"
+    //     },
     // }
+    
 })
 var app1 = new Vue({
     el:'#app1',
