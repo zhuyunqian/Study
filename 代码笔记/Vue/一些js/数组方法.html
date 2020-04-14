@@ -58,14 +58,15 @@
      console.log(arr17) // 空
      console.log(arr15) // 修改后的数组
      
-
      arr1 = arr.splice(1,0,22)
      console.log(arr1)
      console.log(arr)
 
-     //计算数组总和
+     //计算数组总和  forEach 遍历数组 元素几索引  item=元素  index=索引
      var total = 0;
      arr.forEach(function(item,index){
+         console.log(item)
+         console.log(index)
         total+=item;
      })
      console.log(total);
