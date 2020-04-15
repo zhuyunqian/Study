@@ -31,7 +31,7 @@
         <con-tit :doing='doing' :donum='donum' ></con-tit>
         <con-mou :imgs='imgs'></con-mou>
         <con-tit :doing='was' :donum = 'wasnum'></con-tit>
-        <con-mou class="wasmou" :imgs='imgs1' v-on:changeimgs1='rec'></con-mou>
+        <con-mou class="wasmou" :imgs='imgs' v-on:changeimgs1='rec'></con-mou>
     </div>
 </template>
 <template id="contt">
@@ -88,11 +88,6 @@
                     bus.$on('changeval',function(val){
                         _this.imgs.push(val.val);
                         _this.donum = _this.imgs.length
-                    });
-                    bus.$on('changeimgs1',function(val){
-                        _this.imgs1 = val.imgs1;
-                        _this.donum = val.index;
-                        _this.wasnum  = val.wasnum;
                     });
                     bus.$on('changeindex',function(val){
                         _this.donum = val.index

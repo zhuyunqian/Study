@@ -8,33 +8,51 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <div id="app">
+    <template id="firstt">
         <div>
             <input type="text" @keyup.enter="add" v-model="text">
         </div>
+    </template>
+    <template id="firstcon">
         <div>
-            <p>正在进行</p>
-            <ul>
-                <li v-for="(item, index) in arr" :key='index' v-if='!arr.complete'>
-                    <input type="checkbox" @click = 'changecom(index)'>
-                    <span v-if='!item.edit'  @click = 'changspan(index)'>{{item.val}}</span>
-                    <input type="text" v-model='item.val' v-if='item.edit' v-select @blur='blur(index)'>
-                </li>
-            </ul>
+            <div class="content-con">
+                <con-tit>
+                    <p slot="tt">正在进行</p>
+                </con-tit>
+                <ul>
+                    <li v-for="(item, index) in arr" :key='index' v-if='!item.complete'>
+                        <input type="checkbox" @click = 'changecom(index)'>
+                        <span v-if='!item.edit'  @click = 'changspan(index)'>{{item.val}}</span>
+                        <input type="text" v-model='item.val' v-select="item.edit" @blur='val(index)'>
+                    </li>
+                </ul>
+                <con-tit>
+                    <p slot="tt">已经完成</p>
+                </con-tit>
+                <ul>
+                    <li v-for="(item, index) in arr" :key='index' v-if='item.complete'>
+                        <input type="checkbox" checked @click = 'changecom(index)'>
+                        <span v-if='!item.edit'>{{item.val}}</span>
+                    </li>
+                </ul>
+               
+            </div>
         </div>
+    </template>
+    <template id="contitile">
         <div>
-            <p>完成</p>
-            <ul>
-                <li v-for="(item, index) in arr" :key='index' v-if='arr.complete'>
-                    <input type="checkbox">
-                    <span>{{item.val}}</span>
-                </li>
-            </ul>
+            <solt name="tt"></solt>
         </div>
+    </template>
+    <div id="app">
+        <firstt></firstt>
+        <firstcon></firstcon>
     </div>
+    <div id="bus"></div>
 </body>
 </html>
 <script>
+
     var bus = new Vue({});
     var app = new Vue({
         el:'#app',
@@ -43,38 +61,82 @@
             text:'',
 
         },
-        directives:{
-            select:{
-                bind(){
-
+        components:{
+            'firstcon':{
+                data(){
+                    return{
+                        arr:[]
+                    }
                 },
-                update() {
+                components:{
+                    template:'#contitile'
+                },
+                template:'#firstcon',
+                methods:{
                     
+                    //点击修改input选中状态事件
+                    changecom(index){
+                        this.arr[index].complete = !this.arr[index].complete
+                    },
+                    //点击修改成为input事件
+                    changspan(index){
+                        this.arr[index].edit = !this.arr[index].edit
+                    },
+                    //失焦事件
+                    val(index){
+                        this.arr[index].edit = !this.arr[index].edit
+                    }
                 },
+                directives:{
+                    select:{
+                        //这里的el.select()方法 跟v-show冲突，浏览器无法识别谁先进行，所以v-show操作挪到自定义指令内
+                        bind(el,binding){
+                            //默认标签显示，会出现增加标签现象，所以先删除标签
+                            el.style.display='none'
+                        },
+                        update(el,binding){
+                            console.log(binding)
+                            if(binding.value && !binding.oldValue){
+                                el.style.display = ''
+                                el.select()
+                            }else if(!binding.value){
+                                el.style.display = 'none'
+                            }
+                            //这里的select是一个方法
+                            
+                        }
+                    }
+                },
+                created() {
+                    var _this = this;
+                    bus.$on('addArr',function(val){
+                        //console.log(val)
+                        _this.arr = val.array
+                    })
+                },
+               
+            },
+            'firstt':{
+                data() {
+                    return {
+                        text:'',
+                        arr:[]
+                    }
+                },
+                template:'#firstt',
+                methods:{
+                    add(){
+                        this.arr.push({val:this.text, complete:false, edit:false});
+                        this.text = ''
+                        //console.log(this.arr)
+                        bus.$emit('addArr',{
+                            array : this.arr,
+                        })
+                    },
+                },
+                
             }
-        },
-        methods: {
-            add(){
-                //console.log(this.text)
-                //获取输入内容并添加到数组中
-                this.arr.push({val:this.text,complete:false, edit:false});
-                //console.log(this.arr)
-                //清空输入框
-                this.text = ''
-            },
-            //点击修改input选中状态事件
-            changecom(index){
-                this.arr[index].complete = true
-            },
-            //点击修改成为input事件
-            changspan(index){
-                this.arr[index].edit = true
-            },
-            //失焦事件
-            blur(index){
-                this.arr[index].edit = false
-            }
-        },
+        }
     })
 </script>
 <style scoped>
