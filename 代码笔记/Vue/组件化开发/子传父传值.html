@@ -10,9 +10,19 @@
 <body>
     <!-- 
         子组件传值给父组件，通过自定义属性
-        1.触发自定义事件，this.$emit(自定义事件的名称，需要传递的参数1，。。。。)
-        2.在子标签上，绑定自定义事件,需要在对应的组件（父组件）内定义响应自定义事件的方法
-        绑定自定义事件注意用v-on
+        1. 子组件添加方法@click="send"， 触发方法
+        2. 触发自定义事件 定义事件和方法 $emit触发父亲组件的自定义事件
+        this.$emit('senddata',{
+            val :this.val,
+            num: 666
+        })
+        3. 绑定父亲组件的自定义事件以及响应方法
+        v-on:senddata="receive"
+        4. 触发自定义事件绑定的响应组件方法
+        receive(val){
+            this.val = val.val;
+            this.num = val.num
+        }
      -->
     <div id="app">
         <my-div1></my-div1>
