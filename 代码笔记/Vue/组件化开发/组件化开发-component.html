@@ -14,6 +14,9 @@
         <thr-ee></thr-ee>
         <my-div></my-div>
     </div>
+    <div id="app1">
+        <thr-ee></thr-ee>
+    </div>
 </body>
 </html>
 <template id="tem">
@@ -24,6 +27,7 @@
         <p>444</p>
     </div>
 </template>
+<!-- 组建模板 -->
 <template id="tem1">
     <div>
         <p>000</p>
@@ -32,7 +36,7 @@
     </div>
 </template>
 <script>
-    // 全局注册
+    // 全局注册组件
     Vue.component('FistOne',{
         template:'<a href="www.baidu.com">百度</a>'
     })
@@ -45,11 +49,15 @@
 
 var app = new Vue({
     el:'#app',
-    //局部注册
+    //局部注册组建
     components:{
         'MyDiv':{
             template:'#tem1'
         }
     }
+})
+var app = new Vue({
+    el:'#app1',
+    
 })
 </script>
