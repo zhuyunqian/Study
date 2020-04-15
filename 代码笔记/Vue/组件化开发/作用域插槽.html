@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>  
+    <!-- 
+        作用域插槽
+        slot标签内的值相当于组件，独立作用域 ，如下传值
+        
+        1.自定义属性绑定传输参数
+        <slot :curindex="123"></slot>
+        2.插槽接收传输参数  置入方法获取
+        slot-scope="scope"   @click="get(scope)"
+        3.得到
+        get(obj){
+            console.log(obj.curindex)
+        }
+
+
+     -->
+
+    <div id="app">
+        <my-table :myval="arr">
+            <button slot-scope="curindex" @click="get(curindex)">编辑</button>
+        </my-table>
+        <p>+++++++++++++++++++++++</p>
+        <my-table :myval="arr1">
+            <button>编辑</button>
+            <button>删除</button>
+        </my-table>
+    </div>
+</body>
+</html>
+<template id="myTable">
+    <div>
+        <table>
+           <thead>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <tr v-for="(item , index) in myval" :key="index">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                    <td>
+                        <slot :curindex = 'index'></slot>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+<script>
+var app = new Vue({
+    el:'#app',
+    data:{
+        arr:[
+            {name:'张三',age:20},
+            {name:'李四',age:10}
+        ],
+        arr1:[
+            {name:'张三',age:20},
+            {name:'李四',age:10}
+        ]
+
+    },
+    methods: {
+        get(obj){
+            console.log(obj.curindex)
+        }
+    },
+    components:{
+        'myTable':{
+            template:'#myTable',
+            props:{
+                myval:{
+                    type:Array,
+                    default:''
+                }
+            },
+        }
+    }
+})
+</script>
