@@ -8,6 +8,18 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+    <!-- 
+        组件内插值
+        <组件>
+            <p slot="p1"></p>
+            <p slot="p2"></p>
+        </组件>
+
+        <template>
+            <slot name="p1"></slot>
+            <slot name="p2"></slot>
+        </template>
+     -->
     <div id="app">
         <my-div><span slot="span">123</span> <p slot="p">66666</p> <h2 slot="h2">kkkkk</h2> <h3>yyyy</h3></my-div>
     </div>
