@@ -40,8 +40,8 @@ export default {
   filters:{}, // 过滤器
   computed: {}, //计算属性
 
-  // 生命周期 - 开始到结束
-  // 钩子函数 - 开始到结束的每个阶段
+  // 生命周期 - 开始到结束 - 分为4个阶段 - 创建、挂载 、更新、销毁
+  // 钩子函数 - 开始到结束的每个阶段-过程 - 四个阶段对应8个生命周期的钩子函数
   beforeCreate() {
     // 组件创建中，不能访问data methods 和 Dom节点
     console.log(this.val) // undefined
