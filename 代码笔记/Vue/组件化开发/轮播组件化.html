@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="app">
+        <!-- 接收父组件啥放啥，自定义属性定义的是接收数组形式 -->
         <my-div :imgs="imgs"></my-div>
         <my-div :imgs="imgs1"></my-div>
         <my-div :imgs="imgs2"></my-div>
@@ -35,14 +36,14 @@
             imgs:[
                 'https://img.alicdn.com/simba/img/TB1xf5_y7T2gK0jSZPcSuwKkpXa.jpg',
                 'https://img.alicdn.com/simba/img/TB1kLMDwQL0gK0jSZFtSutQCXXa.jpg',
+                'https://img.alicdn.com/tfs/TB1m_Svyy_1gK0jSZFqXXcpaXXa-520-280.png_q90_.webp',
+                'https://img.alicdn.com/simba/img/TB1AswNzkY2gK0jSZFgSuw5OFXa.jpg'
             ],
             imgs1:[
-                'https://img.alicdn.com/simba/img/TB1kLMDwQL0gK0jSZFtSutQCXXa.jpg',
                 'https://img.alicdn.com/tfs/TB1m_Svyy_1gK0jSZFqXXcpaXXa-520-280.png_q90_.webp',
                 'https://img.alicdn.com/simba/img/TB1AswNzkY2gK0jSZFgSuw5OFXa.jpg'
             ],
             imgs2:[
-                'https://img.alicdn.com/simba/img/TB1xf5_y7T2gK0jSZPcSuwKkpXa.jpg',
                 'https://img.alicdn.com/simba/img/TB1kLMDwQL0gK0jSZFtSutQCXXa.jpg',
                 'https://img.alicdn.com/tfs/TB1m_Svyy_1gK0jSZFqXXcpaXXa-520-280.png_q90_.webp',
                 'https://img.alicdn.com/simba/img/TB1AswNzkY2gK0jSZFgSuw5OFXa.jpg'
@@ -57,6 +58,7 @@
                     }
                 },
                 props:{
+                    //绑定自定义属性:imgs  -- 接收的数组为='imgs1 imgs imgs2'
                     imgs:{
                         type:Array,
                         default:[]
