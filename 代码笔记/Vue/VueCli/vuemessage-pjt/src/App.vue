@@ -33,12 +33,23 @@ export default {
   },
   data() { //数据
     return {
-      
+      val:'666'
     }
   },
   directives:{},  //自定义指令
   filters:{}, // 过滤器
   computed: {}, //计算属性
+
+  // 生命周期 - 开始到结束
+  // 钩子函数 - 开始到结束的每个阶段
+  beforeCreate() {
+    // 组件创建中，不能访问data methods 和 Dom节点
+    console.log(this.val) // undefined
+  },
+  created() {
+    // 组件创建后触发钩子函数 ，可以访问data 和methods方法  不能访问Dom节点
+    console.log(this.val) // 666
+  },
 
 }
 </script>
