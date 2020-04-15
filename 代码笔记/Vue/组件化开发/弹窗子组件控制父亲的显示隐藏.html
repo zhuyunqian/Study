@@ -10,7 +10,14 @@
 <body>
     <div id="app">
         <!-- :绑定变量值 = “常量/变量”  这里的v-on: 也可以 @-->
-        <my-div v-show="bool" @hide="recevie" :title ='title' :content='content' :btn1='btn1' :btn2='btn2'></my-div>
+        <my-div 
+            v-show="bool" 
+            @hide="recevie" 
+            :title ='title' 
+            :content='content' 
+            :btn1='btn1' 
+            :btn2='btn2'>
+        </my-div>
     </div>
 </body>
 </html>
@@ -44,7 +51,6 @@
         },
         components:{
             MyDiv:{
-            
                 props:{
                     title:{
                         type:String,
