@@ -15,12 +15,28 @@ export default {
   },
   data() {
     return {
-      text:'1233333'
+      text:'1233333',
+      timer:null
     }
   },
   components:{
     MyCom,
-  }
+  },
+  created() {
+    this.timer = setInterval(function(){
+      console.log(1)
+    },1000)
+  },
+  beforeDestroy() {
+    //组件销毁前
+    clearInterval(this.timer)
+    console.log('123')
+  },
+  // 销毁完成前会进行更新操作 -- beforeupdate  and update
+  destroyed() {
+    //组件销毁完成
+    console.log('123')
+  },
 }
 </script>
 

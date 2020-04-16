@@ -16,7 +16,11 @@
     <button @click="add">+1</button>
 
     <!-- 向子组件传值 绑定了自定义属性 -->
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" v-if="bool"/>
+    <!-- 准备切换组件，关闭组件的时候，销毁组件内的定时器 -->
+    <p><button @click="toggle">
+      切换
+    </button></p>
   </div>
 </template>
 
@@ -38,12 +42,16 @@ export default {
   data() { //数据
     return {
       val:'666',
-      count:1
+      count:1,
+      bool:true
     }
   },
   methods: {
     add(){
       this.count++;
+    },
+    toggle(){
+      this.bool = !this.bool
     }
   },
   directives:{},  //自定义指令
@@ -82,6 +90,7 @@ export default {
     console.log(this.count)  //data值 - 2
     console.log(document.getElementById('pinner').innerHTML)  // 界面值 - 2
   },
+  
 
 }
 </script>
