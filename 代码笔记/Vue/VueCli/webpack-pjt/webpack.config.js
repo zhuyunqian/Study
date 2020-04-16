@@ -37,5 +37,19 @@ module.exports = {
       //最终生成文件
       filename: 'index.html'
     })
-  ]
+  ],
+  //其他模块都引入这个module内
+  module: {
+      //规则
+    rules: [{
+        //后缀为.css的所有文件  -- 正则
+      test: /.css$/,
+      //使用模块/依赖 - 引入路径 ， css处理模块
+      use: ['style-loader', 'css-loader']
+
+      //css-loader - webpack把.css文件当成是模块去处理
+      //style-loader - 把js中的引入的css文件引入html文件
+      //处理顺序 【】 - 从右往左
+    }]
+  }
 }
