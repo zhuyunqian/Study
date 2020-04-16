@@ -1,0 +1,20 @@
+{ 
+    "presets":["env","stage-0"], 
+    "plugins":["transform-runtime"] 
+} 
+
+/*
+
+**babel-present-env** 仅仅包括 babel-present-2015 、2016、2017，不包括： 
+
+**babel-stage-x** ，也不包括 babel-polyfill 
+
+**babel-present-env** 仅仅转换 新版的语法 如：箭头函数，并不转换新版api 如：Array.include转换新版 
+
+api及抹平浏览器之间的差异（兼容ie）需要 babel-polyfill 
+
+**babel-polyfill** 会污染全局，比较暴力。而 `babel-plugin-transfrom-runtime` 是哪里需要就给 
+
+哪里转换。 
+
+*/

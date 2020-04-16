@@ -41,15 +41,37 @@ module.exports = {
   //其他模块都引入这个module内
   module: {
       //规则
-    rules: [{
-        //后缀为.css的所有文件  -- 正则
-      test: /.css$/,
-      //使用模块/依赖 - 引入路径 ， css处理模块
-      use: ['style-loader', 'css-loader']
+    rules: [
+        {
+            //后缀为.css的所有文件  -- 正则
+        test: /.css$/,
+        //使用模块/依赖 - 引入路径 ， css处理模块
+        use: ['style-loader', 'css-loader']
 
-      //css-loader - webpack把.css文件当成是模块去处理
-      //style-loader - 把js中的引入的css文件引入html文件
-      //处理顺序 【】 - 从右往左
-    }]
+        //css-loader - webpack把.css文件当成是模块去处理
+        //style-loader - 把js中的引入的css文件引入html文件
+        //处理顺序 【】 - 从右往左
+        },
+        {
+            test:/\.js/,
+            use:['babel-loader'],exclude:/node_modules/
+            /*
+                exclude -- 排除掉 node_modules下载的依赖项。
+                可以加速网站开发
+                只需要对我们的项目src源文件进行编译
+
+                写好模块规则
+                需要添加.babelrc文件，来设置需要转换成为的版本号
+                内容：
+                { 
+                    "presets":["env","stage-0"], 
+                    "plugins":["transform-runtime"] 
+                } 
+                然后就可以使用es6语法
+            */
+
+
+        } 
+    ]
   }
 }
