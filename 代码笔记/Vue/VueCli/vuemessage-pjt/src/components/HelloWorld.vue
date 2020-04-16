@@ -27,6 +27,19 @@ export default {
       console.log(1)
     },1000)
   },
+
+  // keepalive -- 包住标签触发
+  activated() {
+    //组件处于活跃状态
+    console.log('活跃')
+  },
+  deactivated() {
+    //组件处于不活跃状态
+    console.log('不活跃')
+  },
+  // keepalive -- 包住标签触发
+
+
   beforeDestroy() {
     //组件销毁前
     clearInterval(this.timer)

@@ -15,8 +15,19 @@
     <p id="pinner">{{count}}</p>
     <button @click="add">+1</button>
 
+    <!-- 
+      keep-alive
+      缓存组件
+      优点：缓存之前的状态，比如checkbox点击效果
+
+      keepa包住的组件会触发activated 和 deactivated 两个声明周期函数函数
+      
+     -->
+
     <!-- 向子组件传值 绑定了自定义属性 -->
-    <HelloWorld msg="Welcome to Your Vue.js App" v-if="bool"/>
+    <keep-alive>
+      <HelloWorld msg="Welcome to Your Vue.js App" v-if="bool"/>
+    </keep-alive>
     <!-- 准备切换组件，关闭组件的时候，销毁组件内的定时器 -->
     <p><button @click="toggle">
       切换
@@ -67,9 +78,11 @@ export default {
   },
   created() {
     // 组件创建后触发钩子函数 ，可以访问data 和methods方法  不能访问Dom节点
+    console.log('组件创建后')
     console.log(this.val) // 666
     console.log(document.getElementById('imgs'))  //null
   },
+
   beforeMount() {
     // 组件创建后，挂载前，已经编译，但是还没有挂载到页面上 未挂载到页面，访问不了节点
     console.log(this.val) //666
@@ -87,8 +100,8 @@ export default {
   },
   updated() {
     // 当页面值发生改变的时候触发， 更新界面后 ，data值已经更新，页面值也已经更新
-    console.log(this.count)  //data值 - 2
-    console.log(document.getElementById('pinner').innerHTML)  // 界面值 - 2
+    console.log('data值 -'+this.count)  //data值 - 2
+    console.log('界面值 -'+document.getElementById('pinner').innerHTML)  // 界面值 - 2
   },
   
 
