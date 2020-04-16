@@ -19,4 +19,31 @@
   </ul>
 </body>
 </html>
-<script src="./index.js"></script>
+<!-- 
+    引入js文件
+    <script src="./index.js"></script>
+    报错
+    Cannot use import statement outside a module
+
+    原因，不支持import，需要编译vue这些文件 ，这个时候用到了webpack打包工具
+
+    运行webpack打包
+    webpack index.js -o dist/bundle.js
+    报错
+    not found
+
+    原因：因为没有全局安装 -- 由于运行脚本不用依赖全局，所以要添加脚本运行在本项目下寻找webpack
+    package.json
+    "scripts": {
+        添加下面脚本
+        "start":"webpack index.js -o dist/bundle.js"
+    },
+
+    终端运行 npm run start
+
+    得到编译后的 dist/bundle.js文件
+    
+    index.html下引入编译文件即可
+
+ -->
+<script src="./dist/bundle.js"></script>
