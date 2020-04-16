@@ -10,7 +10,7 @@
    -->
 
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img id="imgs" alt="Vue logo" src="./assets/logo.png">
     <!-- 向子组件传值 绑定了自定义属性 -->
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -45,10 +45,22 @@ export default {
   beforeCreate() {
     // 组件创建中，不能访问data methods 和 Dom节点
     console.log(this.val) // undefined
+    console.log(document.getElementById('imgs'))
   },
   created() {
     // 组件创建后触发钩子函数 ，可以访问data 和methods方法  不能访问Dom节点
     console.log(this.val) // 666
+    console.log(document.getElementById('imgs'))  //null
+  },
+  beforeMount() {
+    // 组件创建后，挂载前，已经编译，但是还没有挂载到页面上 未挂载到页面，访问不了节点
+    console.log(this.val) //666
+    console.log(document.getElementById('imgs')) //null
+  },
+  mounted() {
+    // 已经编译挂载到页面上 , 可以访问到节点
+    console.log(this.val) //666
+    console.log(document.getElementById('imgs')) //img标签
   },
 
 }
