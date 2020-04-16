@@ -8,8 +8,17 @@ webpack.config.js -- webpack配置的地方
 
  */
 
+/*
+HtmlWebpackPlugin
+优化，路径引入，重新生成模板引入热更新的打包js文件，引入到index.html
+引入
+使用
+
+*/
+
 
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     //整个项目的入口文件  --  entry
@@ -20,5 +29,13 @@ module.exports = {
     path: path.join(__dirname, './dist'),
     //输出的文件名称
     filename: 'bundle.js'
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+        //路径加入index.html
+      template: path.join(__dirname, './index.html'),  //生成模板
+      //最终生成文件
+      filename: 'index.html'
+    })
+  ]
 }
