@@ -1,3 +1,3 @@
 import $ from 'jquery'
 $('ul li:even').css({background: 'pink'})
-$('ul li:odd').css({background: 'green'})
+$('ul li:odd').css({background: 'skyblue'})

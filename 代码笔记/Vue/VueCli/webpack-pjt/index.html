@@ -46,4 +46,21 @@
     index.html下引入编译文件即可
 
  -->
-<script src="./dist/bundle.js"></script>
+ 
+<!-- <script src="./dist/bundle.js"></script> -->
+
+<!-- 
+    安装热更新模块后， 需要重写脚本启动文件start
+
+    "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js --open --port 3002 --hot"
+  }
+    --open 自动打开浏览器
+    --port 服务监听的端口 3002
+    --hot  自动更新
+
+    热更新模块添加后，生成打包为内存内的bundle.js,需要重新引入js
+
+ -->
+
+ <script src="./bundle.js"></script>
