@@ -11,6 +11,10 @@
 
   <div id="app">
     <img id="imgs" alt="Vue logo" src="./assets/logo.png">
+
+    <p id="pinner">{{count}}</p>
+    <button @click="add">+1</button>
+
     <!-- 向子组件传值 绑定了自定义属性 -->
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -33,7 +37,13 @@ export default {
   },
   data() { //数据
     return {
-      val:'666'
+      val:'666',
+      count:1
+    }
+  },
+  methods: {
+    add(){
+      this.count++;
     }
   },
   directives:{},  //自定义指令
@@ -61,6 +71,16 @@ export default {
     // 已经编译挂载到页面上 , 可以访问到节点
     console.log(this.val) //666
     console.log(document.getElementById('imgs')) //img标签
+  },
+  beforeUpdate() {
+    // 当页面值发生改变的时候触发， 更新界面前 ，data值已经更新，页面值还没有更新
+    console.log(this.count)  //data值 - 2
+    console.log(document.getElementById('pinner').innerHTML)  // 界面值 - 1
+  },
+  updated() {
+    // 当页面值发生改变的时候触发， 更新界面后 ，data值已经更新，页面值也已经更新
+    console.log(this.count)  //data值 - 2
+    console.log(document.getElementById('pinner').innerHTML)  // 界面值 - 2
   },
 
 }
