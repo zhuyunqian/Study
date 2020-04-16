@@ -5,16 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "报错-not found -因为没有全局安装":"由于运行脚本不用依赖全局，所以在这里添加脚本运行打包",
-    "start-运行webpack某个脚本":"webpack index.js -o dist/bundle.js",
-    "start":"webpack --config webpack.config.js"
+    "报错-not found -因为没有全局安装": "由于运行脚本不用依赖全局，所以在这里添加脚本运行打包",
+    "start-运行webpack某个脚本": "webpack index.js -o dist/bundle.js",
+    "start": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "jquery": "^3.5.0"
