@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// 引入定义addnum
 import { ADDNUM } from './mutation-types.js'
 import moduleA from './module/moduleA.js'
 import moduleB from './module/moduleB.js'
@@ -21,8 +22,9 @@ export default new Vuex.Store({
   },
   //**作用更新state的值  只能写同步代码
   mutations: {
-    addNum(state,payload){
-    //[ADDNUM](state,payload){
+    //addNum(state,payload){
+      //由于这里是一个变量 - 需要加中括号
+    [ADDNUM](state,payload){
         //更新state的num值
       state.num += payload
     },

@@ -32,7 +32,9 @@ export default {
 
       //只能调用 mutation里的方法 -- 如果需要更新state的值
       //根据封装方法，传入方法名称和参数
-      this.$store.commit(addNum,count)
+      //注意这里的方法需要加单引号''
+      //this.$store.commit('addNum',count)
+      this.$store.commit(ADDNUM,count)
       //调用 action
       //this.$store.dispatch(ADDNUM,count)
     }
