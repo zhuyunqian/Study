@@ -24,8 +24,8 @@ export default {
   created() {
     console.log(this.$router);
     const query = this.$router.query;
-    this.a = query.a;
-    this.b = query.b;
+    
+   
   },
 }
 </script>

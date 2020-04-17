@@ -1,5 +1,5 @@
 import Vue from 'vue'
-// import App from './App.vue'
+import App from './App.vue'
 import Jd from './Jd.vue'
 import router from './router'
 import store from './store'

@@ -4,10 +4,15 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+// 路由配置表
 const routes = [
   {
+    //组件对应路径
+    //路径
     path: '/',
+    //名称
     name: 'Home',
+    //组件
     component: Home
   },
   {
@@ -18,9 +23,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    //es6箭头函数 == function(){return import '../views/About.vue'}  == 返回一个引入语法
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
