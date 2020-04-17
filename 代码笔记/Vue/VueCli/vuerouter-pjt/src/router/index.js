@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Three from '../views/Three.vue'
 
+//Vue.use(VueRouter) == 调用VueRouter里面的install方法
+//install方法 主要做了 两件事情 绑定了== 
+//1. Vue.prototype.$router  - 整个项目的路由对象
+//2. Vue.prototype.$route - 当前活跃的路由对象
+//注册vuerouter
 Vue.use(VueRouter)
 
 // 路由配置表
@@ -19,7 +25,7 @@ const routes = [
   {
     path: '/three',
     name: 'Three',
-    component: () => import('../views/Three.vue')
+    component: Three
   },
   {
     path: '/about',
@@ -28,11 +34,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
-
+//实力化并配置路由
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+  //路由两种形式  --- history and hash（#/）
+  mode: 'history', 
+  //基础路径url
+  base: process.env.BASE_URL,  
+  //routes:routes 指向路由配置表
   routes
 })
 
+//导出router模块（默认）
 export default router
+
+// 路由配置步骤
+/*
+1 - 引入相关模块
+2 - 注册使用模块
+3 - 实力化陪配置路由
+4 - 导出暴露配置
+
+*/
