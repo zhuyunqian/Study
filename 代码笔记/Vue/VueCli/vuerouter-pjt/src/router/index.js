@@ -16,27 +16,35 @@ const routes = [
   //   path:'/home',
   //   component:Jdhome,
   // },
+  //  嵌套关系路由
   {
-    path:'/jdhome',
-    component:()=>import('../views/Jdhome.vue'),
+    path:'/',
+    component:Jdhome,
+    children:[
+      {
+        path:'/jdhome',
+        component:()=>import('../views/Jdhome.vue'),
+      },
+      {
+        path:'/fenlei',
+        component:()=>import('../views/Jd1.vue'),
+      },
+      {
+        path:'/gwc',
+        component:()=>import('../views/Jd2.vue'),
+      },
+      {
+        path:'/my',
+        component:()=>import('../views/Jd3.vue'),
+      }
+    ]
   },
+  
   {
     //:冒号代表这里的路径是动态变化的 pid为变量
     path:'/product/:pid', 
     component:()=>import('../views/Product.vue'),
   },
-  {
-    path:'/fenlei',
-    component:()=>import('../views/Jd1.vue'),
-  },
-  {
-    path:'/gwc',
-    component:()=>import('../views/Jd2.vue'),
-  },
-  {
-    path:'/my',
-    component:()=>import('../views/Jd3.vue'),
-  }
 
 ]
 

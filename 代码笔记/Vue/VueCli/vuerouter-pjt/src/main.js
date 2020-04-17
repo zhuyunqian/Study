@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 //引入jdvue
 import Jd from './Jd.vue'
+import Jdindex from './Jdindex.vue'
 import router from './router'
 import store from './store'
 
@@ -12,6 +13,6 @@ new Vue({
   //这里相当于把他挂载到实力化上面了
   router,
   store,
-  render: h => h(Jd)
+  render: h => h(Jdindex)
 }).$mount('#app')
 //替换挂载的节点 -- 这里的#app -- public-indexhtml上的#app节点

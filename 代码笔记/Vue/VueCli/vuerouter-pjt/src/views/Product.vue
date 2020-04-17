@@ -1,5 +1,6 @@
 <template>
   <div>
+      <button @click="back">返回</button>
       {{num}}
   </div>
 </template>
@@ -9,6 +10,12 @@ export default {
     data() {
         return {
             num : ''
+        }
+    },
+    methods: {
+        //返回上一级页面
+        back(){
+            this.$router.go(-1)
         }
     },
     created() {
