@@ -39,7 +39,7 @@ export default new Vuex.Store({
       })
     }
   },
-  //异步语法
+  //异步语法 -- 写在actions里面（经常写网络请求）
   actions: {
     [ADDNUM](context,payload){
       console.log(context)
