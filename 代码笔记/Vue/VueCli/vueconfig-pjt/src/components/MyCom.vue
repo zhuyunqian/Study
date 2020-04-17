@@ -60,17 +60,18 @@ export default {
       vue.config.js(通过代理去发送请求)
     
     */
+
     axios.get(
       "/api/ad/exposure",
       {
         param:{
           sign:'0d9ab6714e4ec11a0cf9cd48c6c629d7',
-          adsdk:RduC4hUF-'Svous28j0Cc3v_e9VtzSecgbyHyZGD06ooDXNXrLDRUMGkOHtp5MUWy6EM7pVi8YkAuAmumKooi8A'
+          adsdk:'RduC4hUF-Svous28j0Cc3v_e9VtzSecgbyHyZGD06ooDXNXrLDRUMGkOHtp5MUWy6EM7pVi8YkAuAmumKooi8A'
         }
       }
       )
     .then(function(res){
-
+      console.log(res)
     })
   },
 }
