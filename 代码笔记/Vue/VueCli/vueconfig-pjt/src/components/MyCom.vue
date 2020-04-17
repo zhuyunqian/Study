@@ -2,6 +2,8 @@
   <div class="hello">
     <h1>{{ count }}</h1>
     <button @click="add">+1</button>
+    <p>{{num}}</p>
+    <button @click="min">-1</button>
   </div>
 </template>
 
