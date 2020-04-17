@@ -21,5 +21,16 @@ module.exports={
     //作用：修改资源路径的前缀目录
     //publicPath:'/app/'
     //三元表达式 - 生产环境和开发环境下的签注目录
-    publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+
+    //配置代理
+    proxy:{
+        //代理规则-正则 -- 匹配所有/api的请求
+        '^/api':{
+            //目标地址
+            target:'https://adx.36kr.com'
+        }
+    }
+
+
 }

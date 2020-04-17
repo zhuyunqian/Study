@@ -44,6 +44,25 @@ export default {
 
     //200 -- 成功
     //404 -- 找不到对应的资源（服务器问题大概率）
+
+
+    // 跨域问题--axios  --:443
+    /*
+      比较两者：发送请求和当前服务
+      协议：https 
+      域名：36kr.com
+      端口：看不见：默认https端口:443 http：80
+      3个其中不一样，就会出现跨域
+
+      cnode可以跨域  --  服务器允许跨域
+
+      vue-cli(开发环境下解决跨域问题)
+      vue.config.js(通过代理去发送请求)
+    
+    */
+    axios.get("/api/ad/exposure?sign=0d9ab6714e4ec11a0cf9cd48c6c629d7&param.adsdk=RduC4hUF-Svous28j0Cc3v_e9VtzSecgbyHyZGD06ooDXNXrLDRUMGkOHtp5MUWy6EM7pVi8YkAuAmumKooi8A",function(res){
+      console.log(res)
+    })
   },
 }
 </script>
