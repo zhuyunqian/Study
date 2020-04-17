@@ -22,8 +22,11 @@ export default {
     HelloWorld
   },
   created() {
-    console.log(this.$router);
-    const query = this.$router.query;
+    
+    //路由活跃对象获取链接传参
+    const query = this.$route.query;
+    this.a =query.a;
+    this.b =query.b;
     
    
   },

@@ -44,7 +44,12 @@ export default {
   methods : {
     jumphome(){
       // js通过整个项目的路由对象进行跳转
-      this.$router.push('/')
+      /*
+        push-添加 -返回上一页 -返回到上一页
+        replace-替换 -返回上一页 - 返回到上上一页
+      */
+      this.$router.push('/?a=10&b=100') 
+      //this.$router.replace('/')
     }
   }
 }
