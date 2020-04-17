@@ -83,6 +83,28 @@ const router = new VueRouter({
   routes
 })
 
+// 导航守卫
+// 监听路由的进入和离开的；
+// vue-router
+// beforeEach和afterEach的钩子函数，在路由即将改变前和改变后触发
+router.beforeEach((to,from,next)=>{
+  /*
+  1. to: 即将要进入的目标路由对象 -- 去哪里
+  2. from: 当前导航即将要离开的路由对象 -- 从哪来
+  3. next: 调用该方法后，才能进入下一个钩子函数  -- next（）如果传输参数会进入两次路由守卫 -- 遇到不穿参数跳出
+  
+  */
+ console.log('路由守卫')
+ console.log(to)
+ console.log(from)
+
+  if(to.path == '/my'){
+    return next('/gwc')
+  }
+  next(); //跳出路由守卫
+})
+
+
 //导出router模块（默认）
 export default router
 
