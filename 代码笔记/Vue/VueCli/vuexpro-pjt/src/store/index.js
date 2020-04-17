@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // 引入定义addnum
 import { ADDNUM } from './mutation-types.js'
+// 引入模块
 import moduleA from './module/moduleA.js'
 import moduleB from './module/moduleB.js'
 
@@ -48,8 +49,9 @@ export default new Vuex.Store({
       },500)
     }
   },
-  //根据状态进行分类，划分模块
+  //根据状态进行分类，划分模块，模块化管理状态
   modules: {
+    //模块定义指向
     moduleA,
     moduleB
   }
