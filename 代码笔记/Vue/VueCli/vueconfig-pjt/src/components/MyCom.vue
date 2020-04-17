@@ -25,7 +25,16 @@ export default {
     var _this = this
 
     //异步请求 -- 数据返回时间取决于 - 网络和数据反应
-    axios.get("https://cnodejs.org/api/v1/topics").then(function(res){
+    axios.get(
+      "https://cnodejs.org/api/v1/topics",
+      {
+        params:{
+          limit:10,
+          page:1
+        }
+      }
+      
+      ).then(function(res){
       //返回的结果res 是经过axios封装的，而服务器返回的数据存在res.data中
       //console.log(res.data.data)
       if(res.data.success){
