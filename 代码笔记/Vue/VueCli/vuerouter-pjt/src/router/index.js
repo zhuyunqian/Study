@@ -103,6 +103,13 @@ router.beforeEach((to,from,next)=>{
   }
   next(); //跳出路由守卫
 })
+/*
+扩展
+1. afterEach, 不需要主动调用next()函数
+2. beforeEach被称之为全局守卫
+   1. 路由独享的守卫
+   2. 组件内的守卫
+*/
 
 
 //导出router模块（默认）
