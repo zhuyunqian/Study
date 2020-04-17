@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <!-- 使用公共num -->
     <p>{{num}}</p>
     <p><button @click="add(1)">点击+1</button></p>
     <p><button @click="add(10)">点击+10</button></p>
@@ -30,16 +31,16 @@ export default {
     }
   },
   computed: {
-    //方法1
-    // num(){
-    //   return this.$store.state.num
-    // }
+    //方法1 - 返回 调用vuex.num值
+    num(){
+      return this.$store.state.num
+    }
     //方法2
-    ...mapState(['num']),
-    ...mapGetters(['showGoods']),
-    ...mapState({
-      boxnum: state => state.moduleA.boxnum
-    })
+    // ...mapState(['num']),
+    // ...mapGetters(['showGoods']),
+    // ...mapState({
+    //   boxnum: state => state.moduleA.boxnum
+    //})
 
     // ... -- es6语法  -- 去掉{} 和 []
     // [...[1,2,3],2,...[2,3,4]] == [1,2,3,2,2,3,4]

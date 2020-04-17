@@ -9,7 +9,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    num:4,
+    // 添加共享状态
+    num:10,
     goods:[
       {id:1,name:'连衣裙',isShow:true},
       {id:2,name:'裤子',isShow:false},
