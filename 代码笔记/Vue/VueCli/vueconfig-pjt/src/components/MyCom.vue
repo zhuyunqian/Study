@@ -9,9 +9,16 @@
 
 <script>
 import add from '../mixin/add.js'
+//引入依赖 axios
+import axios from 'axios'
 
 export default {
-  mixins:[add]
+  mixins:[add],
+  created() {
+    axios.get("https://cnodejs.org/api/v1/topics").then(function(res){
+      console.log(res)
+    })
+  },
 }
 </script>
 
