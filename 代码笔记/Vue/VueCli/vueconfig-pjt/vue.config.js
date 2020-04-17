@@ -21,5 +21,5 @@ module.exports={
     //作用：修改资源路径的前缀目录
     //publicPath:'/app/'
     //三元表达式 - 生产环境和开发环境下的签注目录
-    publicPath: process.env.NODE_ENV === 'production' ? '/my-app/' : '/'
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
 }
