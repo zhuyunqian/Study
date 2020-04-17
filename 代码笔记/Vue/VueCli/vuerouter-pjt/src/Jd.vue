@@ -3,10 +3,10 @@
       <router-view></router-view>
       <footer class="footer">
           <ul>
-              <li >首页</li>
-              <li >分类</li>
-              <li >购物车</li>
-              <li >我的</li>
+              <li @click="jumpsy">首页</li>
+              <li @click="jumpfl">分类</li>
+              <li @click="jumpgwc">购物车</li>
+              <li @click="jumpmy">我的</li>
           </ul>
       </footer>
   </div>
@@ -15,7 +15,19 @@
 <script>
 export default {
     methods: {
-        
+        // 注意这里的$千万别忘掉
+        jumpsy(){
+            this.$router.push('/jdhome')
+        },
+        jumpfl(){
+            this.$router.push('/fenlei')
+        },
+        jumpgwc(){
+            this.$router.push('/gwc')
+        },
+        jumpmy(){
+            this.$router.push('/my')
+        },
     },
 }
 </script>
