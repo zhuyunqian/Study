@@ -21,6 +21,11 @@ const routes = [
     component:()=>import('../views/Jdhome.vue'),
   },
   {
+    //:冒号代表这里的路径是动态变化的 pid为变量
+    path:'/product/:pid', 
+    component:()=>import('../views/Product.vue'),
+  },
+  {
     path:'/fenlei',
     component:()=>import('../views/Jd1.vue'),
   },
