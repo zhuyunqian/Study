@@ -20,8 +20,8 @@ export default new Vuex.Store({
   },
   //作用更新state的值  只能写同步代码
   mutations: {
-    //addNum(state,payload){
-    [ADDNUM](state,payload){
+    addNum(state,payload){
+    //[ADDNUM](state,payload){
         //更新state的num值
       state.num += payload
     },

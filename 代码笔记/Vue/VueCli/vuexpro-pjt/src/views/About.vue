@@ -24,10 +24,14 @@ export default {
   },
   methods: {
     add(count){
-      //调用 mutation
-      //this.$store.commit(ADDNUM,count)
+      //this.$store.state.num++;
+      //功能可以实现但是 - dev插件 并不显示每次调用
+
+      //只能调用 mutation里的方法 -- 如果需要更新state的值
+      //根据封装方法，传入方法名称和参数
+      this.$store.commit(addNum,count)
       //调用 action
-      this.$store.dispatch(ADDNUM,count)
+      //this.$store.dispatch(ADDNUM,count)
     }
   },
   computed: {
