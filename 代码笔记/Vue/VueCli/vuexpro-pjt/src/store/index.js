@@ -11,14 +11,15 @@ export default new Vuex.Store({
   state: {
     // 添加共享状态
     num:10,
+    //需要处理返回的数据
     goods:[
-      {id:1,name:'连衣裙',isShow:true},
-      {id:2,name:'裤子',isShow:false},
-      {id:3,name:'袜子',isShow:false},
-      {id:4,name:'鞋子',isShow:true},
-      ]      
+        {id:1,name:'连衣裙',isShow:true},
+        {id:2,name:'裤子',isShow:false},
+        {id:3,name:'袜子',isShow:false},
+        {id:4,name:'鞋子',isShow:true},
+    ]      
   },
-  //作用更新state的值  只能写同步代码
+  //**作用更新state的值  只能写同步代码
   mutations: {
     addNum(state,payload){
     //[ADDNUM](state,payload){
@@ -26,9 +27,11 @@ export default new Vuex.Store({
       state.num += payload
     },
   },
-  //对数据进行再加工
+  //对状态进行再加工，处理state返回给组件使用
   getters:{
+    //处理数据
     showGoods(state){
+      //返回数据
       return state.goods.filter(function(good){
         return good.isShow
       })
