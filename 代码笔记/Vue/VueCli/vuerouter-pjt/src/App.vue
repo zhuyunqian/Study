@@ -7,8 +7,12 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/three">Three</router-link> |
-      <button @click="jump">点击跳转</button>
+      <button @click="jumphome">点击跳转</button>
     </div>
+    <!-- 
+      router-view 
+      页面家在位置
+     -->
     <router-view/>
   </div>
 </template>
@@ -38,8 +42,9 @@
 <script>
 export default {
   methods : {
-    jump(){
-      this.$router.push('/?a=1&b=2')
+    jumphome(){
+      // js通过整个项目的路由对象进行跳转
+      this.$router.push('/')
     }
   }
 }
