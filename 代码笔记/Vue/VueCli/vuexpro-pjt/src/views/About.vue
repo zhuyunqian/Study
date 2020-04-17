@@ -13,6 +13,7 @@
 </template>
 
 <script>
+//引入vuex导出的mapState方法，用来调取共享状态
 import {mapState ,mapGetters} from "vuex"
 import { ADDNUM } from '../store/mutation-types.js'
 export default {
@@ -36,11 +37,12 @@ export default {
   },
   computed: {
     //方法1 - 返回 调用vuex.num值
-    num(){
-      return this.$store.state.num
-    }
+    // num(){
+    //   return this.$store.state.num
+    // }
     //方法2
-    // ...mapState(['num']),
+    // ... - 去掉括号 - ...mapState(['num']) == ...{num(){return this.$store.state.num}} == 方法1
+    ...mapState(['num']),
     // ...mapGetters(['showGoods']),
     // ...mapState({
     //   boxnum: state => state.moduleA.boxnum
