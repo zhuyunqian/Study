@@ -4,7 +4,7 @@ import { ADDNUM } from './mutation-types.js'
 import moduleA from './module/moduleA.js'
 import moduleB from './module/moduleB.js'
 
-//触发 vuex.install方法  Vue.prototype.$store
+//触发 vuex.install方法  Vue.prototype.$store事件
 Vue.use(Vuex)
 
 export default new Vuex.Store({
