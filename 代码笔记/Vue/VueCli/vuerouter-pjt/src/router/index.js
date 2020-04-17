@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Three from '../views/Three.vue'
+import Jdhome from '../Jd.vue'
 
 //Vue.use(VueRouter) == 调用VueRouter里面的install方法
 //install方法 主要做了 两件事情 绑定了== 
@@ -10,30 +11,55 @@ import Three from '../views/Three.vue'
 //注册vuerouter
 Vue.use(VueRouter)
 
-// 路由配置表
 const routes = [
+  // {
+  //   path:'/home',
+  //   component:Jdhome,
+  // },
   {
-    //组件对应路径
-    //路径
-    path: '/',
-    //名称
-    name: 'Home',
-    //组件
-    component: Home
-  },
-  // 增加组件及跳转
-  {
-    path: '/three',
-    name: 'Three',
-    component: Three
+    path:'/jdhome',
+    component:()=>import('../views/Jdhome.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    //es6箭头函数 == function(){return import '../views/About.vue'}  == 返回一个引入语法
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path:'/fenlei',
+    component:()=>import('../views/Jd1.vue'),
+  },
+  {
+    path:'/gwc',
+    component:()=>import('../views/Jd2.vue'),
+  },
+  {
+    path:'/my',
+    component:()=>import('../views/Jd3.vue'),
   }
+
 ]
+
+// 路由配置表
+// const routes = [
+//   {
+//     //组件对应路径
+//     //路径
+//     path: '/',
+//     //名称
+//     name: 'Home',
+//     //组件
+//     component: Home
+//   },
+//   // 增加组件及跳转
+//   {
+//     path: '/three',
+//     name: 'Three',
+//     component: Three
+//   },
+//   {
+//     path: '/about',
+//     name: 'About',
+//     //es6箭头函数 == function(){return import '../views/About.vue'}  == 返回一个引入语法
+//     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+//   }
+// ]
+
 //实力化并配置路由
 const router = new VueRouter({
   //路由两种形式  --- history and hash（#/）
