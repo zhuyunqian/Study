@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- 
+        router-link标签相当于html中的a标签勇于跳转页面
+       -->
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/Me">Me</router-link> |
+      <router-link to="/three">Three</router-link> |
       <button @click="jump">点击跳转</button>
     </div>
     <router-view/>

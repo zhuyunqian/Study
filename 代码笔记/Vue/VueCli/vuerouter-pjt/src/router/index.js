@@ -15,10 +15,11 @@ const routes = [
     //组件
     component: Home
   },
+  // 增加组件及跳转
   {
-    path: '/me',
-    name: 'Me',
-    component: () => import('../views/Me.vue')
+    path: '/three',
+    name: 'Three',
+    component: () => import('../views/Three.vue')
   },
   {
     path: '/about',
