@@ -1,6 +1,16 @@
 <template>
   <div class="app" id="app">
-      <router-view></router-view>
+      <!-- 
+          keep-alive 缓存组件 router-view包含的
+          两个属性
+          1. 缓存组件  -- include
+          2. 不缓存组件  --  exclude="myjdhome"
+
+          注意--"myjdhome" -- 是组件的name值，如果指定，需要添加name名字
+       -->
+      <keep-alive exclude="mygwc">
+        <router-view></router-view>
+      </keep-alive>
       <footer class="footer">
           <ul>
               <li @click="jumpsy">首页</li>
