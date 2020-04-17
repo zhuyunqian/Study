@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Three from '../views/Three.vue'
 import Jdhome from '../Jd.vue'
-
+const JDhoome = ()=>import('../views/Jdhome.vue')
 //Vue.use(VueRouter) == 调用VueRouter里面的install方法
 //install方法 主要做了 两件事情 绑定了== 
 //1. Vue.prototype.$router  - 整个项目的路由对象
@@ -23,7 +23,15 @@ const routes = [
     children:[
       {
         path:'/jdhome',
-        component:()=>import('../views/Jdhome.vue'),
+        component: JDhoome,
+        /*
+          懒加载 - const Jdhome = ()=>import('../views/Jdhome.vue') -
+          路由懒加载就是将路由对应的组件打包成一个个的js代码块
+
+          1. 加载文件相对较小，提高我们的网页加载速度
+          2. const定义是不可修改的值
+          3. 缺点：大型项目（编译打包会慢）
+        */
       },
       {
         path:'/fenlei',
