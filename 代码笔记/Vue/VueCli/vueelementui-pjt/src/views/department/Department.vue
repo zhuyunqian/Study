@@ -12,6 +12,17 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage"
+      :page-sizes="[5, 10, 15, 20]"
+      :page-size="10"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+      class="page"
+      >
+    </el-pagination>
   </div>
 </template>
 
@@ -23,17 +34,31 @@ export default {
   data() {
     return {
       tableData: [],
-      token: localStorage.getItem("token")
+      token: localStorage.getItem("token"),
+      currentPage:1,
+      pageSize:10,
+      total:0
     };
   },
-  created() {
-    var _this = this;
-    // 进入页面进行请求，获取列表数据
-    axios
+  methods: {
+    // 每页条数 - 方法
+    handleSizeChange(size){
+      console.log(size)
+      this.pageSize = size;
+      this.fetchData();
+    },
+    // 页面改变 - 方法 都要进行axios ，所以封装axios请求
+    handleCurrentChange(page){
+      console.log(page)
+      this.currentPage = page
+      this.fetchData()
+    },
+    fetchData(){
+      axios
       .get("/departments", {
         params: {
-          currentPage: 1,
-          pageSize: 10,
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
           token: this.token
         }
       })
@@ -41,11 +66,22 @@ export default {
         res =>
           //console.log(res)
           // 接收数据 赋值给 tabledata
-          (_this.tableData = res.data.data.list)
-      );
+          {
+            this.tableData = res.data.data.list
+            this.total = res.data.data.total
+          }
+      )
+    }
+  },
+  created() {
+    // 进入页面进行请求，获取列表数据
+    this.fetchData();
   }
 };
 </script>
 
-<style>
+<style lang="less" scoped>
+.page{
+  margin:20px auto 40px;
+}
 </style>

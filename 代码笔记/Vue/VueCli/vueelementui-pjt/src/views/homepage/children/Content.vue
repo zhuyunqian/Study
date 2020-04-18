@@ -21,6 +21,9 @@ export default {
         top:70px;
         right:0;
         bottom:0;
-        background:skyblue;
+        overflow: auto;
+    }
+    .home-content::-webkit-scrollbar{
+        width:0;
     }
 </style>
