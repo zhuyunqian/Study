@@ -1,16 +1,20 @@
 <template>
   <div class=login-wrap>
+      <!-- :rules="rules" 验证规则 -->
         <el-form 
         :model="ruleForm" 
         status-icon 
         :rules="rules" 
         ref="ruleForm" 
         class="login-form">
-            <el-form-item prop="pass">
-                <el-input type="text" v-model="ruleForm.pass" autocomplete="off"></el-input>
+            <h3 class="login-title">管理后台</h3>
+            <!--  prop="pass" 验证name -->
+            <el-form-item prop="username">
+                <!-- v-model="ruleForm.username" 注意绑定的数值为更改后的prop-name，用于再验证，书写后验证 -->
+                <el-input type="text" v-model="ruleForm.username" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item prop="checkPass">
-                <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+            <el-form-item prop="checkpwd">
+                <el-input type="password" v-model="ruleForm.checkpwd" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button class="login-btn" type="primary" @click="submitForm('ruleForm')">登陆</el-button>
@@ -24,9 +28,36 @@ export default {
     data() {
         return {
             ruleForm:{},
-            rules:{}
+            rules:{
+                // 设置验证规则
+                username:[
+                    /*
+                        required:true,  = 必填
+                        message:'请输入用户名',  =  信息提示
+                        trigger:'blur' = 事件
+                    */
+                    
+                    {required:true, message:'请输入用户名',trigger:'blur'},
+                    {min:3,max:10, message:'长度3-10',trigger:'blur'},
+                ],
+                checkpwd:[
+                    {validator:this.validPwd, trigger:'blur'},
+                ]
+
+            }
         }
     },
+    methods: {
+        validPwd(rule, value, callback){
+            //这里的判断条件 == ‘’ 获取不到该条件
+            if (value == undefined) {
+                callback(new Error('请输入密码'));
+            } else{
+                callback();
+            }
+        },
+    },
+    
 }
 </script>
 
@@ -44,6 +75,13 @@ export default {
 
         width:400px;
         height:280px;
+
+        .login-title{
+            color:#fff;
+            text-align: center ;
+            font-size:24px;
+            margin:0 0 20px 0;
+        }
 
         .login-btn{
             width:100%;
