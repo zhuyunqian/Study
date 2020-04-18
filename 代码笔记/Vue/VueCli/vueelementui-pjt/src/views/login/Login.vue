@@ -7,6 +7,8 @@
         :rules="rules" 
         ref="ruleForm" 
         class="login-form">
+        <!-- ref相当于一个标记， 获取dom this.$refs.ruleForm(ref="ruleForm")-->
+
             <h3 class="login-title">管理后台</h3>
             <!--  prop="pass" 验证name -->
             <el-form-item prop="username">
@@ -17,7 +19,7 @@
                 <el-input type="password" v-model="ruleForm.checkpwd" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button class="login-btn" type="primary" @click="submitForm('ruleForm')">登陆</el-button>
+                <el-button class="login-btn" type="primary" @click="loginFn()">登陆</el-button>
             </el-form-item>
         </el-form>
   </div>
@@ -56,6 +58,16 @@ export default {
                 callback();
             }
         },
+
+        // 登陆判断是否成功
+        loginFn(){
+            // 这里调用validate，方法是想判断之前的判断是否成功，错误，进行下一步所以，之前的判断建议都用 validator书写
+            console.log(this.$refs.ruleForm.validate)
+            this.$refs.ruleForm.validate((vali)=>{
+                console.log(vali) // false
+                
+            })
+        }
     },
     
 }
