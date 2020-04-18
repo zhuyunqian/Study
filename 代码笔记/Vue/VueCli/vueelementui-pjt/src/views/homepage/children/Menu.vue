@@ -12,7 +12,7 @@
                 text-color="#fff"
                 active-text-color="#20a0ff"
                 :router="true"
-                unique-opened="true"
+                :unique-opened="true"
                 :collapse="collapse"
                 >
                 
