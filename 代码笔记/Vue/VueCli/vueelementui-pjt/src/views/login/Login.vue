@@ -1,18 +1,19 @@
 <template>
   <div class=login-wrap>
-        <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-            <el-form-item label="密码" prop="pass">
-                <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+        <el-form 
+        :model="ruleForm" 
+        status-icon 
+        :rules="rules" 
+        ref="ruleForm" 
+        class="login-form">
+            <el-form-item prop="pass">
+                <el-input type="text" v-model="ruleForm.pass" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="确认密码" prop="checkPass">
+            <el-form-item prop="checkPass">
                 <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="年龄" prop="age">
-                <el-input v-model.number="ruleForm.age"></el-input>
-            </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button class="login-btn" type="primary" @click="submitForm('ruleForm')">登陆</el-button>
             </el-form-item>
         </el-form>
   </div>
@@ -29,6 +30,26 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+/* scoped -- 当前组件渲染 ，不渲染其他组件 */
+.login-wrap{
+    background:#324057;
+    height:100%;
+
+    // display-flex 居中样式 横轴和纵轴居中
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    .login-form{
+
+        width:400px;
+        height:280px;
+
+        .login-btn{
+            width:100%;
+        }
+        
+    }
+}
 
 </style>

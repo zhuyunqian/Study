@@ -16,12 +16,12 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/*
+引入去除公共样式文件渲染
+注意这里的引入位置为app.vue-所有页面添加
+*/
+@import './assets/styles/base.less';
+#app{
+  height:100%;
 }
 </style>
