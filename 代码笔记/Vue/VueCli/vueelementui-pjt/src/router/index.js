@@ -9,6 +9,11 @@ Vue.use(VueRouter)
     name: 'Login',
     component: ()=>import('../views/login/Login.vue')
   },
+  {
+    path: '/home',
+    name: 'Homepage',
+    component: ()=>import('../views/homepage/Homepage.vue')
+  },
 ]
 
 const router = new VueRouter({
