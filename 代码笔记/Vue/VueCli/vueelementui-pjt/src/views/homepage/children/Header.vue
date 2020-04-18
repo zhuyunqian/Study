@@ -1,7 +1,7 @@
 <template>
   <section class="home-header">
           <h3>管理后台</h3>
-          <i class="el-icon-menu"></i>
+          <i class="el-icon-menu" @click="collapse"></i>
             <el-dropdown class="header-dropdown">
                 <span class="el-dropdown-link">
                     下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
@@ -15,7 +15,11 @@
 
 <script>
 export default {
-
+    methods: {
+        collapse(){
+            this.$store.commit('collapseChange')
+        }
+    },
 }
 </script>
 

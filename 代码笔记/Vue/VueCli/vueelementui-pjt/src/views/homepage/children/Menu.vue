@@ -13,6 +13,7 @@
                 active-text-color="#20a0ff"
                 :router="true"
                 unique-opened="true"
+                :collapse="collapse"
                 >
                 
                 <!-- v-for循环 -->
@@ -46,6 +47,10 @@ export default {
     computed: {
         activeRoute(){
             return this.$route.path
+        },
+        // 计算属性获取 - vuex的共享状态 
+        collapse(){
+            return this.$store.state.collapse
         }
     },
 }
@@ -56,8 +61,20 @@ export default {
         position: absolute;
         left:0;
         top:70px;
-        width:250px;
         bottom:0;
         // 这里可以让占满屏幕
+
+        //添加滚动条
+        overflow:auto;
     }
+    // 隐藏滚动条
+    .home-menu::-webkit-scrollbar{
+        width:0;
+    }
+
+    // 折叠菜单这里是重点css判断没有某个类名的情况下
+    .home-menu:not(.el-menu--collapse){
+        width:250px;
+    }
+
 </style>
