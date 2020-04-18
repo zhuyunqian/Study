@@ -29,6 +29,9 @@
 // 安装依赖 ， 引入依赖
 import axios from 'axios'
 
+// 引入转换模块
+import qs from 'qs'
+
 export default {
     data() {
         return {
@@ -76,11 +79,13 @@ export default {
                     // 定义 传输参数
                     const params = {
                         username:this.ruleForm.username,
-                        password:this.ruleForm.password
+                        password:this.ruleForm.checkpwd
                     }
                     // axios请求接口
-                    //qs.stringify 转换成字符串形式，接口可识别的形式
-                    axios.post("/tokens",params).then((res)=>{
+                    //qs.stringify 转换成formdata形式，接口可识别的形式
+                    //qs - 为数据转换模块 ，这里的接口要求为formdata形式传输参数
+                    //要想查看qs模块方法，具体其他方式到github查询
+                    axios.post("/tokens",qs.stringify(params)).then((res)=>{
                          console.log(res.data.msg)
                         if(res.data.success){
 
