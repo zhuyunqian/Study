@@ -18,13 +18,14 @@
                 class="home-menu"
                 background-color="#324157"
                 text-color="#fff"
-                active-text-color="#20a0ff">
+                active-text-color="#20a0ff"
+                :router="true">
                 <el-submenu index="1">
                     <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>系统管理</span>
                     </template>
-                    <el-menu-item index="1-1">部门管理</el-menu-item>
+                    <el-menu-item index="/department">部门管理</el-menu-item>
                     <el-menu-item index="1-2">员工管理</el-menu-item>
                     <el-menu-item index="1-3">权限管理</el-menu-item>
                     <el-menu-item index="1-4">角色管理</el-menu-item>
@@ -34,7 +35,7 @@
         </el-menu>
       <!-- </section> -->
       <section class="home-content">
-
+          <router-view></router-view>
       </section>
   </div>
 </template>

@@ -89,7 +89,7 @@ export default {
                          console.log(res.data.msg)
                         if(res.data.success){
                             // 成功跳转home页面 引用 $router(全局路由对象) - terry 1
-                            this.$router.replace('/home')
+                            this.$router.replace('/')
                         }else{
                             console.log(res.data.msg)
                             this.$message.error(res.data.msg)
