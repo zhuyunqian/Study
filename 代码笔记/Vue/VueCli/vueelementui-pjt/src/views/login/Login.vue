@@ -26,6 +26,9 @@
 </template>
 
 <script>
+// 安装依赖 ， 引入依赖
+import axios from 'axios'
+
 export default {
     data() {
         return {
@@ -63,9 +66,33 @@ export default {
         loginFn(){
             // 这里调用validate，方法是想判断之前的判断是否成功，错误，进行下一步所以，之前的判断建议都用 validator书写
             console.log(this.$refs.ruleForm.validate)
+            // validate方法调用
             this.$refs.ruleForm.validate((vali)=>{
                 console.log(vali) // false
-                
+                // 判断是否成功
+                if(vali){
+                    console.log('成功')
+
+                    // 定义 传输参数
+                    const params = {
+                        username:this.ruleForm.username,
+                        password:this.ruleForm.password
+                    }
+                    // axios请求接口
+                    //qs.stringify 转换成字符串形式，接口可识别的形式
+                    axios.post("/tokens",params).then((res)=>{
+                         console.log(res.data.msg)
+                        if(res.data.success){
+
+                        }else{
+                            console.log(res.data.msg)
+                            //this.$message.error(res.data.msg)
+                        }
+                         //ipconfig/flushdns  清除dns缓存
+                    });
+                }else{
+                    console.log('失败')
+                }
             })
         }
     },
