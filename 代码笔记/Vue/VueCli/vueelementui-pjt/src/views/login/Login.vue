@@ -91,7 +91,7 @@ export default {
 
                         }else{
                             console.log(res.data.msg)
-                            //this.$message.error(res.data.msg)
+                            this.$message.error(res.data.msg)
                         }
                          //ipconfig/flushdns  清除dns缓存
                     });
