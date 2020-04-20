@@ -23,12 +23,17 @@
       class="page"
       >
     </el-pagination>
+    <!-- 使用组件  注意这里的组件名称 不要纯小写，容易冲突-->
+    <dept-dialog/>
   </div>
 </template>
 
 <script>
 //注意使用一定要引入
 import axios from "axios";
+
+// 引入子组件，去注册
+import DeptDialog from './children/DeptDialog'
 
 export default {
   data() {
@@ -39,6 +44,10 @@ export default {
       pageSize:10,
       total:0
     };
+  },
+  components:{
+    // 注册组件
+    DeptDialog
   },
   methods: {
     // 每页条数 - 方法
