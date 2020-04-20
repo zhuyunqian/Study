@@ -6,9 +6,12 @@
       <el-table-column prop="name" label="部门名称" width="180"></el-table-column>
       <el-table-column prop="sn" label="部门编号"></el-table-column>
       <el-table-column prop label="操作">
+        <!-- 
+          作用域插槽 可传递标签
+         -->
         <template slot-scope="scope">
-          <el-button @click="edit" size="small" type="primary" >编辑</el-button>
-          <el-button @click="edit" size="small" type="danger" >删除</el-button>
+          <el-button @click="edit(scope)" size="small" type="primary" >编辑</el-button>
+          <el-button @click="edit(scope)" size="small" type="danger" >删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -24,7 +27,8 @@
       >
     </el-pagination>
     <!-- 使用组件  注意这里的组件名称 不要纯小写，容易冲突-->
-    <dept-dialog :dialog="dialogSh"/>
+    <dept-dialog :dialog="dialogSh" :diaDate="diaDate" @closeVis="closeVis"/>
+    <!-- 定义接收方法 -->
   </div>
 </template>
 
@@ -43,7 +47,8 @@ export default {
       currentPage:1,
       pageSize:10,
       total:0,
-      dialogSh:false
+      dialogSh:false,
+      diaDate:{}
     };
   },
   components:{
@@ -51,9 +56,16 @@ export default {
     DeptDialog
   },
   methods: {
-    edit(){
-      this.dialogSh = true
-      console.log(this.dialogSh)
+    // 接收子组件传参
+    closeVis(val){
+      this.dialogSh = val
+    },
+
+    // 点击更改组件传参props
+    edit(val){
+      //console.log(val)
+      this.dialogSh = true;
+      this.diaDate = val.row ;
     },
 
     // 每页条数 - 方法
