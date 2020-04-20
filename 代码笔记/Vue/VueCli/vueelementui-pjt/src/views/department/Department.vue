@@ -7,8 +7,8 @@
       <el-table-column prop="sn" label="部门编号"></el-table-column>
       <el-table-column prop label="操作">
         <template slot-scope="scope">
-          <el-button size="small" type="primary" >编辑</el-button>
-          <el-button size="small" type="danger" >删除</el-button>
+          <el-button @click="edit" size="small" type="primary" >编辑</el-button>
+          <el-button @click="edit" size="small" type="danger" >删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -24,7 +24,7 @@
       >
     </el-pagination>
     <!-- 使用组件  注意这里的组件名称 不要纯小写，容易冲突-->
-    <dept-dialog/>
+    <dept-dialog :dialog="dialogSh"/>
   </div>
 </template>
 
@@ -42,7 +42,8 @@ export default {
       token: localStorage.getItem("token"),
       currentPage:1,
       pageSize:10,
-      total:0
+      total:0,
+      dialogSh:false
     };
   },
   components:{
@@ -50,6 +51,11 @@ export default {
     DeptDialog
   },
   methods: {
+    edit(){
+      this.dialogSh = true
+      console.log(this.dialogSh)
+    },
+
     // 每页条数 - 方法
     handleSizeChange(size){
       console.log(size)

@@ -1,0 +1,33 @@
+<view style="color: red;" hover-class="hoverClass">view页面</view>
+<view class="gColor">第二行view</view>
+<view class="blueColor">第三行view</view>
+<view class="flex-view">
+    <view class="view1">       
+    </view>
+    <view class="view2">  
+    </view>
+    <view class="view3">     
+    </view>
+</view>
+<view class="flex-view1">
+    <view class="view1">
+        
+    </view>
+    <view class="view2">
+        
+    </view>
+    <view class="view3">
+        
+    </view>
+</view>
+<view class="flex-view2">
+    <view class="view1">
+        
+    </view>
+    <view class="view2">
+        
+    </view>
+    <view class="view3">
+        
+    </view>
+</view>

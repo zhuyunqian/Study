@@ -1,0 +1,10 @@
+<!--pages/text/text.wxml-->
+<text>我是一个text1组件---{{txt}}\n</text>
+<!-- wx:if控制隐藏是直接删除掉节点 -->
+<text wx:if="{{bool}}">我是一个text2组件---{{txt}}\n</text>
+<!-- hidden隐藏组件，需要传入一个true 隐藏的节点并不会被删除-->
+<text hidden="{{false}}">我是一个text3组件---{{txt}}\n</text>
+
+<image src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1577685488,2073876598&fm=26&gp=0.jpg" mode="aspectFit" style="width: 200rpx;height: 300rpx;"></image>
+
+<image src="{{imgSrc}}"></image>

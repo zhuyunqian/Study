@@ -1,0 +1,90 @@
+@import '../../asset/style/style.wxss';
+
+.gColor {
+  color: #f0f0f0;
+}
+
+.hoverClass {
+  font-weight: bold;
+}
+
+.flex-view {
+  display: flex;
+  justify-content: space-between; /* 主轴 */
+  align-items: center; /* 交叉轴 */
+  height: 300rpx;
+  background-color: green;
+}
+
+.flex-view .view1 {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: red;
+}
+
+.view2 {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: hotpink;
+}
+.view3 {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: blue;
+}
+
+.flex-view1 {
+  display: flex;
+  justify-content: space-between; /* 主轴 */
+  align-items: center; /* 交叉轴 */
+  height: 300rpx;
+  background-color: green;
+}
+
+.flex-view1 .view1 {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: red;
+}
+
+.flex-view1 .view2 {
+  flex: 1;
+  /* width: 100rpx; */
+  height: 100rpx;
+  background-color: hotpink;
+}
+.flex-view1 .view3 {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: blue;
+}
+
+.flex-view2 {
+  display: flex;
+  justify-content: space-between; /* 主轴 */
+  flex-direction: column; /* 设置主轴方向 */
+  align-items: center; /* 交叉轴 */
+  height: 300rpx;
+  background-color: green;
+}
+
+
+.flex-view2 .view1 {
+  flex: 1;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: red;
+}
+
+.flex-view2 .view2 {
+  flex: 2;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: hotpink;
+}
+.flex-view2 .view3 {
+  flex: 1;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: blue;
+}

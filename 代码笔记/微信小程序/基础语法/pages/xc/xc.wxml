@@ -1,0 +1,11 @@
+<view class="xc-wrapper" wx:for="{{itemBeans}}" wx:for-item="myitem" style="background-color: {{myitem.bgColor}}">
+    <view class="xc-view1">
+        <text>
+            {{myitem.title}}
+        </text>
+        <image mode="aspectFit" src="{{myitem.imageUrl}}"></image>
+    </view>
+    <view class="xc-view2">
+        <text wx:for="{{myitem.items}}">{{item.title}}</text>
+    </view>
+</view>
