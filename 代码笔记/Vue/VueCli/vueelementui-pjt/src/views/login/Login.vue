@@ -27,10 +27,12 @@
 
 <script>
 // 安装依赖 ， 引入依赖
-import axios from 'axios'
+// import axios from 'axios'
 
 // 引入转换模块
-import qs from 'qs'
+// import qs from 'qs'
+
+import {apiLogin} from '../../request/api'
 
 export default {
     data() {
@@ -85,7 +87,8 @@ export default {
                     //qs.stringify 转换成formdata形式，接口可识别的形式
                     //qs - 为数据转换模块 ，这里的接口要求为formdata形式传输参数
                     //要想查看qs模块方法，具体其他方式到github查询
-                    axios.post("/tokens",qs.stringify(params)).then((res)=>{
+                    // axios.post("/tokens",qs.stringify(params)).then((res)=>{
+                        apiLogin(params).then( res => {
                          console.log(res.data.msg)
                         if(res.data.success){
                             // 成功跳转home页面 引用 $router(全局路由对象) - terry 1
