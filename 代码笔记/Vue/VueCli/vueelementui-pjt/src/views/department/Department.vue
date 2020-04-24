@@ -1,5 +1,6 @@
 <template>
   <div class="department">
+    <h3>部门管理</h3>
     <section>
           <el-button class="addbtn" @click="add()"  type="success" >添加</el-button>
     </section>
@@ -140,9 +141,15 @@ export default {
 
 <style lang="less" scoped>
 .page{
-  margin:20px auto 40px;
+  margin:20px 0 40px 20pxc;
 }
 .addbtn{
   margin:20px;
+}
+h3{
+  margin:20px 0 0 20px;
+}
+.el-table{
+  margin:0 0 0 20px;
 }
 </style>

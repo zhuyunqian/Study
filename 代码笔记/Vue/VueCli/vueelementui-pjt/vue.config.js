@@ -3,11 +3,19 @@
 module.exports={
     devServer: {
         proxy: {
-            '/token': {
-                target: 'http://kumanxuan1.f3322.net:8084',
-            },
-            '/departments': {
-                target: 'http://kumanxuan1.f3322.net:8084'
+            // '/token': {
+            //     target: 'http://kumanxuan1.f3322.net:8084',
+            // },
+            // '/departments': {
+            //     target: 'http://kumanxuan1.f3322.net:8084'
+            // }
+            //由于多个代理，设置简写方式
+
+            '^/api':{
+                target:'http://kumanxuan1.f3322.net:8084',
+                pathRewrite:{
+                    '/api':'' //代理转发的时候把当前请求替换成空字符串
+                }
             }
         }
     }

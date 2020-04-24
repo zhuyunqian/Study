@@ -18,6 +18,10 @@ Vue.use(VueRouter)
         path: '/department',
         component: ()=>import('../views/department/Department.vue')
       },
+      {
+        path: '/employee',
+        component: ()=>import('../views/employee/Employee.vue')
+      },
     ]
   },
 ]
