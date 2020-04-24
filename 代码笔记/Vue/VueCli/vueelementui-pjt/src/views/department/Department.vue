@@ -58,7 +58,14 @@ export default {
   methods: {
     // 接收子组件传参
     closeVis(val){
-      this.dialogSh = val
+      // 进行的了对象传输
+      this.dialogSh = val.val
+
+      console.log(val)
+      //进行判断 reload
+      if(val.reload == 'reload'){
+        this.fetchData()
+      }
     },
 
     // 点击更改组件传参props

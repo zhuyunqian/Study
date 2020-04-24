@@ -64,9 +64,9 @@ export default {
     }
   },
   methods: {
-    close(){
+    close(reload){
       //触发自定义事件
-      this.$emit('closeVis',false);
+      this.$emit('closeVis',{'val':false,reload});
     },
     addBtn(){
       // 触发方法，确定
@@ -88,9 +88,10 @@ export default {
           console.log(this)
           this.$message.success('修改成功')
           //关闭弹框
-          this.close();
+          this.close('reload');
 
           // 到了这里已经修改成功（后台数据），但是页面没有刷新，因为未重新请求表格数据
+          //调用close的时候触发父亲组件的fedata请求数据接口（方法） -- 但是注意，判断roload可以区分取消和确定按钮
         }else{
           this.$message.error(res.data.msg)
         }
