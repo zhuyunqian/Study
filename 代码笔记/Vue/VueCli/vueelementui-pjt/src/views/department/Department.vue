@@ -1,5 +1,8 @@
 <template>
   <div class="department">
+    <section>
+          <el-button class="addbtn" @click="add()"  type="success" >添加</el-button>
+    </section>
     <el-table :data="tableData" border style="width: 100%">
       <!--  -->
       <el-table-column prop="id" label="编号" width="180"></el-table-column>
@@ -27,7 +30,7 @@
       >
     </el-pagination>
     <!-- 使用组件  注意这里的组件名称 不要纯小写，容易冲突-->
-    <dept-dialog :dialog="dialogSh" :diaDate="diaDate" @closeVis="closeVis"/>
+    <dept-dialog :dialog="dialogSh" :diaDate="diaDate" @closeVis="closeVis" :title="diaTitle"/>
     <!-- 定义接收方法 -->
   </div>
 </template>
@@ -51,7 +54,9 @@ export default {
       pageSize:10,
       total:0,
       dialogSh:false,
-      diaDate:{}
+      diaDate:{},
+      //这需要定义传给子组件的方法，不然会报错未实力化
+      diaTitle:''
     };
   },
   components:{
@@ -59,6 +64,15 @@ export default {
     DeptDialog
   },
   methods: {
+
+    // 添加
+    add(){
+      this.dialogSh = true
+      this.diaDate = {}
+      // 添加部门文案修改
+      this.diaTitle = '添加部门'
+    },
+
     // 接收子组件传参
     closeVis(val){
       // 进行的了对象传输
@@ -76,6 +90,7 @@ export default {
       //console.log(val)
       this.dialogSh = true;
       this.diaDate = val.row ;
+      this.diaTitle = '编辑部门'
     },
 
     // 每页条数 - 方法
@@ -126,5 +141,8 @@ export default {
 <style lang="less" scoped>
 .page{
   margin:20px auto 40px;
+}
+.addbtn{
+  margin:20px;
 }
 </style>
