@@ -19,3 +19,6 @@ export const getDepartmentId = data => request.put('/api/departments/'+ data.id,
 
 //员工管理部门
 export const getEmployees = data => request.get('/api/employees',{params:data});
+
+//查看单个员工请求
+export const getEditemployees = data => request.get('/api/employees/'+data.id, data);
