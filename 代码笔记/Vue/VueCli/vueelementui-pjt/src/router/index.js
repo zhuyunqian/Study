@@ -16,14 +16,24 @@ Vue.use(VueRouter)
     children:[
       {
         path: '/department',
+        meta:{
+          index:'/department'
+        },
         component: ()=>import('../views/department/Department.vue')
       },
       {
         path: '/employee',
+        meta:{
+          index:'/employee'
+        },
         component: ()=>import('../views/employee/Employee.vue')
       },
       {
         path: '/employee/edit/:eid',
+        // 带出值，用来route获取的
+        meta:{
+          index:'/employee'
+        },
         component: ()=>import('../views/employee/Editemployee.vue')
       },
     ]

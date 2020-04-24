@@ -45,8 +45,11 @@ export default {
         }
     },
     computed: {
+        //选中menu/路由 - 计算属性
         activeRoute(){
-            return this.$route.path
+            // 解决点击编辑按钮进入编辑员工界面后的menu选中问题
+            //console.log(this.$route.meta.index)
+            return this.$route.meta.index
         },
         // 计算属性获取 - vuex的共享状态 
         collapse(){
