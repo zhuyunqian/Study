@@ -22,6 +22,10 @@ Vue.use(VueRouter)
         path: '/employee',
         component: ()=>import('../views/employee/Employee.vue')
       },
+      {
+        path: '/employee/edit/:eid',
+        component: ()=>import('../views/employee/Editemployee.vue')
+      },
     ]
   },
 ]
