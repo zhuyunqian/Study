@@ -22,13 +22,15 @@
             应该传值给父组件 定义新的指令
            -->
           <el-button @click="close">取 消</el-button>
-          <el-button type="primary" @click="dialog = false">确 定</el-button>
+          <el-button type="primary" @click="addBtn">确 定</el-button>
         </div>
       </el-dialog>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import qs from 'qs' //引入qs库，准备转换data为接口需要值
 export default {
   // 接收父组件参数
   props:{
@@ -52,6 +54,7 @@ export default {
   /*
     由于v-model 是 数据层和 view层同步  --  所以传输过来的data直接进行了改变 这里需要见天数据发生改变再进行改变
     watch -- view监听对象
+    watch 和 computed 两个的区别是 一个从外到内 一个是从内到外， 看情况而用
   */
   watch: {
     diaDate(val,oldval){
@@ -64,6 +67,34 @@ export default {
     close(){
       //触发自定义事件
       this.$emit('closeVis',false);
+    },
+    addBtn(){
+      // 触发方法，确定
+      // 发送请求
+      // 关闭弹框
+      // 提示成功或者失败
+      // 重新请求表格数据
+      let data = {
+        name : this.form.name,
+        sn : this.form.sn,
+        token : localStorage.getItem('token')
+      }
+      data = qs.stringify(data)
+      axios.put('/departments/'+this.form.id,data).then((res)=>{
+        if(res.data.success){
+          // 提示是否成功
+          console.log(res)
+          // 这里箭头函数的指向和es5写法指向this不同注意注意
+          console.log(this)
+          this.$message.success('修改成功')
+          //关闭弹框
+          this.close();
+
+          // 到了这里已经修改成功（后台数据），但是页面没有刷新，因为未重新请求表格数据
+        }else{
+          this.$message.error(res.data.msg)
+        }
+      })
     }
   },
 
