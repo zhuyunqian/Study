@@ -50,7 +50,6 @@ export default {
   data() {
     return {
       tableData: [],
-      token: localStorage.getItem("token"),
       currentPage:1,
       pageSize:10,
       total:0,
@@ -111,7 +110,6 @@ export default {
       getDepartment({
         currentPage: this.currentPage,
           pageSize: this.pageSize,
-          token: this.token
       })
       // axios
       // .get("/departments", {

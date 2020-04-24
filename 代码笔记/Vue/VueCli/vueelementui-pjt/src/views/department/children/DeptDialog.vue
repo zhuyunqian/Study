@@ -83,7 +83,6 @@ export default {
         let data = {
           name: this.form.name,
           sn: this.form.sn,
-          token: localStorage.getItem("token"),
           id: this.form.id,
         };
 
@@ -108,7 +107,6 @@ export default {
         let data = {
           name: this.form.name,
           sn: this.form.sn,
-          token: localStorage.getItem("token"),
         };
 
         addDepartment(data).then(res => {

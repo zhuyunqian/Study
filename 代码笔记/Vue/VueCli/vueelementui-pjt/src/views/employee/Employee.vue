@@ -32,7 +32,6 @@ export default {
         currentPage: 10,
         keyword: "",
         deptId: null,
-        token: localStorage.getItem("token"),
         pageSize: 10
       };
       getEmployees(data).then(res => {
