@@ -29,8 +29,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-import qs from 'qs' //引入qs库，准备转换data为接口需要值
+import {getDepartmentId} from '../../../request/api'
 export default {
   // 接收父组件参数
   props:{
@@ -77,10 +76,13 @@ export default {
       let data = {
         name : this.form.name,
         sn : this.form.sn,
-        token : localStorage.getItem('token')
+        token : localStorage.getItem('token'),
+        id:this.form.id,data
       }
-      data = qs.stringify(data)
-      axios.put('/departments/'+this.form.id,data).then((res)=>{
+      
+      //axios.put('/departments/'+this.form.id,data)
+      getDepartmentId(data)
+      .then((res)=>{
         if(res.data.success){
           // 提示是否成功
           console.log(res)

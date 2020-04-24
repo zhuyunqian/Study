@@ -36,6 +36,9 @@
 //注意使用一定要引入
 import axios from "axios";
 
+// 引入封装api
+import {getDepartment } from '../../request/api'
+
 // 引入子组件，去注册
 import DeptDialog from './children/DeptDialog'
 
@@ -88,14 +91,20 @@ export default {
       this.fetchData()
     },
     fetchData(){
-      axios
-      .get("/departments", {
-        params: {
-          currentPage: this.currentPage,
+      // 封装后进行更新
+      getDepartment({
+        currentPage: this.currentPage,
           pageSize: this.pageSize,
           token: this.token
-        }
       })
+      // axios
+      // .get("/departments", {
+      //   params: {
+      //     currentPage: this.currentPage,
+      //     pageSize: this.pageSize,
+      //     token: this.token
+      //   }
+      // })
       .then(
         res =>
           //console.log(res)
