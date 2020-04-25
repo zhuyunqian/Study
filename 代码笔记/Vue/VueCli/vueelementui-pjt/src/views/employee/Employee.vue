@@ -1,6 +1,9 @@
 <template>
   <div>
     <h3>员工管理</h3>
+    <section class="morefnt">
+      <el-button type="primary" @click="eport">导出</el-button>
+    </section>
     <el-table :data="tableData" border style="width: 100%">
       <el-table-column prop="id" label="编号"></el-table-column>
       <el-table-column prop="name" label="姓名"></el-table-column>
@@ -18,7 +21,7 @@
 </template>
 
 <script>
-import { getEmployees } from "../../request/api";
+import { getEmployees ,eportEmployee } from "../../request/api";
 export default {
   data() {
     return {
@@ -27,6 +30,15 @@ export default {
     };
   },
   methods: {
+    // 导出功能
+    eport(){
+      const aObj = document.createElement('a');
+      aObj.setAttribute('href', eportEmployee + '?token=' + localStorage.getItem('token'))
+
+      //添加标签后需要触发
+      aObj.click()
+    },
+
     //设置请求调用方法
     fetchData() {
       let data = {
@@ -58,7 +70,7 @@ export default {
 h3 {
   margin: 20px 0 0 20px;
 }
-.el-table {
+.el-table,.morefnt  {
   margin: 20px 0 0 20px;
 }
 </style>
