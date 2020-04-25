@@ -25,3 +25,7 @@ export const getEditemployees = data => request.get('/api/employees/'+data.id, d
 
 //角色列表
 export const getRoles = data => request.get('/api/roles',{params:data});
+
+//保存单个员工信息
+export const saveEmployee = data => request.put('/api/employees/'+ data.id, data)
+

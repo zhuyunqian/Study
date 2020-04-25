@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { getEditemployees, getDepartment , getRoles} from "../../request/api";
+import { getEditemployees, getDepartment , getRoles ,saveEmployee} from "../../request/api";
 export default {
   data() {
     return {
@@ -44,8 +44,32 @@ export default {
     };
   },
   methods: {
-    onSubmit() {},
-    value(){}
+    
+    onSubmit() {
+      //console.log(this.$route.params.eid)
+      saveEmployee({
+        //id:this.$route.params.eid,
+        name:this.form.name,
+        email:this.form.email,
+        age:this.form.age,
+        admin:this.form.admin,
+        // 由于接口有求的这里的请求格式，需要qs转换
+        dept:{
+          id: this.form.deptId
+        },
+        ids:this.form.roles,
+        //这里的员工id也是跳转的动态路由
+        id:this.form.id,
+      }).then((res)=>{
+        if(res.data.success){
+          this.$message.success('修改员工信息成功')
+          //并且跳转列表
+          this.$router.push('/employee')
+        }else{
+          this.$message.error(res.data.msg)
+        }
+      })
+    },
   },
   created() {
       getEditemployees({

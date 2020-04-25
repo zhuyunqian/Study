@@ -18,8 +18,8 @@ instance.interceptors.request.use(config =>{
             config.params.token = token
             
         }
-
-        config.data = qs.stringify(config.data)
+        //{ allowDots: true } qs库转换 包含对象数据的为.数据 , arrayFormat: 'repeat' 去掉下标
+        config.data = qs.stringify(config.data , { allowDots: true ,arrayFormat: 'repeat' })
     }else if(config.method == 'get'){
         config.params = config.params || {}
         config.params.token = token
