@@ -22,3 +22,6 @@ export const getEmployees = data => request.get('/api/employees',{params:data});
 
 //查看单个员工请求
 export const getEditemployees = data => request.get('/api/employees/'+data.id, data);
+
+//角色列表
+export const getRoles = data => request.get('/api/roles',{params:data});

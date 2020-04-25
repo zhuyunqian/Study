@@ -11,34 +11,41 @@
       <el-form-item label="邮箱">
         <el-input v-model="form.email"></el-input>
       </el-form-item>
-      <el-form-item  label="超级管理员">
-        <el-switch v-model="form.admin"></el-switch>
-      </el-form-item>
       <el-form-item label="部门">
         <!-- 定一个deptId 接收dept对象里的值 和 本身的值 -->
         <el-select v-model="form.deptId" placeholder="请选择部门">
           <el-option v-for="item in list" :key="item.id" :label="item.name" :value="item.id"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item  label="超级管理员">
+        <el-switch v-model="form.admin"></el-switch>
+      </el-form-item>
+      <el-form-item label="分配角色">
+        <!-- :props="{key:'id',label:'name'}" 转换数据源形式 -->
+        <!-- 展示form.roles -->
+        <el-transfer v-model="form.roles" :data="roles" :props="{key:'id',label:'name'}"></el-transfer>
+      </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">立即创建</el-button>
-        <el-button>取消</el-button>
+        <el-button type="primary" @click="onSubmit">保存</el-button>
+        <el-button>重置</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import { getEditemployees, getDepartment } from "../../request/api";
+import { getEditemployees, getDepartment , getRoles} from "../../request/api";
 export default {
   data() {
     return {
       form: {},
-      list:[]
+      list:[],
+      roles:[]
     };
   },
   methods: {
-    onSubmit() {}
+    onSubmit() {},
+    value(){}
   },
   created() {
       getEditemployees({
@@ -48,6 +55,10 @@ export default {
 
           // 判断res.data.data.dept是否存在 存在-显示里面的id 不存在为null-- 这样就可以显示部门名称
           res.data.data.deptId = res.data.data.dept ? res.data.data.dept.id : null
+
+          // 已经赋予角色数据，渲染显示
+          res.data.data.roles = res.data.data.roles.map(item => item.id)
+
           this.form = res.data.data
       }),
 
@@ -60,6 +71,16 @@ export default {
           if(res.data.success){
               this.list = res.data.data.list;
           }else{}
+      })
+
+      // 角色列表 -- 所有数据
+      getRoles({
+        currentPage:1,
+        pageSize:1000
+      }).then((res) => {
+        if(res.data.success){
+          this.roles = res.data.data.list
+        }
       })
 
   }
