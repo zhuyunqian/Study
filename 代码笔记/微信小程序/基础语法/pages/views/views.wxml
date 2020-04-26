@@ -15,7 +15,7 @@ wxss 引入样式的4中方式
 <view class="blue">
 蓝色 -- 第四种
 </view>
-<view class="yellow">
+<view class="pink">
 粉色 -- 第二种
 </view>
 <view class="skyblue" >
