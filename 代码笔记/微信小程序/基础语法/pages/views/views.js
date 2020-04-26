@@ -5,8 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    val:'null'
   },
+
+  /*
+    bindinput方法
+  */
+ bindinputval(e){
+  // console.log(this)
+  this.setData({
+    val:e.detail.value
+  })
+},
+
+
+  
 
   /**
    * 生命周期函数--监听页面加载

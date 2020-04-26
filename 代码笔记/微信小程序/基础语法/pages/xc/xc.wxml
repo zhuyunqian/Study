@@ -1,7 +1,7 @@
 <!-- 携程界面 -->
 <view class="xc-wrap">
     <!-- wx:for-item="myitem" 修改固定的item -->
-    <view class="xc-box" wx:for="{{itemBeans}}" wx:for-item="myitem" style="background:{{myitem.bgColor}};">
+    <view class="xc-box" wx:for="{{itemBeans}}" wx:for-item="myitem" wx:key="{{index}}" style="background:{{myitem.bgColor}};">
         <view class="imgbox">
             <text class="">{{myitem.title}}</text>
             <image class="" src="{{myitem.imageUrl}}"></image>

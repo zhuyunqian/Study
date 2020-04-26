@@ -47,3 +47,8 @@ wxss 引入样式的4中方式
      <view class="children"></view>
      <view class="children"></view>
  </view>
+
+
+<view class="">{{val}}</view>
+<input type="text" placeholder="请输入值" bindinput="bindinputval"></input>
+ 

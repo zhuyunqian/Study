@@ -1,9 +1,9 @@
 {
   "//配置新页面":{},
   "pages":[
+    "pages/views/views",
     "pages/xc/xc",
     "pages/text/text",
-    "pages/views/views",
     "pages/index/index",
     "pages/logs/logs"
   ],
