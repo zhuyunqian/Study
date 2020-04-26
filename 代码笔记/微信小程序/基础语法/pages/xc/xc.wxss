@@ -1,0 +1,44 @@
+/* pages/xc/xc.wxss */
+.xc-box{
+    display: flex;
+    height:200rpx;
+    background:pink;
+    font-size:32rpx;
+    margin-bottom:20rpx;
+}
+.xc-box .imgbox{
+    box-sizing:border-box;
+    border-bottom:1rpx solid #fff;
+    flex:1;
+    display:flex;
+    flex-direction:column; /*y轴flex布局*/
+    align-items: center; /*x轴居中*/
+    justify-content: center; /*y轴居中*/
+}
+.xc-box .imgbox text{
+    width:100%;
+    text-align:center;
+}
+.xc-box .imgbox image{
+    width:100rpx;
+    height:100rpx;
+
+}
+.xc-box .box{
+    flex:2;
+    flex-wrap: wrap;
+    display: flex;
+    /*
+    改变折叠问题
+    */
+}
+.xc-box .box text{
+    display:block;
+    width:50%;
+    text-align:center;
+    height:100rpx;
+    line-height:100rpx;
+    box-sizing:border-box;
+    border-left:1rpx solid #fff;
+    border-bottom:1rpx solid #fff;
+}
