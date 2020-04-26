@@ -1,0 +1,6 @@
+/* pages/views/views.wxss */
+@import '../assets/styles/view.wxss';
+
+.skyblue{
+  color:skyblue;
+}
