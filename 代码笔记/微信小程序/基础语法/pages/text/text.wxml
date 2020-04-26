@@ -1,5 +1,19 @@
 <!--pages/text/text.wxml-->
 <!-- 小程序插值语法 -->
-<view class="czyf" hover-class="none" hover-stop-propagation="false">
+
+<!-- 
+    小程序 隐藏与显示
+
+    1. wx:if -- 删除节点
+    2. hidden -- 隐藏节点
+    3. 赋值需要加{{}} 负责默认为字符串
+ -->
+<view class="czyf" hover-class="none" hover-stop-propagation="false" wx:if="{{false}}">
+    {{text}}
+</view>
+<view class="czyf" hover-class="none" hover-stop-propagation="false" hidden="{{true}}">
+    {{text}}
+</view>
+<view class="czyf" hover-class="none" hover-stop-propagation="false" hidden="{{bool}}">
     {{text}}
 </view>
