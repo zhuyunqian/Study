@@ -1,0 +1,19 @@
+/* pages/jd/jd.wxss */
+scroll-view{
+    width:100%;
+    /*设置不换行 1如下 2需要设置里面tag为行内块元素*/
+    white-space: nowrap;
+}
+.box{
+    display: flex;
+    display: inline-block;
+    margin:0 20rpx;
+}
+image{
+    width:150rpx;
+    height:150rpx;
+}
+.box view{
+    display:block;
+    text-align:center;
+}

@@ -1,6 +1,7 @@
 {
   "//配置新页面":{},
   "pages":[
+    "pages/jd/jd",
     "pages/ky/ky",
     "pages/views/views",
     "pages/xc/xc",
