@@ -2,8 +2,7 @@
 .xc-box{
     display: flex;
     height:200rpx;
-    background:pink;
-    font-size:32rpx;
+    font-size:30rpx;
     margin-bottom:20rpx;
 }
 .xc-box .imgbox{
@@ -18,10 +17,11 @@
 .xc-box .imgbox text{
     width:100%;
     text-align:center;
+    color:#fff;
 }
 .xc-box .imgbox image{
-    width:100rpx;
-    height:100rpx;
+    width:80rpx;
+    height:80rpx;
 
 }
 .xc-box .box{
@@ -33,6 +33,7 @@
     */
 }
 .xc-box .box text{
+    color:#fff;
     display:block;
     width:50%;
     text-align:center;

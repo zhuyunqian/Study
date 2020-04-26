@@ -1,15 +1,13 @@
 <!-- 携程界面 -->
 <view class="xc-wrap">
-    <view class="xc-box">
+    <!-- wx:for-item="myitem" 修改固定的item -->
+    <view class="xc-box" wx:for="{{itemBeans}}" wx:for-item="myitem" style="background:{{myitem.bgColor}};">
         <view class="imgbox">
-            <text class="">123</text>
-            <image class="" src="../assets/images/b_hotel.png"></image>
+            <text class="">{{myitem.title}}</text>
+            <image class="" src="{{myitem.imageUrl}}"></image>
         </view>
         <view class="box">
-            <text class="">123</text>
-            <text class="">123</text>
-            <text class="">123</text>
-            <text class="">123</text>
+            <text wx:for="{{myitem.items}}" class="">{{item.title}}</text>
         </view>
     </view>
 </view>
