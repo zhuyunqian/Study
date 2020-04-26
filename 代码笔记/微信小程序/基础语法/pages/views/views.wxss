@@ -4,3 +4,53 @@
 .skyblue{
   color:skyblue;
 }
+
+.father{
+  width:100%;
+  height:200px;
+  display:flex;
+  background:pink; 
+  align-items:center;
+}
+.father .children:nth-child(1){
+  flex: 1;
+  background:skyblue;
+  height:100px;
+}
+.father .children:nth-child(2){
+  flex: 2;
+  background:yellowgreen;
+  height:100px;
+}
+.father .children:nth-child(3){
+  flex: 1;
+  background:blanchedalmond;
+  height:100px;
+}
+
+.father1{
+  width:100%;
+  height:200px;
+  display:flex;
+  flex-direction: column;
+  background:pink; 
+  align-items:center;
+}
+.father1 .children:nth-child(1){
+  flex: 1;
+  background:skyblue;
+  height:100px;
+}
+.father1 .children{
+  width:100px;
+}
+.father1 .children:nth-child(2){
+  flex: 1;
+  background:yellowgreen;
+  height:100px;
+}
+.father1 .children:nth-child(3){
+  flex: 1;
+  background:blanchedalmond;
+  height:100px;
+}

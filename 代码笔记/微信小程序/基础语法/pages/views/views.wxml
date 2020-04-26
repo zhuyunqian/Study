@@ -24,3 +24,26 @@ wxss 引入样式的4中方式
 <view style="color:yellow;">
 黄色 -- 第一种
 </view>
+
+<!-- 
+    flex布局
+
+    父容器 -- display:flex;
+    子容器 -- flex:1/2/3;
+
+    justify-content:space-between;  --  主轴居中处理
+    flex-direction:column;  --  默认改为纵轴
+    align-item:center;  --  纵轴居中
+ -->
+
+ <view class="father" hover-class="none" hover-stop-propagation="false">
+     <view class="children"></view>
+     <view class="children"></view>
+     <view class="children"></view>
+ </view>
+
+  <view class="father1" hover-class="none" hover-stop-propagation="false">
+     <view class="children"></view>
+     <view class="children"></view>
+     <view class="children"></view>
+ </view>
