@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    banners:[
+      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+    ],
     json:[
       {	"imgUrl":"https://img14.360buyimg.com/n1/s150x150_jfs/t30814/9/944457966/151730/b9082df7/5c01fcbbNa3869e29.jpg.dpg",
      "price":"1699",

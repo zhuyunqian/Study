@@ -9,3 +9,15 @@
         <view class="outprice">{{myitem.outPrice}}</view>
     </view>
 </scroll-view>
+<!-- swiper组件 -->
+<view class="lb">
+    <swiper autoplay="{{true}}" indicator-dots="{{true}}" vertical="{{true}}">
+        <block wx:for="{{banners}}" wx:key="*this">
+            <swiper-item>
+                <view class="swiper-item">
+                    <cover-image class="" src="{{item}}" bindload="" binderror=""></cover-image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
