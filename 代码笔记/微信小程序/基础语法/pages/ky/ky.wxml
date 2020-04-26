@@ -1,0 +1,11 @@
+<!-- pages/ky/ky.wxml -->
+<!-- scroll-view组件 -->
+<scroll-view class="" scroll-y="{{true}}">
+    <view class="box" wx:for="{{json}}" wx:index="{{index}}" style="background:url({{item.image}})no-repeat left top; background-size:100% auto;">
+        <view class="title">{{item.title}}</view>
+        <view class="con">{{item.slogan}}</view>
+        <view class="" hover-class="none" hover-stop-propagation="false">
+            <image class="" src="{{item.icon}}"></image>
+        </view>
+    </view>
+</scroll-view>
