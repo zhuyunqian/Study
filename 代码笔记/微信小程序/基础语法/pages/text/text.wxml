@@ -1,0 +1,5 @@
+<!--pages/text/text.wxml-->
+<!-- 小程序插值语法 -->
+<view class="czyf" hover-class="none" hover-stop-propagation="false">
+    {{text}}
+</view>
