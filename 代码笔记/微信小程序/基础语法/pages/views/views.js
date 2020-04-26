@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    val:'null'
+    val:'null',
+    user:'',
+    user1:'',
+    user2:''
   },
 
   /*
@@ -19,6 +22,7 @@ Page({
 },
 
 
+
   
 
   /**
@@ -27,6 +31,27 @@ Page({
   onLoad: function (options) {
 
   },
+
+  getUser:function(options){
+    var _this = this
+    wx.getUserInfo({
+      success: function(res) {
+        var userInfo = res.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+        var gender = userInfo.gender //性别 0：未知、1：男、2：女
+        var province = userInfo.province
+        var city = userInfo.city
+        var country = userInfo.country
+        _this.setData({
+          user:country,
+          user1:nickName,
+          user2:avatarUrl,
+        })
+      }
+    });
+  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
