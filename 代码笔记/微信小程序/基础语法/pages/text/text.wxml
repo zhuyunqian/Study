@@ -17,3 +17,5 @@
 <view class="czyf" hover-class="none" hover-stop-propagation="false" hidden="{{bool}}">
     {{text}}
 </view>
+
+<image class="" src="{{imgSrc}}" ></image>

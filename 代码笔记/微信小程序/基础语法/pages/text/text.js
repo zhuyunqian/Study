@@ -6,14 +6,29 @@ Page({
    */
   data: {
     text:'11112313342324',
-    bool:false
+    bool:false,
+    imgSrc:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        // const tempFilePaths = res.tempFilePaths
+        // 双向数据绑定，js和界面数据都更新
+        console.log(res)
+        _this.setData({
+          imgSrc:res.tempFilePaths[0]
+        })
+      }
+    })
   },
 
   /**
