@@ -5,7 +5,11 @@
 <!-- 引用组件 -->
 <my-test></my-test>
 <!-- 自定义组件插槽使用 -->
-<my-test>
+<!-- 
+    父传子
+    自定义属性="传输值"
+ -->
+<my-test val-param="{{val1}}" obj="{{val}}">
     <view class="" slot="cc1">123</view>
     <view class="" slot="cc2">456</view>
 </my-test>

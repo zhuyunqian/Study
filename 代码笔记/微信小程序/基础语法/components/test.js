@@ -9,6 +9,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    // 接收定义传参
+    valParam:{
+      type:String,
+      default:'111'
+    },
+    obj:{
+      type:Object,
+      default:{}
+    },
 
   },
 

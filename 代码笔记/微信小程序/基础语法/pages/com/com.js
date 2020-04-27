@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 定义传输数值
+    val:{name:'mary',age:20},
+    val1:'linglingling'
   },
 
   /**
