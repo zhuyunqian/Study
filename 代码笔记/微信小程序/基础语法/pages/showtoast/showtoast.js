@@ -20,17 +20,14 @@ Page({
       success: (result) => {
         if(result.confirm){
           console.log('点击确认')
-          wx.showToast({
-            title: '提示',
-            icon: 'loading', // 默认success
-            // image: '',
-            duration: 1500,
+
+          wx.showLoading({
+            title: '加载中',
             mask: true,
-            //增加透明图层
-            success: (result)=>{
-              console.log(result)
-            },
-          })
+          });
+          setTimeout(()=>{
+            wx.hideLoading();
+          },1500)
         }else{
           console.log('点击取消')
         }
