@@ -34,6 +34,17 @@ Page({
     ]
   },
 
+  clickone(e){
+    console.log(e)
+  },
+  clicktwo(e){
+    console.log(e)
+  },
+  clickthr(e){
+    console.log(e)
+  },
+      
+
   /**
    * 生命周期函数--监听页面加载
    */

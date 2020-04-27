@@ -21,3 +21,19 @@
         </block>
     </swiper>
 </view>
+
+<!-- 
+    冒泡事件-自下而上-触发所有事件
+    绑定点击事件：bindtap
+    解决冒泡事件：catchtap绑定事件
+ -->
+
+ <view class="" id="view1" hover-class="none" hover-stop-propagation="false" bindtap="clickone">
+ view1
+     <view class="" id="view2" hover-class="none" hover-stop-propagation="false" bindtap="clicktwo">
+     view2
+         <view class="" id="view3" hover-class="none" hover-stop-propagation="false" catchtap="clickthr">
+             view3
+         </view>
+     </view>
+ </view>
