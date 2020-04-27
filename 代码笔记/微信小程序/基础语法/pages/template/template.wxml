@@ -1,0 +1,15 @@
+<!-- pages/template/template.wxml -->
+<!-- 模版的使用
+
+    --name 为名称
+    --is为使用模版 -->
+<template name="view1">
+    <view class="">模版111</view>
+</template>
+<template name="view2">
+    <view class="">模版222</view>
+</template>
+<template is="{{bool ? 'view1' : 'view2'}}"></template>
+<view>
+    <button bindtap="toggle">切换模版</button>
+</view>
