@@ -30,6 +30,26 @@ Page({
   onLoad: function (options) {
     console.log('1. - onload -- 页面加载')
 
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#000000',
+      success: (result)=>{
+        console.log('成功了')
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+    wx.setNavigationBarTitle({
+      title: 'api修改title',
+      success: (result)=>{
+        console.log(result)
+      }
+    });
+    wx.showNavigationBarLoading();
+    setTimeout(()=>{
+      wx.hideNavigationBarLoading();
+    },3000)
+
   },
 
   /**
