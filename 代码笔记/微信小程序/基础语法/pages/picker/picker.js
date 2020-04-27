@@ -6,7 +6,9 @@ Page({
    */
   data: {
     array: ['美国', '中国', '巴西', '日本'],
-    index:0
+    index:0,
+    multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫']],
+    multindex:[0,0,0]
   },
   // 改变事件
   change(e){
@@ -20,6 +22,19 @@ Page({
   cancel(e){
     console.log(e)
   },
+
+// 多列picker改变事件
+dlchange(e){
+  console.log(e)
+  this.setData({
+    // e.detail.value 改变后的索引值
+    multindex:e.detail.value
+  })
+},
+dlcancel(e){
+  console.log(e)
+},
+
   /**
    * 生命周期函数--监听页面加载
    */

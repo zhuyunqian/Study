@@ -1,1 +1,4 @@
 /* pages/picker/picker.wxss */
+.section__title{
+    margin:40rpx auto 0;
+}
