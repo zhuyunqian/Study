@@ -1,0 +1,20 @@
+<!--pages/wxs/wxs.wxml-->
+<!-- 
+    wxs - 可以理解为一个对象
+        - 一个独立的标签
+        - 不需要通过js去处理逻辑和数据
+        - 与es5语法基本一致
+        - 不能和js通信
+        - 需要定义wxs名称，还有导出
+ -->
+
+<wxs module="msg">
+    var message = '1123';
+    module.exports={
+        val1:message
+    }
+</wxs>
+
+<view class="">
+    {{msg.val1}}
+</view>
