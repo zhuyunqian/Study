@@ -1,2 +1,3 @@
 <!--pages/com/com.wxml-->
-<text>pages/com/com.wxml</text>
+<!-- 引用组件 -->
+<my-test></my-test>
