@@ -28,13 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    console.log('1. - onload -- 页面加载')
 
   },
 
@@ -42,8 +36,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('2. - onShow -- 页面显示（数据从逻辑层传输到view）')
   },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    console.log('3. - onReady -- 页面渲染（初次完成）')
+  },
+
+  
 
   /**
    * 生命周期函数--监听页面隐藏
