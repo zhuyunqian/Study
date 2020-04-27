@@ -10,7 +10,9 @@ Page({
     multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫']],
     multindex:[0,0,0],
     time:'12:00',
-    datee:'2020-01-29'
+    datee:'2020-01-29',
+    region: ['广东省', '广州市', '海珠区'],
+    customItem: '全部'
   },
   // 改变事件
   change(e){
@@ -50,6 +52,13 @@ bindDateChange(e){
   console.log(e)
   this.setData({
     datee:e.detail.value
+  })
+},
+
+// 地区选择器
+bindRegionChange(e){
+  this.setData({
+    region:e.detail.value
   })
 },
 
