@@ -1,1 +1,6 @@
 /* pages/text/text.wxss */
+@import '../template/template.wxss';
+
+scroll-view{
+    height:300rpx;
+}

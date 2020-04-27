@@ -1,12 +1,13 @@
 {
   "//配置新页面":{},
   "pages":[
-    "pages/template/template",
+    
+    "pages/text/text",
     "pages/jd/jd",
+    "pages/template/template",
     "pages/ky/ky",
     "pages/views/views",
     "pages/xc/xc",
-    "pages/text/text",
     "pages/index/index",
     "pages/logs/logs"
   ],

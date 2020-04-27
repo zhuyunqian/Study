@@ -13,3 +13,16 @@
 <view>
     <button bindtap="toggle">切换模版</button>
 </view>
+
+
+<template name="jd">
+  <scroll-view class="" scroll-x="{{true}}">
+    <view class="box" wx:for="{{json}}" wx:for-item="myitem" wx:key="index">
+        <view class="img">
+            <image class="" src="{{myitem.imgUrl}}"></image>
+        </view>
+        <view class="price">{{myitem.price}}</view>
+        <view class="outprice">{{myitem.outPrice}}</view>
+    </view>
+ </scroll-view>
+</template>

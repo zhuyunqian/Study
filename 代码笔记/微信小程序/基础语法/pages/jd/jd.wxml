@@ -1,7 +1,7 @@
 <!-- pages/jd/jd.wxml -->
 <!-- 这里主要是为了scroll-view-x轴的控制 -->
 <scroll-view class="" scroll-x="{{true}}">
-    <view class="box" wx:for="{{json}}" wx:for-item="myitem" wx:ky="{{index}}">
+    <view class="box" wx:for="{{json}}" wx:for-item="myitem" wx:key="index">
         <view class="img">
             <image class="" src="{{myitem.imgUrl}}"></image>
         </view>
@@ -28,7 +28,7 @@
     解决冒泡事件：catchtap绑定事件
  -->
 
- <view class="" id="view1" data-val1="1123122" hover-class="none" hover-stop-propagation="false" bindtap="clickone">
+ <view class="" id="view1" data-val1="123" hover-class="none" hover-stop-propagation="false" bindtap="clickone">
  view1
      <view class="" id="view2" hover-class="none" hover-stop-propagation="false" bindtap="clicktwo">
      view2

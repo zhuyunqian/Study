@@ -1,5 +1,3 @@
-/* pages/template/template.wxss */
-
 /* pages/jd/jd.wxss */
 scroll-view{
     width:100%;
