@@ -1,0 +1,20 @@
+<!--pages/picker/picker.wxml-->
+
+<!-- 普通选择器 -->
+<view class="section__title">普通选择器</view>
+  <picker bindchange="change" bindcancel="cancel" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker>
+
+<!-- 多列选择器 -->
+
+
+<!-- 时间选择器 -->
+
+
+<!-- 日期选择器 -->
+
+
+<!-- 省市区选择器 -->

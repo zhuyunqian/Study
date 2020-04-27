@@ -1,6 +1,7 @@
 {
   "//配置新页面":{},
   "pages":[
+    "pages/picker/picker",
     "pages/wxs/wxs",
     "pages/opendata/opendata",
     "pages/text/text",
