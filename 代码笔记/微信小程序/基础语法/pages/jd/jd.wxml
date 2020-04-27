@@ -28,7 +28,7 @@
     解决冒泡事件：catchtap绑定事件
  -->
 
- <view class="" id="view1" hover-class="none" hover-stop-propagation="false" bindtap="clickone">
+ <view class="" id="view1" data-val1="1123122" hover-class="none" hover-stop-propagation="false" bindtap="clickone">
  view1
      <view class="" id="view2" hover-class="none" hover-stop-propagation="false" bindtap="clicktwo">
      view2

@@ -36,6 +36,9 @@ Page({
 
   clickone(e){
     console.log(e)
+    //点击标签上绑定- data-(传输值名称)="传输值"
+    //获取界面传输值
+    console.log(e.currentTarget.dataset)
   },
   clicktwo(e){
     console.log(e)
