@@ -1,0 +1,8 @@
+<!--pages/opendata/opendata.wxml-->
+
+<!-- opendata 不用用户授权获取用户信息 -->
+
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <open-data class="" type="userNickName" open-gid=""></open-data>
+    <open-data class="" type="userAvatarUrl" open-gid=""></open-data>
+</view>

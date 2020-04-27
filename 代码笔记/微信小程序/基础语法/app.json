@@ -1,7 +1,7 @@
 {
   "//配置新页面":{},
   "pages":[
-    
+    "pages/opendata/opendata",
     "pages/text/text",
     "pages/jd/jd",
     "pages/template/template",
