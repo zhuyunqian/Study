@@ -1,0 +1,17 @@
+<!--pages/storage/storage.wxml-->
+<!-- <text>pages/storage/storage.wxml</text> -->
+
+<!-- 
+    同步缓存数据
+    与localStorage类似
+    - 只能存10m，所以不能所有数据存储到这个内
+    - sync为同步
+ -->
+
+<view class="" >
+    <button class="btn" bindtap="setStorage">缓存数据</button>
+    <button class="btn" bindtap="getStorage">获取缓存数据</button>
+    <button class="btn" bindtap="clearStorage">清除指定缓存数据</button>
+    <button class="btn" bindtap="clearAll">删除所有缓存数据</button>
+    
+</view>
