@@ -9,7 +9,8 @@ Page({
     index:0,
     multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫']],
     multindex:[0,0,0],
-    time:'12:00'
+    time:'12:00',
+    datee:'2020-01-29'
   },
   // 改变事件
   change(e){
@@ -41,6 +42,14 @@ bindTimeChange(e){
   console.log(e)
   this.setData({
     time:e.detail.value
+  })
+},
+
+// 日期选择器
+bindDateChange(e){
+  console.log(e)
+  this.setData({
+    datee:e.detail.value
   })
 },
 

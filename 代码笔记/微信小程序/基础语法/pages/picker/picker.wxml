@@ -26,5 +26,16 @@
   >
     <button size='mini' type='primary'>2.时间选择器 {{time}}</button>
 </picker>
+
 <!-- 日期选择器 -->
+<view class="section__title">日期选择器</view>
+<picker
+    mode="date"
+    value="{{datee}}"
+    start="2015-09-01"
+    end="2020-09-01"
+    bindchange="bindDateChange"
+  >
+    <button size='mini' type='primary'>4.日期选择器 {{datee}}</button>
+</picker>
 <!-- 省市区选择器 -->
