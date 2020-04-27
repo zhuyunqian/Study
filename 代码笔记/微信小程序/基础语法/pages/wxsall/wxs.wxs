@@ -1,0 +1,17 @@
+var message = '1123';
+var fun = function(index){
+    return index + 'hfasjhfkajs'
+}
+var price =  function(index){
+    return index.toFixed(2)
+}
+var time = function(){
+    var data= getDate()
+    return data
+}
+module.exports={
+    val1:message,
+    fun:fun,
+    price:price,
+    time:time
+}
