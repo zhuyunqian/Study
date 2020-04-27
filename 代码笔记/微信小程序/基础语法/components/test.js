@@ -25,13 +25,22 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    arr:[1,2,3,4,5,6,7]
   },
+
+  
 
   /**
    * 组件的方法列表
    */
   methods: {
+    //事件触发
+    tapsend(){
+      console.log(123)
+      // console.log(this)
+      // 触发自定义事件传送event事件
+      this.triggerEvent('sendarr',this.data.arr);
+    },
 
   }
 })

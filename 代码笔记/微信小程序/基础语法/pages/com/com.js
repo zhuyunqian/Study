@@ -7,7 +7,17 @@ Page({
   data: {
     // 定义传输数值
     val:{name:'mary',age:20},
-    val1:'linglingling'
+    val1:'linglingling',
+    test:'000',
+  },
+
+  // 自定义事件接收传输值
+  reverce(e){
+    console.log(111)
+    console.log(e)
+    this.setData({
+      test:e.detail
+    })
   },
 
   /**

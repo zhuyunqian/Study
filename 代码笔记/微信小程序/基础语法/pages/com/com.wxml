@@ -3,13 +3,16 @@
     "引入组件名称标签名称":"引入组件链接",
     "my-test":"../../components/test" -->
 <!-- 引用组件 -->
-<my-test></my-test>
+<!-- <my-test></my-test> -->
 <!-- 自定义组件插槽使用 -->
-<!-- 
-    父传子
-    自定义属性="传输值"
- -->
-<my-test val-param="{{val1}}" obj="{{val}}">
+<!-- 父传子
+    自定义属性="传输值" -->
+<my-test val-param="{{val1}}" obj="{{val}}" bindsendarr="reverce">
     <view class="" slot="cc1">123</view>
     <view class="" slot="cc2">456</view>
 </my-test>
+<!-- 子传父
+    绑定自定义传输的事件
+    注意：一定要在引用的组件上绑定自定义事件
+-->
+<view class="">{{test}}</view>

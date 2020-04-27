@@ -15,3 +15,5 @@
 
     <text class="">{{valParam}}</text>
 </view>
+
+<button type="primary" bindtap="tapsend">点击传送给父组件</button>
