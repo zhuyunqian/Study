@@ -1,6 +1,7 @@
 {
   "//配置新页面":{},
   "pages":[
+    "pages/showtoast/showtoast",
     "pages/storage/storage",
     "pages/alert/alert",
     "pages/request/request",

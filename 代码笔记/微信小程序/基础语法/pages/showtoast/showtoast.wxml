@@ -1,0 +1,8 @@
+<!--pages/showtoast/showtoast.wxml-->
+<!-- <text>pages/showtoast/showtoast.wxml</text> -->
+
+<view class="btn">
+    <button class="bbtn">
+        点击弹框
+    </button>
+</view>
