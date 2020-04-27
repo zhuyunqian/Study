@@ -1,3 +1,11 @@
-<!--pages/com/com.wxml-->
+<!-- pages/com/com.wxml -->
+<!-- com.json 引入组件
+    "引入组件名称标签名称":"引入组件链接",
+    "my-test":"../../components/test" -->
 <!-- 引用组件 -->
 <my-test></my-test>
+<!-- 自定义组件插槽使用 -->
+<my-test>
+    <view class="" slot="cc1">123</view>
+    <view class="" slot="cc2">456</view>
+</my-test>

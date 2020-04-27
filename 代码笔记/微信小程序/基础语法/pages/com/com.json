@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "引入组件名称标签名称":"引入组件链接",
     "my-test":"../../components/test"
   }
 }

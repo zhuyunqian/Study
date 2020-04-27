@@ -1,2 +1,13 @@
-<!--components/test.wxml-->
+<!-- components/test.wxml -->
 <text>自定义组件1</text>
+
+<!-- 
+    注意：
+    多个插槽的时候，一定要在js内允许使用多个插槽
+ -->
+
+<view class="">
+<slot name="cc1"></slot>
+<text class="">自定义组件2</text>
+<slot name="cc2"></slot>
+</view>
