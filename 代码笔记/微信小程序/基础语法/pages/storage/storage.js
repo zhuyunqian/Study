@@ -37,6 +37,7 @@ Page({
    */
   onShow: function () {
     console.log('2. - onShow -- 页面显示（数据从逻辑层传输到view）')
+    console.log('5. - onshow - 从后台切换到回来，显示')
   },
 
   /**
@@ -52,7 +53,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('4. - onhide - 从后台切换到其他app，未退出')
   },
 
   /**
