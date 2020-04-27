@@ -1,4 +1,4 @@
 <!--pages/alert/alert.wxml-->
 <!-- <text>pages/alert/alert.wxml</text> -->
 
-<alert></alert>
+<alert alert-html="{{textObj}}"></alert>

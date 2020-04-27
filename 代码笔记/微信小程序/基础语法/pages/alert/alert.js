@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    textObj:{
+      title:'提示',
+      content:'这是一个提示',
+      btn1:'取消',
+      btn2:'确认'
+    }
   },
 
   /**
