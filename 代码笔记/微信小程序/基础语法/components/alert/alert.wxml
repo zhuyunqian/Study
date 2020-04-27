@@ -12,7 +12,7 @@
          <view class="con">{{alertHtml.content}}</view>
          <view class="bottom">
              <button class="btn" size="mini">{{alertHtml.btn1}}</button>
-             <button class="btn" size="mini" type="primary">{{alertHtml.btn2}}</button>
+             <button class="btn" size="mini" bindtap="close" type="primary">{{alertHtml.btn2}}</button>
          </view>
      </view>
  </view>

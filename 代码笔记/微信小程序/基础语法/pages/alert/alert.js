@@ -10,7 +10,16 @@ Page({
       content:'这是一个提示',
       btn1:'取消',
       btn2:'确认'
-    }
+    },
+    bool:true,
+  },
+
+  reverce(e){
+    console.log(e)
+    this.setData({
+      bool : e.detail
+    })
+    console.log(this.data.bool)
   },
 
   /**
