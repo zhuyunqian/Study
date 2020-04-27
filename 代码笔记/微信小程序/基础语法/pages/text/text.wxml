@@ -23,3 +23,6 @@
 <import src="../template/template.wxml"></import>
 <template is="jd" data="{{json:lsit1}}"></template>
 <template is="jd" data="{{json:lsit3}}" ></template>
+
+<!-- inclue 引入除了模板和css意外的文件 -->
+<include src="../template/template.wxml"></include>

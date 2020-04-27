@@ -54,7 +54,11 @@ Page({
 
     ]
   },
-
+  toggle(e){
+    this.setData({
+      bool:!this.data.bool
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
