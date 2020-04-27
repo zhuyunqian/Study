@@ -1,25 +1,20 @@
-<!--pages/picker/picker.wxml-->
-
+<!-- pages/picker/picker.wxml -->
 <!-- 普通选择器 -->
 <view class="section__title">普通选择器</view>
-  <picker bindchange="change" bindcancel="cancel" value="{{index}}" range="{{array}}">
-    <view class="picker">
-      当前选择：{{array[index]}}
-    </view>
-  </picker>
-
+<picker bindchange="change" bindcancel="cancel" value="{{index}}" range="{{array}}">
+    <view class="picker">当前选择：{{array[index]}}</view>
+</picker>
 <!-- 多列选择器 -->
 <view class="section__title">多列选择器</view>
-  <picker mode="multiSelector" bindchange="dlchange" bindcancel="dlcancel" value="{{multindex}}" range="{{multiArray}}">
+<picker mode="multiSelector" bindchange="dlchange" bindcancel="dlcancel" value="{{multindex}}" range="{{multiArray}}">
     <view class="picker">
-      当前选择：{{multiArray[0][multindex[0]]}}-{{multiArray[1][multindex[1]]}}-{{multiArray[2][multindex[2]]}}
+        <!-- 当前选择：{{multiArray[0][multindex[0]]}}-{{multiArray[1][multindex[1]]}}-{{multiArray[2][multindex[2]]}} -->
+        当前选择：
+        <!-- {{multiArray.length== index+1 ? '' :'--'}}  判断如果是最后一个 ，间隔符为空，否则加上间隔 -->
+        <text class="" wx:for="{{multiArray}}" wx:key="index">{{item[multindex[index]]}}{{multiArray.length== index+1 ? '' :'--'}}</text>
+        <!-- {{multiArray[0][multindex[0]]}}-{{multiArray[1][multindex[1]]}}-{{multiArray[2][multindex[2]]}} -->
     </view>
-  </picker>
-
+</picker>
 <!-- 时间选择器 -->
-
-
 <!-- 日期选择器 -->
-
-
 <!-- 省市区选择器 -->
