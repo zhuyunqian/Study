@@ -1,0 +1,10 @@
+<!--pages/request/request.wxml-->
+<!-- <text>pages/request/request.wxml</text> -->
+
+<!-- 
+    微信request请求
+    1 - 上线需要配置上线https请求（域名） - 微信小程序后台开发设置里面添加
+    2 - 测试号，本地生产环境，可以在详情-本地设置里面去除小程序https验证
+ -->
+
+ <button type="primary" size="mini" bindtap="req">点击请求</button>
