@@ -16,5 +16,15 @@
     </view>
 </picker>
 <!-- 时间选择器 -->
+<view class="section__title">时间选择器</view>
+ <picker
+    mode="time"
+    value="{{time}}"
+    start="09:00"
+    end="21:00"
+    bindchange="bindTimeChange"
+  >
+    <button size='mini' type='primary'>2.时间选择器 {{time}}</button>
+</picker>
 <!-- 日期选择器 -->
 <!-- 省市区选择器 -->

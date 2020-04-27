@@ -2,3 +2,7 @@
 .section__title{
     margin:40rpx auto 0;
 }
+.picker{
+    background:green;
+    color:#fff;
+}
