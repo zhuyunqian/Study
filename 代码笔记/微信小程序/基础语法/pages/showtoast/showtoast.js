@@ -8,6 +8,38 @@ Page({
 
   },
 
+  showbox(e){
+    wx.showModal({
+      title: '提示框',
+      content: '请选择确认或者是取消',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: (result) => {
+        if(result.confirm){
+          console.log('点击确认')
+          wx.showToast({
+            title: '提示',
+            icon: 'loading', // 默认success
+            // image: '',
+            duration: 1500,
+            mask: true,
+            //增加透明图层
+            success: (result)=>{
+              console.log(result)
+            },
+          })
+        }else{
+          console.log('点击取消')
+        }
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,7 +55,7 @@ Page({
       title: '提示',
       icon: 'loading', // 默认success
       // image: '',
-      duration: 5000,
+      duration: 1500,
       mask: true,
       //增加透明图层
       success: (result)=>{

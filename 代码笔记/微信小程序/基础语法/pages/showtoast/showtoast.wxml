@@ -2,7 +2,7 @@
 <!-- <text>pages/showtoast/showtoast.wxml</text> -->
 
 <view class="btn">
-    <button class="bbtn">
+    <button class="bbtn" bindtap="showbox">
         点击弹框
     </button>
 </view>
