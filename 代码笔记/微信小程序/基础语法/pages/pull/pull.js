@@ -47,13 +47,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    // 用户下拉更新页面，触发这个函数
+    // 需要设置json
+    //        - "enablePullDownRefresh":true,  -- 允许下拉事件
+    //        - "backgroundTextStyle":"dark"  --  设置背景字的颜色为黑色
+    console.log('用户下拉动作触发')
+    //关闭下拉
+    setTimeout(()=>{
+      wx.stopPullDownRefresh()
+    },3000)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    
   },
 
   /**
