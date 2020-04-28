@@ -1,0 +1,11 @@
+/* pages/pullpage/pullpage.wxss */
+.box{
+    width:100%;
+    padding:20rpx;
+    border-bottom:1rpx solid #ddd;
+    line-height:60rpx;
+}
+span{
+    color:#999;
+    margin-left:30rpx;
+}

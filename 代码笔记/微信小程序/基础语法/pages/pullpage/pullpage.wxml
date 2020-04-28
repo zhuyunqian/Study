@@ -1,0 +1,6 @@
+<!-- pages/pullpage/pullpage.wxml -->
+<!-- <text>pages/pullpage/pullpage.wxml</text> -->
+<!-- 设置加载页面
+    1 - 进入页面 请求获取数据
+    2 - 下拉获取数据填充（原有数据存在） -->
+<view class=".box" wx:for="{{list}}" wx:key="index">{{item.title}} <span>{{item.createdAt}}</span></view>
