@@ -1,0 +1,22 @@
+<!--pages/auth/auth.wxml-->
+<text>pages/auth/auth.wxml</text>
+
+<view class="">
+    <button class="btn" type="primary" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击获取授权</button>
+</view>
+
+<view class="">
+    <button class="btn" type="primary" size="mini" open-type="openSetting">获取授权列表</button>
+</view>
+
+<view class="">
+    <button class="btn" type="primary" size="mini" open-type="contact">打开客服会话</button>
+</view>
+
+<view class="">
+    <button class="btn" type="primary" size="mini" bindtap="getaddress">获取微信地址</button>
+</view>
+
+<view class="">
+    <button class="btn" type="primary" size="mini" bindtap="getrun">获取运动数据</button>
+</view>
