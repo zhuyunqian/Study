@@ -1,1 +1,6 @@
 /* pages/pull/pull.wxss */
+.hview{
+    height:300rpx;
+    background:pink;
+    margin-bottom:20rpx;
+}

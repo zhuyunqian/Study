@@ -62,7 +62,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    // 下拉动作需要有足够的内容高度
+    // 需要设置json
+    //        - "onReachBottomDistance":100,  -- 设置距离底部多少px触发下拉函数
+    console.log('下拉动作')
   },
 
   /**
