@@ -20,3 +20,7 @@
 <view class="">
     <button class="btn" type="primary" size="mini" bindtap="getrun">获取运动数据</button>
 </view>
+
+<view class="">
+    <button class="btn" type="primary" size="mini" open-type="share" >分享</button>
+</view>
