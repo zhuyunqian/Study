@@ -29,6 +29,10 @@ Page({
 
         // 成功后隐藏loading
         wx.hideLoading();
+        // 成功后隐藏上来加载按钮
+        // setTimeout(()=>{
+          wx.stopPullDownRefresh();
+        // },1500)
 
         // 更新lastCursor
         this.data.lastCursor = this.data.list[this.data.list.length-1].order
@@ -77,7 +81,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      lastCursor:'',
+      list:[]
+    })
+    this.reqData();
   },
 
   /**

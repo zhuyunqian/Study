@@ -1,6 +1,7 @@
 {
   "//配置新页面":{},
   "pages":[
+    "pages/auth/auth",
     "pages/pullpage/pullpage",
     "pages/pull/pull",
     "pages/showtoast/showtoast",
