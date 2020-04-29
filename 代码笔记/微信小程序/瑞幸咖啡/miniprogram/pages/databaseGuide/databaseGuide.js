@@ -119,33 +119,50 @@ Page({
 
   onRemove: function() {
     // 删除数据库记录
-    if (this.data.counterId) {
-      const db = wx.cloud.database()
-      //小程序只可以通过组件删除doc
-      //还可以根据where定义条件删除记录 db.collection('counters').where() 这种写法只支持云函数 ， 可以调用
-      db.collection('counters').doc(this.data.counterId).remove({
-        success: res => {
-          wx.showToast({
-            title: '删除成功',
-          })
-          this.setData({
-            counterId: '',
-            count: null,
-          })
-        },
-        fail: err => {
-          wx.showToast({
-            icon: 'none',
-            title: '删除失败',
-          })
-          console.error('[数据库] [删除记录] 失败：', err)
-        }
-      })
-    } else {
-      wx.showToast({
-        title: '无记录可删，请见创建一个记录',
-      })
-    }
+    // if (this.data.counterId) {
+    //   const db = wx.cloud.database()
+    //   //小程序只可以通过组件删除doc
+    //   //还可以根据where定义条件删除记录 db.collection('counters').where() 这种写法只支持云函数 ， 可以调用
+    //   db.collection('counters').doc(this.data.counterId).remove({
+    //     success: res => {
+    //       wx.showToast({
+    //         title: '删除成功',
+    //       })
+    //       this.setData({
+    //         counterId: '',
+    //         count: null,
+    //       })
+    //     },
+    //     fail: err => {
+    //       wx.showToast({
+    //         icon: 'none',
+    //         title: '删除失败',
+    //       })
+    //       console.error('[数据库] [删除记录] 失败：', err)
+    //     }
+    //   })
+    // } else {
+    //   wx.showToast({
+    //     title: '无记录可删，请见创建一个记录',
+    //   })
+    // }
+
+    // 隐藏，调用云函数
+    // 小程序端调用
+    wx.cloud.callFunction({
+      // 要调用的云函数名称
+      name: 'removedb',
+      // 传递给云函数的event参数
+      data: {
+        name:'zyq'
+      }
+    }).then(res => {
+      console.log(res)
+      // output: res.result === 3
+    }).catch(err => {
+      // handle error
+    })
+    
   },
 
   nextStep: function () {
