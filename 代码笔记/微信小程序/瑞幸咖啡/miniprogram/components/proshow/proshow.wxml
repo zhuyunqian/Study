@@ -1,0 +1,16 @@
+<!--components/proshow/proshow.wxml-->
+<!-- <text>components/proshow/proshow.wxml</text> -->
+
+<view class="proshow-wrapper">
+  <view class="proshow-box">
+    <image class="proshow-box1" src="{{proList[0]}}"></image>
+    <view class="proshow-box2">
+      <image class="proshow-box2-img" src="{{proList[1]}}"></image>
+      <image class="proshow-box2-img" src="{{proList[2]}}"></image>
+    </view>
+  </view>
+  <view class="proshow-box3">
+    <image class="proshow-box3-img" src="{{proList[3]}}"></image>
+    <image class="proshow-box3-img" src="{{proList[4]}}"></image>
+  </view>
+</view>

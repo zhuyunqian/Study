@@ -1,0 +1,50 @@
+/* components/proshow/proshow.wxss */
+
+.proshow-wrapper {
+    padding: 10rpx;
+  }
+  
+  .proshow-box {
+    display: flex;
+    height: 300rpx;
+    margin-bottom: 10rpx;
+  }
+  
+  .proshow-box1 {
+    flex: 4;
+    height: 300rpx;
+    width: 100rpx;
+    margin-right: 10rpx;
+  }
+  
+  .proshow-box2 {
+    display: flex;
+    flex-direction: column;
+    flex: 6;
+    height: 300rpx;
+  }
+  
+  .proshow-box2-img {
+    width: 100%;
+  }
+  
+  .proshow-box2-img:nth-of-type(1) {
+    margin-bottom: 5rpx;
+  }
+  
+  .proshow-box2-img:nth-of-type(2) {
+    margin-top: 5rpx;
+  }
+  
+  .proshow-box3 {
+    display: flex;
+  }
+  .proshow-box3-img {
+    flex: 6;
+    height: 150rpx;
+  }
+  
+  .proshow-box3-img:nth-of-type(2) {
+    margin-left: 10rpx;
+    flex: 4;
+  }

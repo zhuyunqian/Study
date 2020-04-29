@@ -3,7 +3,7 @@
 <!-- swiper组件 -->
 <view class="swiper-wrapper" hover-class="none" hover-stop-propagation="false">
     <swiper class="swiper-content" autoplay="{{true}}" interval="{{2000}}" vertical="{{false}}" bindchange="currentChange">
-        <swiper-item class="" item-id="" wx:for="{{banners}}">
+        <swiper-item class="" item-id="" wx:for="{{banners}}" wx:key="index">
             <cover-image class="swiper-img" src="{{item}}" bindload="" binderror=""></cover-image>
         </swiper-item>
     </swiper>

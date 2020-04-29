@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "my-swiper":"../../components/myswiper/myswiper"
+    "my-swiper":"../../components/myswiper/myswiper",
+    "pro-show":"../../components/proshow/proshow"
   },
   "navigationStyle":"custom"
 }

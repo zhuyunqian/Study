@@ -5,6 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    proList:[
+      '/images/home/pro1.jpg',
+      '/images/home/pro2.jpg',
+      '/images/home/pro3.jpg',
+      '/images/home/pro4.jpg',
+      '/images/home/pro5.jpg'
+    ]
 
   },
 
