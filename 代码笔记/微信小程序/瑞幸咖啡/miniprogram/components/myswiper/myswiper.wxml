@@ -1,10 +1,13 @@
-<!--components/myswiper/myswiper.wxml-->
+<!-- components/myswiper/myswiper.wxml -->
 <!-- <text>components/myswiper/myswiper.wxml</text> -->
-
 <!-- swiper组件 -->
-<swiper class=""  autoplay="{{true}}"  interval="{{2000}}"  vertical="{{false}}"  bindchange="" >
-    <swiper-item class="" item-id="" wx:for="{{banners}}">
-        <cover-image class="" src="{{item}}" bindload="" binderror="">
-        </cover-image>
-    </swiper-item>
-</swiper>
+<view class="swiper-wrapper" hover-class="none" hover-stop-propagation="false">
+    <swiper class="swiper-content" autoplay="{{true}}" interval="{{2000}}" vertical="{{false}}" bindchange="currentChange">
+        <swiper-item class="" item-id="" wx:for="{{banners}}">
+            <cover-image class="swiper-img" src="{{item}}" bindload="" binderror=""></cover-image>
+        </swiper-item>
+    </swiper>
+    <view class="swiper-dots" hover-class="none" hover-stop-propagation="false">
+        <view class="dots  {{swiperCurrent == index ? 'active' :'' }}" wx:for="{{banners}}" wx:key="index"></view>
+    </view>
+</view>

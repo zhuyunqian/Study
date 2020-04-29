@@ -11,6 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    swiperCurrent:0,
     banners: [
       "/images/banner/baner1.jpg",
       "/images/banner/baner2.jpg",
@@ -23,6 +24,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    currentChange(e){
+      console.log(e.detail.current);
+      this.setData({
+        swiperCurrent:e.detail.current
+      })
+    },
   }
 })
