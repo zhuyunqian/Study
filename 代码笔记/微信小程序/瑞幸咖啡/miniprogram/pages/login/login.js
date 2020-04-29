@@ -12,6 +12,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 判断token是否有效，有效进入，无效重新申请
+    wx.checkSession({
+      success: (result)=>{
+        console.log('验证token有效')
+      },
+      fail: (error)=>{
+        console.log('验证token无效')
+        console.log(error)
+        this.wxLogin();
+        console.log(code)
+      },
+      complete: ()=>{}
+    });
+  },
+
+  wxLogin(){
     // 获取code传送给后台，获得token
     wx.login({
       success: (result)=>{
