@@ -1,2 +1,5 @@
 <!--miniprogram/pages/home/home.wxml-->
-<text>miniprogram/pages/home/home.wxml</text>
+<!-- <text>miniprogram/pages/home/home.wxml</text> -->
+
+<!-- 引入轮播组件 -->
+<my-swiper></my-swiper>
