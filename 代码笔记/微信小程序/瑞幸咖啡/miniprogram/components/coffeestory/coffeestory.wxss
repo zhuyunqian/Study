@@ -1,0 +1,60 @@
+/* components/coffeestory/coffeestory.wxss */
+.card-wrapper {
+    margin-top: 20rpx;
+  }
+  
+  .card-top {
+    position: relative;
+    height: 100rpx;
+    line-height: 100rpx;
+  }
+  .absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .line{
+    width: 32%;
+    height: 4rpx;
+    background-color: #ccc;
+  }
+  
+  .card-txt {
+    width: 26%;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .card-view {
+    display: flex;
+    width: 100%;
+    height: 300rpx;
+  }
+  
+  .card-item {
+      /* flex-shrink: 0; 不按照flex布局缩放 按照原比例 */
+    flex-shrink: 0;
+    width: 250rpx;
+    height: 250rpx;
+    margin: 20rpx 16rpx 10rpx 10rpx;
+    border-radius: 5rpx 5rpx 0 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 200rpx;
+  }
+  
+  .card-view-txt {
+    width: 100%;
+    height: 50rpx;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+  }

@@ -1,0 +1,16 @@
+<!--components/coffeestory/coffeestory.wxml-->
+<!-- <text>components/coffeestory/coffeestory.wxml</text> -->
+
+<view class="card-wrapper">
+  <view class="card-top">
+    <view class="line absolute"></view>
+    <view class="card-txt absolute">咖啡的故事</view>
+  </view>
+  <!-- enable-flex="{{true}}  允许使用弹性布局 -->
+  <scroll-view class="card-view" scroll-x="{{true}}" enable-flex="{{true}}">
+    <view class="card-item" wx:for="{{boxlists}}" wx:key="index">
+      <image class="card-img" src="{{item.src}}"></image>
+      <view class="card-view-txt">{{item.text}}</view>
+    </view>
+  </scroll-view>
+</view>
