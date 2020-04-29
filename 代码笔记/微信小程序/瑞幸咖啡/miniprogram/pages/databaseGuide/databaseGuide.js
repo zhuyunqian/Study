@@ -51,8 +51,10 @@ Page({
   },
 
   onQuery: function() {
+    //  查询
+    // 获取数据库对象
     const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
+    // 查询当前用户所有的 counters - where查询条件
     db.collection('counters').where({
       _openid: this.data.openid
     }).get({
@@ -73,26 +75,31 @@ Page({
   },
 
   onCounterInc: function() {
-    // const db = wx.cloud.database()
-    // const newCount = this.data.count + 1
-    // db.collection('counters').doc(this.data.counterId).update({
-    //   data: {
-    //     count: newCount
-    //   },
-    //   success: res => {
-    //     this.setData({
-    //       count: newCount
-    //     })
-    //   },
-    //   fail: err => {
-    //     icon: 'none',
-    //     console.error('[数据库] [更新记录] 失败：', err)
-    //   }
-    // })
+    // 更新 1- 获取数据库对象
+    const db = wx.cloud.database()
+    // +1 更新条件
+    const newCount = this.data.count + 1
+    // doc = 条件 == 组件
+    db.collection('counters').doc(this.data.counterId).update({
+      data: {
+        count: newCount
+      },
+      success: res => {
+        this.setData({
+          count: newCount
+        })
+      },
+      fail: err => {
+        icon: 'none',
+        console.error('[数据库] [更新记录] 失败：', err)
+      }
+    })
   },
 
   onCounterDec: function() {
+    // 更新 1- 获取数据库对象
     const db = wx.cloud.database()
+    // -1 更新条件
     const newCount = this.data.count - 1
     db.collection('counters').doc(this.data.counterId).update({
       data: {
@@ -111,8 +118,11 @@ Page({
   },
 
   onRemove: function() {
+    // 删除数据库记录
     if (this.data.counterId) {
       const db = wx.cloud.database()
+      //小程序只可以通过组件删除doc
+      //还可以根据where定义条件删除记录 db.collection('counters').where() 这种写法只支持云函数 ， 可以调用
       db.collection('counters').doc(this.data.counterId).remove({
         success: res => {
           wx.showToast({
