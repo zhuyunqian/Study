@@ -6,11 +6,12 @@
     <!-- 
         indicator-dots="{{!swiDots}}"  是否显示默认的圆点轮播
      -->
-        <swiper-item class="" item-id="" wx:for="{{banners}}" wx:key="index">
+        <swiper-item class="" item-id="" wx:for="{{swiperBanner}}" wx:key="index">
             <cover-image class="swiper-img" src="{{item}}" style="height:{{swiperHeight}};" bindload="" binderror=""></cover-image>
         </swiper-item>
     </swiper>
-    <view class="swiper-dots" hover-class="none" hover-stop-propagation="false" wx:if="{{swiDots}}">
-        <view class="dots  {{swiperCurrent == index ? 'active' :'' }}" wx:for="{{banners}}" wx:key="index"></view>
+    <view class="swiper-dots" hover-class="none" hover-stop-propagation="false" wx:if="{{swiDots}}" >
+    <!-- 注意这里的圆点也是遍历的banner，如果改成传值，这里的遍历也需要修改 -->
+        <view class="dots  {{swiperCurrent == index ? 'active' :'' }}" wx:for="{{swiperBanner}}" wx:key="index"></view>
     </view>
 </view>

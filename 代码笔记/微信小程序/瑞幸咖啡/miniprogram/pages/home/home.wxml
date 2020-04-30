@@ -2,7 +2,7 @@
 <!-- <text>miniprogram/pages/home/home.wxml</text> -->
 
 <!-- 引入轮播组件 -->
-<my-swiper swi-dots="{{showViter}}"></my-swiper>
+<my-swiper swi-dots="{{showViter}}" swiper-banner="{{banners}}"></my-swiper>
 <pro-show pro-list="{{proList}}"></pro-show>
 <coffee-story></coffee-story>
 <like-it></like-it>

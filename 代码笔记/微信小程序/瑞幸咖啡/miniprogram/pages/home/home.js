@@ -12,6 +12,12 @@ Page({
       '/images/home/pro4.jpg',
       '/images/home/pro5.jpg'
     ],
+    banners: [
+      "/images/banner/baner1.jpg",
+      "/images/banner/baner2.jpg",
+      "/images/banner/baner3.jpg",
+      "/images/banner/baner4.jpg",
+    ],
     showViter:true
   },
 

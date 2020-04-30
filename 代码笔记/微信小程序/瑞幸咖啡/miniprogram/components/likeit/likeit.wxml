@@ -5,5 +5,5 @@
         <view class="line absolute"></view>
         <view class="card-txt absolute">猜你喜欢</view>
     </view>
-    <my-swiper swiper-height="{{swiHeight}}" swi-dots="{{showVis}}"></my-swiper>
+    <my-swiper swiper-banner="{{arry3}}" swiper-height="{{swiHeight}}" swi-dots="{{showVis}}"></my-swiper>
 </view>

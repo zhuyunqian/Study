@@ -11,6 +11,10 @@ Component({
     swiDots:{
       type:Boolean,
       default:null,
+    },
+    swiperBanner:{
+      type:Array,
+      default:[],
     }
   },
 
@@ -19,12 +23,6 @@ Component({
    */
   data: {
     swiperCurrent:0,
-    banners: [
-      "/images/banner/baner1.jpg",
-      "/images/banner/baner2.jpg",
-      "/images/banner/baner3.jpg",
-      "/images/banner/baner4.jpg",
-    ],
   },
 
   /**
@@ -32,7 +30,7 @@ Component({
    */
   methods: {
     currentChange(e){
-      // console.log(e.detail.current);
+      console.log(e.detail.current);
       this.setData({
         swiperCurrent:e.detail.current
       })
