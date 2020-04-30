@@ -11,8 +11,10 @@ Page({
       '/images/home/pro3.jpg',
       '/images/home/pro4.jpg',
       '/images/home/pro5.jpg'
-    ]
-
+    ],
+    swiHeight:'400rpx',
+    showVis:false,
+    showViter:true
   },
 
   /**
