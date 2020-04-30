@@ -2,7 +2,8 @@
   "usingComponents": {
     "my-swiper":"../../components/myswiper/myswiper",
     "pro-show":"../../components/proshow/proshow",
-    "coffee-story":"../../components/coffeestory/coffeestory"
+    "coffee-story":"../../components/coffeestory/coffeestory",
+    "like-it":"../../components/likeit/likeit"
   },
   "navigationStyle":"custom"
 }

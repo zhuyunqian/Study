@@ -1,0 +1,30 @@
+/* components/likeit/likeit.wxss */
+
+.card-wrapper {
+    margin-top: 20rpx;
+  }
+  
+  .card-top {
+    position: relative;
+    height: 100rpx;
+    line-height: 100rpx;
+  }
+  .absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .line{
+    width: 32%;
+    height: 4rpx;
+    background-color: #ccc;
+  }
+  
+  .card-txt {
+    width: 26%;
+    text-align: center;
+    background-color: #fff;
+  }

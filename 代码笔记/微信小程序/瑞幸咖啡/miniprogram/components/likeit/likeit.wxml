@@ -1,0 +1,9 @@
+<!-- components/likeit/likeit.wxml -->
+<!-- <text>components/likeit/likeit.wxml</text> -->
+<view class="card-wrapper">
+    <view class="card-top">
+        <view class="line absolute"></view>
+        <view class="card-txt absolute">猜你喜欢</view>
+    </view>
+    <my-swiper swiper-height="{{swiHeight}}" swi-dots="{{showVis}}"></my-swiper>
+</view>
