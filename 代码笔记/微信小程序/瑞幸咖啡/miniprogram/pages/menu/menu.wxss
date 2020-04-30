@@ -47,6 +47,7 @@ page{
     line-height: 65rpx;
     font-size: 28rpx;
     font-weight: 700;
+    margin:12rpx;
 }
 
 .menu-right-container {

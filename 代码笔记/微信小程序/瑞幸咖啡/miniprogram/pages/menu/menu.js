@@ -244,6 +244,22 @@ Page({
     })
   },
 
+  // 右侧菜单滚动
+  rightMenuScroll(e) {
+    // console.log(e);
+    // .detail.scrollTop 滚动高度 < data.areaHeight[i] i对应盒子高度  = i-1 复制给id，给左边menu选中改变
+    const scrollTop = e.detail.scrollTop; // 滚动的高度
+    for (var i = 1; i < this.data.areaHeight.length; i++) {
+      if (scrollTop <= this.data.areaHeight[i]) {
+        this.setData({
+          leftid: i -1
+        })
+        return;
+      }
+
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -255,6 +271,37 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+    // 这里是引入wx的一个函数，用于判断出来#id的高度
+    // #id的高度放置进一个数组里面，即可得到每个的模块的高度
+
+    const query = wx.createSelectorQuery()
+    const lists = this.data.navList
+    const _this = this;
+    for (let i = 0; i < lists.length; i++) {
+
+      // #rment+i 每个索引值循环出来lists也就是便数组的长度，来获取有几个右边的盒子
+      query.select('#rmenu' + i).boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(res => {
+        // console.log(res)  //res[0].height 盒子的高度 循环出来，每个盒子的高度都是这么获取
+        // console.log(_this.data.areaHeight[i] )
+        // console.log(_this.data.areaHeight[i] )
+        // console.log(_this.data.areaHeight[i] + res[0].height)
+        
+        _this.data.areaHeight.push(_this.data.areaHeight[i] + res[0].height);
+        // console.log(_this.data.areaHeight)
+
+        // 这种方法不存在多的值遍历，但是无法完成第一个
+        // if(i-1 <0){
+        //   _this.data.areaHeight[i] = res[0].height;
+
+        // }else{
+        //   _this.data.areaHeight[i] = _this.data.areaHeight[i-1] + res[0].height;
+        // }
+        console.log(_this.data.areaHeight)
+      })
+    }
 
   },
 

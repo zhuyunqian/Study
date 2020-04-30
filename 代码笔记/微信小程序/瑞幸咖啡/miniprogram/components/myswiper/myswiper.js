@@ -30,7 +30,7 @@ Component({
    */
   methods: {
     currentChange(e){
-      console.log(e.detail.current);
+      // console.log(e.detail.current);
       this.setData({
         swiperCurrent:e.detail.current
       })
