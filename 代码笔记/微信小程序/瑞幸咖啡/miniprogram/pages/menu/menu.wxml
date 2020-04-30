@@ -1,2 +1,5 @@
 <!--pages/menu/menu.wxml-->
-<text>pages/menu/menu.wxml</text>
+<!-- <text>pages/menu/menu.wxml</text> -->
+
+<my-swiper swi-dots="{{showViter}}" swiper-banner="{{banners}}" swiper-height="{{swiHeight}}"></my-swiper>
+

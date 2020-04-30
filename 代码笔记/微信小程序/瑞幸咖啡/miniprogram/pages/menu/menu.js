@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showViter:true,
+    banners:[
+      "/images/banner/menubanner1.jpg",
+      "/images/banner/menubanner2.jpg",
+      "/images/banner/menubanner3.jpg"
+    ],
+    swiHeight:'350rpx'
   },
 
   /**

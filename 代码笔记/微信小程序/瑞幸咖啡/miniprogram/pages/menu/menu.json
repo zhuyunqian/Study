@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-swiper":"../../components/myswiper/myswiper"
+  },
+  "navigationBarTitleText": "咖啡菜单"
 }
