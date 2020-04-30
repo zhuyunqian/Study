@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 // 根据引入的element组件进行添加相应方法
 import './plugins/element.js'
+//main.js 引入 v-char.js
+import './plugins/v-chart.js'
+
 
 Vue.config.productionTip = false
 
