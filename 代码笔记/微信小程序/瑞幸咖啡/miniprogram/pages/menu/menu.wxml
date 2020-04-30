@@ -1,5 +1,35 @@
-<!--pages/menu/menu.wxml-->
+<!-- pages/menu/menu.wxml -->
 <!-- <text>pages/menu/menu.wxml</text> -->
 
-<my-swiper swi-dots="{{showViter}}" swiper-banner="{{banners}}" swiper-height="{{swiHeight}}"></my-swiper>
 
+<my-swiper swi-dots="{{showViter}}" swiper-banner="{{banners}}" swiper-height="{{swiHeight}}"></my-swiper>
+<view class="menu">
+    <!-- scroll-into-view 这里内容是什么跳转到哪里
+
+    所以设定了想要跳转的id = “lmenu{{index}}” 遍历循环出来 -->
+    <scroll-view class="menu-left" scroll-y="{{true}}" scroll-into-view="lmenu{{leftid}}">
+        <!-- 
+            leftid == index 
+        
+            data-id="{{index}}"
+
+            bindtap传参，用户点击获取id这个参数，即index
+            
+        -->
+        <view class="menu-left-item{{leftid == index ? ' active' : ''}}" wx:for="{{navList}}" wx:key="index" id="lmenu{{index}}" data-id="{{index}}" bindtap="leftMenuTap">
+            {{item.c_name}}
+        </view>
+    </scroll-view>
+    <!-- bindscroll  绑定滚动事件 -->
+    <scroll-view class="menu-right" scroll-y="{{true}} " scroll-into-view="rmenu{{rightid}}" scroll-with-animation bindscroll="rightMenuScroll">
+        <view class="menu-right-view" wx:for="{{navList}}" wx:key="index" id="rmenu{{index}}">
+            <view class="menu-right-title">{{item.c_name}}</view>
+            <view class="menu-right-container">
+                <view class="menu-right-lists" wx:for="{{item.list}}" wx:key="index" wx:for-item="ritem">
+                    <image class="menu-right-img" src="{{ritem.url}}"></image>
+                    <view class="menu-right-txt">{{ritem.goodsName}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

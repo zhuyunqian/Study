@@ -1,1 +1,75 @@
 /* pages/menu/menu.wxss */
+page{
+    height:100%;
+}
+
+/* 
+    注意这里的calc(100%-350rpx) 没有生效
+    是需要父亲page高度为100%
+    不能再次添加父亲，否则不生效
+*/
+
+.menu {
+    display: flex;
+    height: calc(100%-350rpx);
+    background-color: #f0f0f0;
+}
+
+.menu-left {
+    width: 180rpx;
+    height: 100%;
+}
+
+.menu-right {
+    flex: 1;
+    height: 100%;
+    margin-left: 20rpx;
+    /* background-color: skyblue; */
+}
+
+.menu-left-item {
+    width: 100%;
+    height: 88rpx;
+    font-size: 26rpx;
+    line-height: 88rpx;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #fff;
+    text-align: center;
+}
+
+.active {
+    background-color: #f0f0f0;
+    border-left: 10rpx solid #333999;
+}
+
+.menu-right-title {
+    height: 65rpx;
+    line-height: 65rpx;
+    font-size: 28rpx;
+    font-weight: 700;
+}
+
+.menu-right-container {
+    font-size: 24rpx;
+    background-color: #fff;
+    padding: 10rpx;
+}
+
+.menu-right-lists {
+    width: 170rpx;
+    display: inline-block;
+    text-align: center;
+}
+
+.menu-right-img {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.menu-right-txt {
+    width: 100%;
+    height: 40rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
