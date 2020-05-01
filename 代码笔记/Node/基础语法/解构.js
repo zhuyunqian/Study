@@ -62,3 +62,17 @@ console.log(z);  //30
 j=10;
 console.log(j)
 console.log(arr2)
+
+// 字符串解构 -- 可解构 ， 不可用选择方法修改
+
+let string1 = "xyz";
+
+let [a,b,c] = string1;
+console.log(a);  //x
+console.log(b);  //y
+console.log(c);  //z
+
+
+string1[1] = "Y";
+console.log(string1);  // xyz    无法修改
+console.log(string1[1]);  // y
