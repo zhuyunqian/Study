@@ -32,6 +32,33 @@ console.log(itsName)
 大括号内的的变量名可以任意排序
 可以获取部分属性即部分解构
 
-
-
 */
+
+let arr1 = [10, 20, 30];
+
+let [a, b, c] = arr1;
+
+console.log(a);  //10
+console.log(b);  //20
+console.log(c);  //30
+
+// 部分解构
+let [d] = arr1;
+console.log(d);  //10
+
+let [ , ,f] = arr1;
+console.log(f);  //30
+
+
+// 复合解构
+let arr2 = [1, 2, [10, 20, 30]];
+let [ j, k, [x, y, z]] = arr2;
+console.log(j);  //1
+console.log(k);  //2
+console.log(x);  //10
+console.log(y);  //20
+console.log(z);  //30
+
+j=10;
+console.log(j)
+console.log(arr2)
