@@ -19,6 +19,28 @@
 			}
         }
     ],
+	"tabBar": {
+	    "color": "#7A7E83",
+	    "selectedColor": "#3cc51f",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/home/home",
+	        "iconPath": "static/images/tabbar/icon1.png",
+	        "selectedIconPath": "static/images/tabbar/icon1_active.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/message/message",
+	        "iconPath": "static/images/tabbar/icon2.png",
+	        "selectedIconPath": "static/images/tabbar/icon2_active.png",
+	        "text": "消息"
+	    }, {
+	        "pagePath": "pages/my/my",
+	        "iconPath": "static/images/tabbar/icon3.png",
+	        "selectedIconPath": "static/images/tabbar/icon3_active.png",
+	        "text": "我的"
+	    }]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
