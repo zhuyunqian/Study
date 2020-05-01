@@ -156,6 +156,10 @@ npm_mirror: https://npm.taobao.org/mirrors/npm/
 - nvm uninstall 版本号：  卸载指定版本的 Node.js
 - nvm use 版本号：        选择指定版本的 Node.js     (常用)
 
+安装过程遇到问题 - 查看环境变量
+
+环境变量（根目录） - 让操作系统找到对应的命令  - 在已经配好的环境变量内找（对应存储的文件夹） -  里面有配置好的nvm命令
+
 ```
 # 安装指定版本
 nvm install 10.15.0 
