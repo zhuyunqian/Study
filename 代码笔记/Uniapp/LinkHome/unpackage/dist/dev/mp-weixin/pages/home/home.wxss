@@ -79,4 +79,18 @@
   line-height: 88rpx;
   font-size: 28rpx;
 }
+.grid.data-v-9fac398a {
+  margin: 40rpx 0;
+}
+.uni-grid-item image.data-v-9fac398a {
+  width: 84rpx;
+  height: 84rpx;
+  display: block;
+  margin: 0 auto;
+}
+.uni-grid-item text.data-v-9fac398a {
+  text-align: center;
+  font-size: 26rpx;
+  margin: 10rpx 0 0 0;
+}
 

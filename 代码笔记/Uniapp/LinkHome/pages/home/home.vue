@@ -12,16 +12,46 @@
 				</view>
 			</view>
 		</view>
+		
+		<view class="grid" >
+			<uni-grid :column="4" :show-border="false">
+			    <uni-grid-item>
+					<image src="../../static/images/nav/nav1.png" mode=""></image>
+			        <text class="text">文本</text>
+			    </uni-grid-item>
+			    <uni-grid-item>
+					<image src="../../static/images/nav/nav2.png" mode=""></image>
+			        <text class="text">文本</text>
+			    </uni-grid-item>
+			    <uni-grid-item>
+					<image src="../../static/images/nav/nav3.png" mode=""></image>
+			        <text class="text">文本</text>
+			    </uni-grid-item>
+			    <uni-grid-item>
+					<image src="../../static/images/nav/nav4.png" mode=""></image>
+			        <text class="text">文本</text>
+			    </uni-grid-item>
+			</uni-grid>
+		</view>
 
 	</view>
 </template>
 
 <script>
+	// 引入安装的九宫格模板
+	import uniGrid from "@/components/uni-grid/uni-grid.vue"
+	import uniGridItem from "@/components/uni-grid-item/uni-grid-item.vue"
+	
 	export default {
 		data() {
 			return {
 
 			};
+		},
+		components: {
+			// 注册组件
+			uniGrid,
+			uniGridItem
 		}
 	}
 </script>
@@ -86,4 +116,22 @@
 			}
 		}
 	}
+
+	.grid{
+		margin:40rpx 0;
+	}
+	.uni-grid-item{
+		image{
+			width:84rpx;
+			height:84rpx;
+			display:block;
+			margin:0 auto;
+		}
+		text{
+			text-align:center;
+			font-size:26rpx;
+			margin:10rpx 0 0 0;
+		}
+	}
+
 </style>
