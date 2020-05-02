@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="odiv" class="box"></div>
+    <script>
+        var obj = document.getElementById("odiv");
+        obj.onclick = function(){
+            
+            // setTimeout(function(){
+                //  function(){} 新建了一个作用域 -- 这里的作用域指向修改
+            //     this.style.width="300px"   //修改不了
+            // },1000);
+
+
+            setTimeout(()=>{
+                this.style.width="300px"   //修改成功
+            },1000);
+        }
+    </script>
+</body>
+</html>
