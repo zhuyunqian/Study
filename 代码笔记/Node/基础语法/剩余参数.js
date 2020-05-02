@@ -26,4 +26,10 @@ function func(a, b, c){
     console.log(a,b,c)
 }
 
-func(...arr1);  //等效于：func(10,20,30);     输出结果10 20 30
+func(...arr1);  //等效于：func(10,20,30);     输出结果10 20 30  -- 拆散数组
+
+
+// 2、合并数组  --  拆散合并
+let arr2 = [40, 50, 60];
+let newArr = [...arr1,...arr2];  // 等效于 [ 10, 20, 30, 40, 50, 60 ]
+console.log(newArr);    //[ 10, 20, 30, 40, 50, 60 ]
