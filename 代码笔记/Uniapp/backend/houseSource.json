@@ -1,0 +1,88 @@
+{
+	"houseSourceArr": [
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "珠江大家花园，交通便利，环境安静",
+			"shi": 2,
+			"ting": 1,
+			"area": 71.66,
+			"orientation": "北",
+			"where": "珠江大家庭花园",
+			"feature": ["地铁", "满五年", "随时看房"],
+			"totalPrice": 240,
+			"price": 33492
+		},
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "怡乐路精致两房，满五唯一，户型方正",
+			"shi": 2,
+			"ting": 1,
+			"area": 57.24,
+			"orientation": "东南",
+			"where": "怡乐路",
+			"feature": ["地铁", "满五年", "VR房源", "新上"],
+			"totalPrice": 165,
+			"price": 28826
+		},
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "双地铁 底层 两房 精装 总价低 不接受公积金",
+			"shi": 2,
+			"ting": 1,
+			"area": 41.77,
+			"orientation": "南 东北",
+			"where": "晓湾港",
+			"feature": ["地铁", "满五年", "随时看房", "VR房源"],
+			"totalPrice": 110,
+			"price": 26335
+		},
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "终于等到您，爱她就给她一个温暖的家",
+			"shi": 3,
+			"ting": 1,
+			"area": 92.89,
+			"orientation": "南",
+			"where": "中国铁建国际花园",
+			"feature": ["地铁", "随时看房", "VR房源"],
+			"totalPrice": 175,
+			"price": 18840
+		},
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "楼层好，采光优良，居家装修，保养好，可拎包入住！",
+			"shi": 3,
+			"ting": 1,
+			"area": 102.29,
+			"orientation": "北",
+			"where": "宏康花园四期康慧苑",
+			"feature": ["满五年", "VR房源"],
+			"totalPrice": 173,
+			"price": 16913
+		},
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "市桥地铁口 桥基花园 电梯2房",
+			"shi": 2,
+			"ting": 1,
+			"area": 65.99,
+			"orientation": "北",
+			"where": "桥基花园",
+			"feature": ["地铁", "满五年", "VR房源"],
+			"totalPrice": 145,
+			"price": 21974
+		},
+		{
+			"imgSrc": "/static/images/houseSource/source.jpeg",
+			"title": "业主诚售 春兰花园方正三房 看房方便 望花园格局明亮",
+			"shi": 3,
+			"ting": 2,
+			"area": 92.06,
+			"orientation": "东北",
+			"where": "广信春兰花园",
+			"feature": ["地铁", "满五年", "随时看房", "VR房源", "新上"],
+			"totalPrice": 300,
+			"price": 32588
+		}
+	]
+}

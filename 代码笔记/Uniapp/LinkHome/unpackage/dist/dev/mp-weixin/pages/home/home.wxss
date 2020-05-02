@@ -80,11 +80,11 @@
   font-size: 28rpx;
 }
 .grid.data-v-9fac398a {
-  margin: 40rpx 0;
+  margin: 40rpx 0 0;
 }
 .uni-grid-item image.data-v-9fac398a {
-  width: 84rpx;
-  height: 84rpx;
+  width: 104rpx;
+  height: 104rpx;
   display: block;
   margin: 0 auto;
 }
@@ -92,5 +92,41 @@
   text-align: center;
   font-size: 26rpx;
   margin: 10rpx 0 0 0;
+}
+.market-title.data-v-9fac398a {
+  line-height: 88rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.market-title .title.data-v-9fac398a {
+  font-size: 28rpx;
+}
+.market-title .more.data-v-9fac398a {
+  float: right;
+  font-size: 26rpx;
+  color: #999;
+}
+.market-con.data-v-9fac398a {
+  margin: 20rpx 0 0 0;
+  padding: 0 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.market-con .price.data-v-9fac398a, .market-con .num.data-v-9fac398a {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  font-size: 24rpx;
+  color: #999;
+}
+.market-con .price view.data-v-9fac398a, .market-con .num view.data-v-9fac398a {
+  color: #333;
+  font-size: 38rpx;
+  margin: 10rpx 0 0 0;
+}
+.market-con .price view .unit.data-v-9fac398a, .market-con .num view .unit.data-v-9fac398a {
+  font-size: 24rpx;
+  margin: 0 0 0 10rpx;
 }
 
