@@ -33,3 +33,18 @@ func(...arr1);  //等效于：func(10,20,30);     输出结果10 20 30  -- 拆�
 let arr2 = [40, 50, 60];
 let newArr = [...arr1,...arr2];  // 等效于 [ 10, 20, 30, 40, 50, 60 ]
 console.log(newArr);    //[ 10, 20, 30, 40, 50, 60 ]
+
+// 3、合并对象
+let obj1 = {
+    name:"nodejs",
+    age:"11",
+};
+let obj2 = {
+    email:"nodejs@163.com",
+};
+let newObj = {...obj1,...obj2}; // 等效于{ name: 'nodejs', age: '11', email: 'nodejs@163.com' }
+console.log(newObj);    //{ name: 'nodejs', age: '11', email: 'nodejs@163.com' }
+
+// 4、es6中另一个合并对象的方法
+let newObj2 = Object.assign({},obj1,obj2);  // 把第二个及第二个以上的参数都合并到第1个上面去。
+console.log(newObj2);   //{ name: 'nodejs', age: '11', email: 'nodejs@163.com' }
