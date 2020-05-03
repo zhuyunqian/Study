@@ -48,3 +48,26 @@ console.log(newObj);    //{ name: 'nodejs', age: '11', email: 'nodejs@163.com' }
 // 4、es6中另一个合并对象的方法
 let newObj2 = Object.assign({},obj1,obj2);  // 把第二个及第二个以上的参数都合并到第1个上面去。
 console.log(newObj2);   //{ name: 'nodejs', age: '11', email: 'nodejs@163.com' }
+
+
+/*
+这是cmmon.js模块规范 ， 
+1- 引入需要使用require ， 不能省略./
+2- 导出需要哪一个常量名接收，尽量常量名和导出名一致
+3-  
+
+导出数据的两种方式
+1- exports.导出名字 = 导出内容
+2- module.exports={ 导出内容 }
+3- 只可以存在一个，两个同时写，默认第二个
+
+*/ 
+
+// exports - 收集导出 ， 默认是一个对象
+exports.newObj2 = newObj2
+
+// 自定义模块导出
+module.exports = {
+    newObj2,
+    obj1,
+}
