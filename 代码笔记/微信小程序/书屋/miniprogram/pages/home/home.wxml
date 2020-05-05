@@ -1,0 +1,77 @@
+<!-- pages/home/home.wxml -->
+<!-- <text>pages/home/home.wxml</text> -->
+<view class="wrap">
+    <view class="search">
+        <view class="searchInp">        
+            <icon type="search" size="24"/>
+            <input class="weui-input" bind auto-focus placeholder="请输入搜索内容"/>
+       </view>
+    </view>
+    <view class="content">
+        <view class="title">精选</view>
+        <view class="con">
+            <scroll-view class="" scroll-y="true">
+                <view class="book">
+                    <image class="" src="../assets/images/book1.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">标题</view>
+                        <view class="name">作者</view>
+                        <view class="more">
+                            <text>{{num}}喜欢</text>·<text>{{num1}}点评</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="book">
+                    <image class="" src="../assets/images/book2.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">标题</view>
+                        <view class="name">作者</view>
+                        <view class="more">
+                            <text>{{num}}喜欢</text>·<text>{{num1}}点评</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="book">
+                    <image class="" src="../assets/images/book4.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">标题</view>
+                        <view class="name">作者</view>
+                        <view class="more">
+                            <text>{{num}}喜欢</text>·<text>{{num1}}点评</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="book">
+                    <image class="" src="../assets/images/book5.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">标题</view>
+                        <view class="name">作者</view>
+                        <view class="more">
+                            <text>{{num}}喜欢</text>·<text>{{num1}}点评</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="book">
+                    <image class="" src="../assets/images/book1.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">标题</view>
+                        <view class="name">作者</view>
+                        <view class="more">
+                            <text>{{num}}喜欢</text>·<text>{{num1}}点评</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="book">
+                    <image class="" src="../assets/images/book1.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">标题</view>
+                        <view class="name">作者</view>
+                        <view class="more">
+                            <text>{{num}}喜欢</text>·<text>{{num1}}点评</text>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,71 @@
+<!-- pages/home/home.wxml -->
+<!-- <text>pages/home/home.wxml</text> -->
+<view class="wrap">
+    <view class="search">
+        <view class="searchInp">
+            <icon type="search" size="24" />
+            <input class="weui-input" bind auto-focus placeholder="请输入搜索内容" />
+        </view>
+    </view>
+    <view class="content">
+        <view class="con">
+            <scroll-view class="" scroll-y="true">
+                <view class="book">
+                    <image class="" src="../assets/images/book3.jpeg"></image>
+                    <view class="txt">
+                        <view class="tit">学习之道</view>
+                        <view class="name">丽丽</view>
+                    </view>
+                </view>
+                <view class="evaluate">
+                    <view class="tit">短评</view>
+                    <view class="his">
+                        <view class="mes-box">
+                            你好李银河! <text class="mes">+759</text>
+                        </view>
+                        <view class="mes-box">
+                            你好! <text class="mes">+759</text>
+                        </view>
+                        <view class="mes-box">
+                            你好河! <text class="mes">+759</text>
+                        </view>
+                        <view class="mes-box">
+                            你好李银河! <text class="mes">+759</text>
+                        </view>
+                        <view class="mes-box">
+                            你好李银河! <text class="mes">+759</text>
+                        </view>
+                        
+                    </view>
+                </view>
+                <view class="conmes">
+                    <view class="tit">
+                        内容简介
+                    </view>
+                    <view class="p">
+                        内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息内容信息
+                    </view>
+                </view>
+                <view class="conmes">
+                    <view class="tit">
+                        书本信息
+                    </view>
+                    <view class="p">
+                        <view class="line">
+                            出版社 ： <text>CCCC出版社</text>
+                        </view>
+                        <view class="line">
+                            出版时间 ： <text>2019-12-08</text>
+                        </view>
+                        <view class="line">
+                            页数 ： <text>20</text>
+                        </view>
+                        <view class="line">
+                            定价 ： <text>200.00</text>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,82 @@
+/* pages/home/home.wxss */
+.wrap,page{
+    height:100%;
+}
+.search{
+    background:#fff;
+    padding-top:20rpx;
+    height:100rpx;
+    width:100%;
+}
+.searchBox{
+    width:90%;
+    height:80rpx;
+    line-height:80rpx;
+    margin:0 auto;
+    text-align:center;
+    display: flex;
+    align-items:center;
+    display: flex;
+    font-size:28rpx;
+}
+.searchInp{
+    flex:8;
+    margin-right:18rpx;
+    height:80rpx;
+    line-height:80rpx;
+    background:#f6f6f6;
+    border-radius:50rpx;
+    display:flex;
+    align-items:center;
+    text-align:left;
+}
+.searchInp icon{
+   flex:1;
+   margin:0 0 0 30rpx;
+   height:50rpx;
+}
+.searchInp .weui-input{
+    flex:8;
+}
+.searchBtn{
+    flex:1;
+    font-size:28rpx;
+    color:#999;
+    background:#fff;
+    border:1px solid #ededed;
+    border-radius:120rpx;
+    margin-left:20rpx;
+}
+scroll-view{
+    display:flex;
+    padding:0 0 0 80rpx;
+}
+
+.content{
+    height:calc(100% - 160rpx);
+    background:#fff;
+    margin:10rpx 0 0 0;
+    padding:40rpx 0 0 0;
+}
+.search-mou{
+    padding:20rpx 40rpx;
+}
+.title{
+    font-size:30rpx;
+    border-left:10rpx solid #000;
+    text-indent:40rpx;
+    margin:0 0 20rpx 0;
+}
+.search-con{
+    padding:0 0 20rpx;
+    line-height:80rpx;
+}
+.search-con text{
+    display: inline-block;
+    line-height:56rpx;
+    padding:0 20rpx;
+    font-size:28rpx;
+    background:#ededed;
+    color:#888;
+    margin-right:20rpx;
+}

@@ -1,0 +1,116 @@
+/* pages/home/home.wxss */
+.title{
+    font-size:32rpx;
+    text-align: center;
+    margin:30rpx 0;
+}
+.search{
+    background:#fff;
+    padding-top:20rpx;
+    height:100rpx;
+    width:100%;
+}
+.searchInp{
+    width:90%;
+    height:80rpx;
+    line-height:80rpx;
+    background:#f6f6f6;
+    margin:0 auto;
+    border-radius:50rpx;
+    display: flex;
+    align-items:center;
+    text-align:center;
+    position: relative;
+    
+}
+.searchInp icon{
+   position:absolute;
+   left:25%;
+   top:15rpx;
+
+}
+.searchInp .weui-input{
+    width:100%;
+    text-align:center;
+    font-size:28rpx;
+}
+
+.con{
+   
+}
+scroll-view{
+    display:flex;
+}
+.book{
+    width:100%;
+    background:#fff;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-top:40rpx;
+    padding:40rpx 0;
+}
+.book image{
+    width:240rpx;
+    height:320rpx;
+    display:block;
+    flex:3;
+}
+.book .txt{
+    margin-top:10rpx;
+    flex:2;
+    width:100%;
+    background:#fff;
+    line-height:50rpx;
+    border-radius:0 0 15rpx 15rpx;
+    color:#333;
+    display: flex;
+    flex-direction: column;
+    padding:0 20rpx;
+    align-items:center;
+}
+.txt .tit{
+    font-size:30rpx;
+    flex:1;
+}
+.txt .name,.txt .more{
+    font-size:28rpx;
+    color:#999;
+    flex:1;
+}
+.txt .more{
+    text-align:right;
+}
+
+.evaluate ,.conmes{
+    background:#fff;
+    margin-top:40rpx;
+    padding:40rpx 0;
+}
+.evaluate .tit, .conmes .tit{
+    text-align:center;
+    margin-bottom:20rpx;
+}
+.his{
+    padding:0 60rpx;
+}
+.his .mes-box{
+    font-size:28rpx;
+    color:#999;
+    padding:0 40rpx;
+    display: inline-block;
+    line-height:74rpx;
+    background:#ededed;
+    border-radius:84rpx;
+    margin:0 20rpx 20rpx 0;
+}
+.his .mes-box:nth-child(2n){
+    margin-right:0;
+}
+.p{
+    padding:0 60rpx;
+    font-size:28rpx;
+    color:#999;
+    line-height:50rpx;
+}

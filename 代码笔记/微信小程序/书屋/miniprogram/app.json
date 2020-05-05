@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/details/details",
+    "pages/search/search",
+    "pages/fashion/fashion",
+    "pages/like/like",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -18,8 +23,35 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "林白",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color":"#c8c8c8",
+    "selectedColor":"#000",
+    "list": [
+      {
+        "iconPath":"pages/assets/images/tab/circle-normal.png",
+        "selectedIconPath":"pages/assets/images/tab/circle-select.png",
+        "pagePath": "pages/fashion/fashion",
+        "text": "流行"
+      },
+      {
+        "iconPath":"pages/assets/images/tab/trigon-normal.png",
+        "selectedIconPath":"pages/assets/images/tab/trigon-select.png",
+        "pagePath": "pages/home/home",
+        "text": "书单"
+      },
+      {
+        "iconPath":"pages/assets/images/tab/square-normal.png",
+        "selectedIconPath":"pages/assets/images/tab/square-select.png",
+        "pagePath": "pages/like/like",
+        "text": "喜欢"
+        
+
+        
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

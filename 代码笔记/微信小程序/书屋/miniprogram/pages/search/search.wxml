@@ -1,0 +1,43 @@
+<!-- pages/home/home.wxml -->
+<!-- <text>pages/home/home.wxml</text> -->
+<view class="wrap">
+    <view class="search">
+        <div class="searchBox">
+            <view class="searchInp">        
+                <icon type="search" size="24"/>
+                <input class="weui-input" bind auto-focus placeholder="请输入搜索内容"/>
+            </view>
+            <button class="searchBtn">取消</button>
+        </div>
+    </view>
+    <view class="content">
+        <view class="con">
+            <view class="search-mou">
+                <view class="title">
+                    历史搜索
+                </view>
+                <view class="search-con">
+                    <text>假如真的有时光机</text>
+                    <text>格林童话</text>
+                    <text>大家都有病</text>
+                    <text>送你一颗糖</text>
+                    <text>听说</text>
+                    <text>雷雨</text>
+                </view>
+            </view>
+            <view class="search-mou">
+                <view class="title">
+                    热门搜索
+                </view>
+                <view class="search-con">
+                    <text>假如真的有时光机</text>
+                    <text>格林童话</text>
+                    <text>大家都有病</text>
+                    <text>送你一颗糖</text>
+                    <text>听说</text>
+                    <text>雷雨</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
