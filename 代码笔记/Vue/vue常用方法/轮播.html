@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <div class="wrap">
-            <ul  :style="{ transform: 'translateX('+val+'px)'}">
+            <ul  :style="{ transform: 'translateX(-'+val*520+'px)'}">
                 <li v-for="(img , index) in imgs" :key="index"><img :src="img" alt=""></li>
             </ul>
             <button @click="next">
@@ -38,20 +38,23 @@
         methods: {
             //触发方法 -- val值跟随改变  绑定:style跟随改变
             next(){
-                if(this.val == -1560){
+                if(this.val == this.imgs.length-1){
                     this.val = 0
                 }else{
-                    this.val -= 520
+                    this.val ++
                 }
                 
             },
             prev(){
                 if(this.val == 0){
-                    this.val = -1560
+                    this.val = this.imgs.length-1
                 }else{
-                    this.val += 520
+                    this.val --
                 }
             }
+        },
+        created() {
+            setInterval(()=>{ this.next(); }, 1000);
         },
     })
 </script>
