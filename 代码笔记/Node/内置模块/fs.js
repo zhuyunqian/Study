@@ -11,6 +11,12 @@ fs模块 -- 作用文件操作
 fs.readFile(filePath,'utf-8',(error,data)=>{})
 error -- 读取成功为null 否则为object
 data -- 读取成功为读取信息data 否则为undefined
+fs.writeFile(filePath,'重写内容','utf-8',(error,data)=>{})
+-- 目的 -- 操作数据库
+-- 重写内容 
+-- 1- 定义变量，赋值
+-- 2- 一般读取文件后，把内容赋值到重写内容
+
 */
 
 // 同步读取 -- readFileSync
@@ -35,7 +41,7 @@ fs.readFile(filePath,'utf-8',(error,data)=>{
     console.log(data)
 })
 
-//  异步写入 -- fs.writeFile（写入路径，'写入内容'，'写入格式'，(error,data)=>{}）
+//  异步写入 -- fs.writeFile（写入路径，'写入内容'，'写入格式'，(error,data)=>{}） -- 目的 操作数据库
 fs.writeFile(filePath,'重新写入文件123','utf-8',(error,data)=>{
 	//console.log(error)
 	if(error){
