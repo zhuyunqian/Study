@@ -45,3 +45,13 @@ fs.writeFile(filePath,'重新写入文件123','utf-8',(error,data)=>{
 	console.log('data'+'写完啦')
 })
 console.log('end') //异步-所以先执行end
+
+fs.appendFile(filePath,'重新写入文件123789','utf-8',(error,data)=>{
+	//console.log(error)
+	if(error){
+		console.log(error)
+		return
+	}
+	console.log('data'+'追加写完啦')
+})
+console.log('end') //异步-所以先执行end
