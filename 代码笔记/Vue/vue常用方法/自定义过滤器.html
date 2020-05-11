@@ -12,7 +12,16 @@
         <!-- | 管道符 ｜后为方法 管道方法 -->
         <p>过滤器1：{{time | formDate}}</p>
         <p>过滤器1-1：{{time | formDate | formB}}</p>
+        <p><input type="text" v-model="num" ></p>
+        <p>过滤器2小数：{{num | tofix2}}</p>
 
+        <ul>
+            <li v-for="(item , index) in mesArr" :key="index">
+                <input type="checkbox" v-if="item.check == false">
+                <input type="checkbox" checked="checked" v-else>
+                <span>{{item.name}}</span>
+            </li>
+        </ul>
     </div>
     <div id="app1">
         <p>过滤器2：{{time | formDate | formB}}</p>
@@ -27,6 +36,9 @@
             //getDay -- getDate获取日
             return tt.getFullYear()+'年'+(tt.getMonth()+1)+'月'+tt.getDate()+'日'
     })
+    // Vue.filter('tofix2',function(val){
+    //     return '¥' + parseInt(val).toFixed(2)
+    // })
     Vue.filter('formB',function(val){
         //这里的val 获取的是formDate过滤后的值
         var ss = val + '-----';
@@ -36,6 +48,17 @@ var app = new Vue({
     el:'#app',
     data:{
         time: new Date().getTime(),
+        num:0,
+        mesArr:[
+            {name:'vue', check:false},
+            {name:'node', check:false},
+            {name:'react', check:false}
+        ]
+    },
+    methods: {
+        specifiName(val){
+            console.log(val)
+        }
     },
     
     //管道方法-局部过滤器
@@ -51,6 +74,11 @@ var app = new Vue({
     //         return val +"123"
     //     },
     // }
+    filters:{
+        tofix2(val){
+            return '¥' + parseInt(val).toFixed(2)
+        }
+    }
     
 })
 var app1 = new Vue({
