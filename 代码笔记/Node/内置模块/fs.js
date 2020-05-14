@@ -61,3 +61,6 @@ fs.appendFile(filePath,'重新写入文件123789','utf-8',(error,data)=>{
 	console.log('data'+'追加写完啦')
 })
 console.log('end') //异步-所以先执行end
+
+// 重命名 fs.renameSync('原文件名','要修改为的文件名');
+fs.renameSync('readfs.txt','readfs1.txt');
