@@ -64,3 +64,10 @@ console.log('end') //异步-所以先执行end
 
 // 重命名 fs.renameSync('原文件名','要修改为的文件名');
 fs.renameSync('readfs.txt','readfs1.txt');
+
+console.log('HHHHHHHHHHHHHHH')
+
+// 当前路径下所有文件名和目录名
+let filename;
+filename = fs.readdirSync(__dirname)
+console.log(filename)
