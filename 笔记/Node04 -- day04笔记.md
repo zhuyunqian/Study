@@ -4,6 +4,16 @@
 
 IP地址、端口
 
+IP地址： 标识不同的网络设备
+
+端口：网络设备上的不同的网络进程 
+
+特定进程：0-1024
+
+一般进程：1024-605535
+
+![](https://raw.githubusercontent.com/zhuyunqian/picgo/master/pic/20200515115007.png)
+
 http请求大致过程(先做粗略了解，后面细讲)
 
 #### 1.1、http核心模块的使用
