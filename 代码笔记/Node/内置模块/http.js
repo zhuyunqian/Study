@@ -4,6 +4,7 @@
 
 //1. 引入http模块
 const http = require('http');
+const url = require('url');
 
 //2. 配置服务器端口
 const port= 8080;
@@ -14,8 +15,12 @@ const server = http.createServer((request,response)=>{
 
     // 每次接收请求，执行这里的代码
     // 请求一次，执行一次 刷新即是请求
-    let url = request.url; // 请求路径获取
-    console.log(url)
+    let requesturl = request.url; // 请求路径获取
+    //console.log(requesturl);
+    
+    // get请求参数获取
+    let obj = url.parse(requesturl,true);
+    console.log(obj)
 
     // end响应结束执行的代码
     response.end('hello nodejs')
