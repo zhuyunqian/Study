@@ -1,5 +1,9 @@
 /*
 1.http - 作用 - 搭建服务器，搭建http服务，接受请求处理请求，并响应
+
+每次更改都需要重启服务，
+-解决方案-安装nodemon包
+npm install -g nodemon
 */
 
 //1. 引入http模块
@@ -18,9 +22,9 @@ const server = http.createServer((request,response)=>{
     let requesturl = request.url; // 请求路径获取
     //console.log(requesturl);
     
-    // get请求参数获取
+    // get请求参数获取 -- true 跟false 是否吧参数转化为一个对象
     let obj = url.parse(requesturl,true);
-    console.log(obj)
+    console.log(obj.query.page)
 
     // end响应结束执行的代码
     response.end('hello nodejs')
