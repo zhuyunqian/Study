@@ -27,6 +27,7 @@ const server = http.createServer((request,response)=>{
     console.log(obj.query.page)
 
     // end响应结束执行的代码
+    response.write('11111<br/>')
     response.end('hello nodejs')
 })
 
