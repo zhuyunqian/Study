@@ -10,6 +10,10 @@ npm install -g nodemon
 const http = require('http');
 const url = require('url');
 
+// 引入读取文件，引入路径，读取并返回到页面
+const path = require('path');
+const fs = require('fs');
+
 //2. 配置服务器端口
 const port= 8080;
 
@@ -26,9 +30,13 @@ const server = http.createServer((request,response)=>{
     let obj = url.parse(requesturl,true);
     console.log(obj.query.page)
 
+    // 读取返回首页内容
+    let pathfile = path.join(__dirname,'return.html');
+    let content = fs.readFileSync(pathfile);
+
     // end响应结束执行的代码
-    response.write('11111<br/>')
-    response.end('hello nodejs')
+    //response.write('11111<br/>')
+    response.end(content)
 })
 
 //4. 服务器监听，监听浏览器的请求
