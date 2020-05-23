@@ -18,6 +18,8 @@ http请求大致过程(先做粗略了解，后面细讲)
 
 #### 1.1、http核心模块的使用
 
+![](https://raw.githubusercontent.com/zhuyunqian/picgo/master/pic/20200523093958.png)
+
 四个步骤：
 
 1、导入http模块

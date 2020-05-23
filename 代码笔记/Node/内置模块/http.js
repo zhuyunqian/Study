@@ -27,16 +27,36 @@ const server = http.createServer((request,response)=>{
     //console.log(requesturl);
     
     // get请求参数获取 -- true 跟false 是否吧参数转化为一个对象
-    let obj = url.parse(requesturl,true);
-    console.log(obj.query.page)
+    //let obj = url.parse(requesturl,true);
+    //console.log(obj.query.path)
 
-    // 读取返回首页内容
-    let pathfile = path.join(__dirname,'return.html');
-    let content = fs.readFileSync(pathfile);
+    //判断请求路径，进行返回
+    if(requesturl == "/" || requesturl == "/index.html"){
+        // 读取返回首页内容
+        let pathfile = path.join(__dirname,'return.html');
+        let content = fs.readFileSync(pathfile);
 
-    // end响应结束执行的代码
-    //response.write('11111<br/>')
-    response.end(content)
+        response.end(content)
+    }else if(requesturl == "/detail"){
+         // 读取返回detail内容
+         let pathfile = path.join(__dirname,'returndetails.html');
+         let content = fs.readFileSync(pathfile);
+ 
+         response.end(content)
+    }else if(requesturl.endsWith('.css')){
+        // 设置请求css文件，返回css文件
+        let pathfile = path.join(__dirname,'style.css');
+        let content = fs.readFileSync(pathfile);
+        response.end(content)
+    }else{
+        // 遵循http协议，设置响应头信息，返回html
+        response.setHeader("Content-type","text/html;charset=utf-8")
+        response.end('请求错误，404')
+    }
+
+
+
+   
 })
 
 //4. 服务器监听，监听浏览器的请求
