@@ -1,0 +1,27 @@
+*{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    color:#666;
+}
+
+.container{
+    max-width:1280px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.navwidth{
+    width:923px;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.mg20{
+    margin-top:20px;
+}
