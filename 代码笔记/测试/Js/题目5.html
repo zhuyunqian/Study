@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // (8分)题目5、编写一个函数，调用后随机返回一个十六进制的颜色值(例如：'#3526ac')
+        // 可以使用随机函数：Math.random()
+        
+        var arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+        var sum =  "";
+        for (var i = 0; i < 6; i++) {
+            //向上取整，得到进制数
+            var num= Math.floor(Math.random() * 16);
+            sum += arr[num];
+            var sym =  "#";
+        }
+        //生成进制数
+        var colourCode = sym + sum ;
+        //返回16进制颜色代码
+        console.log(colourCode);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

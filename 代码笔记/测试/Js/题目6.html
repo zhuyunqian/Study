@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // (8分)题目6、将数字 12345678 转化成 RMB 形式 如： 12,345,678
+        var a="12345678";
+ 
+        //1.使用split把字符串分割成数组;
+        //2.使用reverse将数组进行翻转;
+        b=a.split('').reverse();
+        
+        //3.遍历数组，并在第(i+1)%4，第四个前用splice(i,0,',')插入",";
+        for(var i=0;i<b.length;i++){
+            if((i+1)%4==0){
+                b.splice(i,0,',');
+            }
+        }
+        b.reverse(); // 1 , 2 5 8 , 7 4 6
+        
+        //4.使用reverse再次翻转数组，遍历数组，空字符追加每个值;
+        var str = '';
+        for(var i=0;i<b.length;i++){
+            str += b[i]	
+        }
+        
+        //5.输出验证;
+        console.log(str)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

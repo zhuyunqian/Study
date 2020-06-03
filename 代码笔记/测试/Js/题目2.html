@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // (6分)题目2、封装一个函数，传入一个实参年份，实现判断是否是闰年的功能，是则哈数返回true，否则函数返回false。
+        // 满足下列条件之一即为闰年：
+        //     1、能被4整除且不能被100整除
+        //     2、能被400整除的是闰年
+
+        var num;
+        num=prompt("请输入年份！");
+
+        if(num % 4 ==0 && num % 100 !== 0){
+            alert(num+'年 是闰年')
+        }else{
+            alert(num+'年 不是闰年')
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
