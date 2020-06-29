@@ -1,0 +1,14 @@
+{
+  "name": "parsenum",
+  "version": "1.0.0",
+  "description": "'转换成数字汉字'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "num2capital": "^1.0.5"
+  }
+}
