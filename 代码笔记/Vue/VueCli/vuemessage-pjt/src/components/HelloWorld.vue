@@ -23,9 +23,9 @@ export default {
     MyCom,
   },
   created() {
-    this.timer = setInterval(function(){
-      console.log(1)
-    },1000)
+    // this.timer = setInterval(function(){
+    //   console.log(1)
+    // },1000)
   },
 
   // keepalive -- 包住标签触发

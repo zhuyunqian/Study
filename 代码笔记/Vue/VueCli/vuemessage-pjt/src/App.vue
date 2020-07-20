@@ -10,34 +10,31 @@
    -->
 
   <div id="app">
-    <img id="imgs" alt="Vue logo" src="./assets/logo.png">
-
-    <p id="pinner">{{count}}</p>
-    <button @click="add">+1</button>
-
-    <!-- 
-      keep-alive
-      缓存组件
-      优点：缓存之前的状态，比如checkbox点击效果
-
-      keepa包住的组件会触发activated 和 deactivated 两个声明周期函数函数
-      
-     -->
-
-    <!-- 向子组件传值 绑定了自定义属性 -->
-    <keep-alive>
-      <HelloWorld msg="Welcome to Your Vue.js App" v-if="bool"/>
-    </keep-alive>
-    <!-- 准备切换组件，关闭组件的时候，销毁组件内的定时器 -->
-    <p><button @click="toggle">
-      切换
-    </button></p>
+    <div class="canvasdiv">
+       <div class="container">
+          <div class="share-img">
+              <img :src="imgUrl" alt="分享图">
+          </div>
+          <div class="creat-img" ref="box" >
+            <!-- 写在box里面的内容 为 可以生成图片的内容 -->
+              <div>123</div>
+              <div>123</div>
+              <div>123</div>
+              <img :src="imgUrl" alt="分享图">
+              <img src="./assets/img/banner8.jpg" style="width:400px;" alt="分享背景图">
+          </div>
+      </div>
+      <!-- 这里的点击可以生成图片，并生成链接下载图片 -->
+      <button @click="change">点击生成图片</button>
+    </div>
   </div>
 </template>
 
 <script>
 //引入组件文件
 import HelloWorld from './components/HelloWorld.vue'
+import { qrcanvas } from 'qrcanvas';
+import html2canvas from 'html2canvas';
 
 // es6导出 -- main.js 可以直接import引入
 export default {
@@ -54,7 +51,8 @@ export default {
     return {
       val:'666',
       count:1,
-      bool:true
+      bool:true,
+      imgUrl:'/img/logo.82b9c7a5.png',
     }
   },
   methods: {
@@ -63,7 +61,35 @@ export default {
     },
     toggle(){
       this.bool = !this.bool
-    }
+    },
+    
+    // 这里的change方法，生成图片，并下载图片
+    change(){
+      let that = this;
+      html2canvas(that.$refs.box).then(canvas => {
+        // this.$refs.addImage.append(canvas);//在下面添加canvas节点
+        let link = document.createElement("a");
+        link.href = canvas.toDataURL();//下载链接
+        link.setAttribute("download","图片生成.png");
+        link.style.display = "none";//a标签隐藏
+        document.body.appendChild(link);
+        link.click();
+      });
+    },
+    base64ToBlob(code) {
+        let parts = code.split(';base64,');
+        let contentType = parts[0].split(':')[1];
+        let raw = window.atob(parts[1]);
+        let rawLength = raw.length;
+
+        let uInt8Array = new Uint8Array(rawLength);
+
+        for (let i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = raw.charCodeAt(i);
+        }
+        return new Blob([uInt8Array], {type: contentType});
+    },
+    
   },
   directives:{},  //自定义指令
   filters:{}, // 过滤器
@@ -81,6 +107,7 @@ export default {
     console.log('组件创建后')
     console.log(this.val) // 666
     console.log(document.getElementById('imgs'))  //null
+
   },
 
   beforeMount() {
