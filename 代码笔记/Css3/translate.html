@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>004</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:36px;font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .wrap{
+            position: relative;
+        }
+        .floatTool{
+            position: fixed;
+            right: 6px;
+            bottom: 240px;
+            width: 60px;
+            z-index: 15;
+        }
+        .contactus{
+            width: 60px;
+            height: 60px;
+            background: #1493fe;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 3px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .floatTool ul li {
+            transition: all .3s;
+        }
+        .floatTool ul li {
+            width: 60px;
+            height: 60px;
+            background: #1493fe;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 3px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+        }
+        #conmessage{
+            min-width:190px;
+            padding:20px 20px 10px 20px;
+            position: absolute;
+            right:0;
+            top:252px;
+            border-radius:6px;
+            color:#fff;
+            background: #1493fe;
+        }
+        #conmessage .left{
+            float:left;
+            margin-right:10px;
+        }
+        .conmesline{
+            overflow:hidden;
+            margin-bottom:10px;
+            line-height:24px;
+        }
+        .conmesline:last-child{
+            margin:0;
+        }
+        #conmessage .iconfont{
+            font-size:30px;
+            
+        }
+        #close{
+            margin-left:45%;
+            cursor: pointer;
+        }
+        #zhinan{
+            position:relative;
+        }
+        .notice-icon{
+            width:8px;
+            height:8px;
+            border-radius:10px;
+            position:absolute;
+            left:16px;
+            top:18px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="floatTool">
+            <ul>
+                <li id="goChat"><i class="iconfont icon-liaotian1"></i></li>
+                <li id="showHotNews" class="">
+                    <i class="iconfont icon-re"></i>
+                </li>
+                <li id="zhinan" onclick="zhinanClick()">
+                    <b class="notice-icon"></b>
+                    <i class="iconfont icon-yingyong" style="font-size:28px;"></i>
+                </li>
+               <li id="goTop"><i class="iconfont icon-fanhuidingbu"></i></li>
+               <li id="getcontact" onclick="getcontactmou()">
+                    <span class="iconfont icon-kefu"></span>
+                </li>
+            </ul>
+            
+            <div class="message animated fadeInRight" id="conmessage" style="display:none;">
+                <div class="conmesline">
+                    <div class="left">
+                        <span class="iconfont icon-dianhua1"></span>
+                    </div>
+                    <div class="left">
+                        010-66097906
+                    </div>
+                </div>
+                <div class="conmesline">
+                    <div class="left">
+                        <span class="iconfont icon-weixin1"></span>
+                    </div>
+                    <div class="left">
+                        13810886941
+                    </div>
+                </div>
+                <div class="conmesline">
+                    <div class="left">
+                        <span class="iconfont icon-youxiang2"></span>
+                    </div>
+                    <div class="left">
+                        fwpt@moe.edu.cn
+                    </div>
+                </div>
+                <div class="conmesline">
+                    <div class="left" id="close">
+                        <span class="iconfont icon-guanbi1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function getcontactmou(){
+        $('#conmessage').css({
+            'display':'block'
+        })
+        $('#getcontact').hide()
+        
+    }
+    $('#zhinan').click(function(){
+        $('.notice-icon').hide();
+    })
+    $('#close').click(function(){
+        $('#conmessage').hide();
+        $('#getcontact').addClass('animated fadeInRight')
+        $('#getcontact').show();
+    })
+</script>
