@@ -288,9 +288,11 @@ localStorage.clear();
 
 ```js
 // 添加数据；setItem的value值是字符串类型的数据
+sessionStorage.setItem('name',Json.stringify(a)) -- 如果name值是对象的话，可以转换成字符串类型
 sessionStorage.setItem('name','张三')；
 // 获取数据
-sessionStorage.getItem('name'); // 张三
+sessionStorage.getItem('name'); // 张三 
+sessionStorage.getItem(Json.parse(sessionStorage.getItem('name')).name) //先获取属性，然后转换为json类型，获取值
 // 清空
 sessionStorage.clear();
 ```

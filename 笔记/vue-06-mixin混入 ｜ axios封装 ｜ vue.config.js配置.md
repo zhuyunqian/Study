@@ -8,6 +8,7 @@
 
 ```js
 // main.js
+// 全局注册 mixin方法
 Vue.mixin({
     created() {
         console.log('全局created')；
@@ -50,6 +51,7 @@ export default {
 
 <script>
 import testMixin from "@/mixins/test.js";
+//内部方法优先级高于引入方法
 export default {
   mixins: [testMixin],
   methods: {
@@ -110,6 +112,8 @@ module.exports = {
 > 如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器。这个问题可以通过 `vue.config.js` 中的 `devServer.proxy` 选项来配置。
 
 ```js
+// 出现跨域-- 端口、域名、协议三者出现不同，即出现跨域问题
+
 module.exports = {
   devServer: {
     proxy: {
