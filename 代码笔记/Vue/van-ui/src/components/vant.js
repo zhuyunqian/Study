@@ -1,0 +1,37 @@
+import Vue from 'vue'
+import { Search, Swipe, Form, SwipeItem, Field, Lazyload, Grid, GoodsAction, GoodsActionIcon, GoodsActionButton, Checkbox, SubmitBar, CheckboxGroup, Popup, Tag, Stepper, GridItem, Card, Tabbar, SwipeCell, TabbarItem, Button, TreeSelect, Col, Row, Icon, DropdownMenu, DropdownItem, List, Tab, Tabs, Toast, Cell, Image as VanImage } from 'vant';
+
+Vue.use(Toast);
+Vue.use(Field);
+Vue.use(Form);
+Vue.use(Search);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+Vue.use(Lazyload);
+Vue.use(Grid);
+Vue.use(GridItem);
+Vue.use(Card);
+Vue.use(Tabbar);
+Vue.use(TabbarItem);
+Vue.use(Button);
+Vue.use(TreeSelect);
+Vue.use(VanImage);
+Vue.use(Col);
+Vue.use(Row);
+Vue.use(Icon);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(SubmitBar);
+Vue.use(SwipeCell);
+Vue.use(Stepper);
+Vue.use(Popup);
+Vue.use(Tag);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(List);
+Vue.use(Cell);
+Vue.use(GoodsAction);
+Vue.use(GoodsActionButton);
+Vue.use(GoodsActionIcon);
+Vue.use(Tab);
+Vue.use(Tabs);
