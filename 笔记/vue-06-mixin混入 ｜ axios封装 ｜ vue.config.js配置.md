@@ -27,16 +27,7 @@ Vue.mixin({
 **src/mixin/test.js**
 
 ```js
-export default {
-  created() {
-    console.log('123')
-  },
-  methods: {
-    jumpDetail() {
-      
-    }
-  }
-}
+f
 ```
 
 **src/views/Home.vue**

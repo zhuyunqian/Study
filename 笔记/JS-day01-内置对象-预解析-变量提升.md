@@ -686,3 +686,34 @@ console.log(Math.sqrt(16));
 console.log(Math.round(20.49));
 console.log(Math.round(20.5));
 ```
+
+## 空对象赋值
+
+
+
+```js
+// 直接赋值
+ 
+var obj1 = { a: 1 };
+var obj2 = obj1;
+ 
+console.log(obj2); // { a: 1 }
+ 
+// 通过 Object.assign() 这个属性来进行复制
+ 
+var obj = { a: 1 };
+var obj2 = Object.assign({}, obj);
+ 
+console.log(obj2); // { a: 1 }
+
+// 通过 for in 循环赋值
+ 
+var obj1={ a: 1, b: { c: 2 }, c: 0 }
+var obj2={}
+for( var key in obj1 ){
+    obj2[key]=obj[key]
+}
+ 
+console.log(obj2); // { a: 1, b: { c: 2 }, c: 0 }
+```
+

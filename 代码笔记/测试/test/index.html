@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="jquery-3.4.1.js"></script>
+</head>
+<body>
+    <button id="btn">点击获取信息</button>
+</body>
+</html>
+<script>
+$(function(){
+    $('#btn').click(function(){
+  //       $.ajax({url:"http://39.100.158.196:36081/lvdi/lvdi_AndroidController.do?userLogin&user",success:function(result){
+  //          conosle.log(result)
+  //       }});
+		$.post(
+			"http://39.100.158.196:36081/lvdi/lvdi_AndroidController.do?userLogin",
+			{
+				name: 'lijiaqi',
+				pwd: 'lijiaqi',
+				flag: 435120,
+				
+			},function(result){
+				conosle.log(result)
+		});
+    })
+})
+</script>
