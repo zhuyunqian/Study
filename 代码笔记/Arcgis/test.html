@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Feature Layer - display results as an InfoWindow onHover</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.35/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.35/esri/css/esri.css">
+    <style>
+      html, body, #map {
+        padding:0;
+        margin:0;
+        height:100%;
+      }
+    </style>
+
+    <script src="https://js.arcgis.com/3.35/"></script>
+    <script>
+      require([
+        //引入依赖
+        "esri/map",
+        "esri/toolbars/draw",
+        "esri/layers/ArcGISTiledMapServiceLayer",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/PictureFillSymbol",
+        "esri/symbols/CartographicLineSymbol",
+        "esri/graphic",
+        "esri/Color",
+        "dojo/dom",
+        "dojo/on",
+        "dojo/domReady!"
+      ], function(
+        //声明依赖
+        Map, Draw,
+        ArcGISTiledMapServiceLayer,
+        SimpleMarkerSymbol, SimpleLineSymbol,
+        PictureFillSymbol, CartographicLineSymbol,
+        Graphic,
+        Color, dom, on
+      ) {
+        // 实例化 html对象 ，并声明基本配置
+        map = new Map("mapDiv", {
+          center: [-25.312, 34.307],
+          zoom: 3
+        });
+                // 三方发布服务--使用
+        var shengLayer = new ArcGISTiledMapServiceLayer(
+            "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer", {
+        })
+        map.addLayer(shengLayer);
+
+
+        // 绘制图形调用事件
+        map.on("load", initToolbar);
+        //重新赋值中心点 -- 绘制点
+        // var point = new Point(114.309, 30.578);
+        function initToolbar() {
+          tb = new Draw(map);
+          tb.on("draw-end", addGraphic);
+          on(dom.byId("info"), "click", function(evt) {
+            if ( evt.target.id === "info" ) {
+              return;
+            }
+            var tool = evt.target.id.toLowerCase();//转换为小写
+            map.disableMapNavigation();
+            //激活绘图工具
+            tb.activate(tool);
+          });
+        }
+
+        //设置点的填充样式
+        var markerSymbol = new SimpleMarkerSymbol();
+        markerSymbol.setColor(new Color("#00FFFF"));
+        //设置线的填充样式
+        var lineSymbol = new CartographicLineSymbol(
+          CartographicLineSymbol.STYLE_SOLID,
+          new Color([255,0,0]), 10,
+          CartographicLineSymbol.CAP_ROUND,
+          CartographicLineSymbol.JOIN_MITER, 5
+        );
+        //设置面的填充样式
+        var fillSymbol = new PictureFillSymbol(
+          "/Imaage/timg.jpg",
+          new SimpleLineSymbol(
+            SimpleLineSymbol.STYLE_SOLID,
+            new Color('#000'),
+            1
+          ),
+          42,
+          42
+        );
+
+        function addGraphic(evt) {
+          //关闭绘图工具
+          tb.deactivate();
+           //禁用导航
+          map.enableMapNavigation();
+          var symbol;
+          if ( evt.geometry.type === "point" || evt.geometry.type === "multipoint") {
+            symbol = markerSymbol;
+          } else if ( evt.geometry.type === "line" || evt.geometry.type === "polyline") {
+            symbol = lineSymbol;
+          }
+          else {
+            symbol = fillSymbol;
+          }
+          map.graphics.add(new Graphic(evt.geometry, symbol));
+        }
+
+      });
+    </script>
+  </head>
+  <body >
+    <div id="info">
+      <sapn>点击你所要绘画的图形</span>
+      <button id="Point">Point</button>
+      <button id="Multipoint">Multipoint</button>
+      <button id="Line">Line</button>
+      <button id="Polyline">Polyline</button>
+      <button id="FreehandPolyline">Freehand Polyline</button>
+      <button id="Triangle">Triangle</button>
+      <button id="Extent">Rectangle</button>
+      <button id="Circle">Circle</button>
+      <button id="Ellipse">Ellipse</button>
+      <button id="Polygon">Polygon</button>
+      <button id="FreehandPolygon">Freehand Polygon</button>
+  </div>
+
+  <div id="mapDiv"></div>
+  </body>
+</html>
