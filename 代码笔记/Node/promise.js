@@ -39,6 +39,11 @@ Promise.all([p1,p2,p3]).then((data)=>{
     console.log(0)
 })
 
+Promise.race([p1,p2,p3]).then((data)=>{
+    // reace里的promise成功一个即可执行.then方法
+    console.log(data)
+})
+
 // readFilePromise(filePath1).then((data)=>{
 //     // 成功执行
 //     str1+=data;
