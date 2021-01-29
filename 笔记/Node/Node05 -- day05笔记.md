@@ -372,7 +372,7 @@ let p1 = new Promise((resolve, reject)=>{
             //失败的时候做的事情
             reject(error1);
         }
-        //读取完之后做的事情
+        //读取完之后做的事情--成功调取
         resolve(data1)
     })
 });
