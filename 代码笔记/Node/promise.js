@@ -25,11 +25,14 @@ let readFilePromise = util.promisify(fs.readFile)
 let str1 = "";
 
 readFilePromise(filePath1).then((data)=>{
+    // 成功执行
     str1+=data;
     return readFilePromise(filePath2)
-},(error1)=>{
-    console.log("读取文件1失败", error1);
-    return error1
+}).catch((error)=>{
+    //异步失败执行
+    console.log(error)
+}).finally(()=>{
+    console.log('不管错误正确，都会执行')
 }).then((data)=>{
     str1+=data;
     return readFilePromise(filePath3);
