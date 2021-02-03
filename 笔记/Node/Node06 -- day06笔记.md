@@ -144,9 +144,9 @@ func();
    	1、网站： www.sina.com.cn
         	-www: 主机名 ，ftp、svn、stmp、xmpp服务
         	- sina：机构名
-        	- com：机构类型
-        	- cn： 国家名  tw  hk   us  uk  jp 
-        
+                	- com：机构类型
+                	- cn： 国家名  tw  hk   us  uk  jp 
+
    	2、域名服务器（DNS）    
 
 ​		存放域名与ip对应的服务器
@@ -165,7 +165,7 @@ func();
 > - 1996年5月，HTTP/1.0版本发布
 > - 1997年1月，HTTP/1.1版本发布，目前使用就是HTTP/1.1版本
 
-![http作者](assets/http作者.png)
+![http作者](../assets/http作者.png)
 
 1、 http的认识
         1.1、什么是协议
@@ -237,9 +237,9 @@ func();
 ## 五、http协议响应报文格式
 
   	1、响应行[版本 状态码 说明\r\n]   必须有，HTTP/1.1 200 OK\r\n
-        2、响应头[头名: 头值\r\n]   Content-Type: text/html;charset=utf-8\r\n     Server: BWS/1.1\r\n
-        3、空行[\r\n]   "\r\n"
-        4、响应体[html文本或者资源数据, 即网页内容]
+  	    2、响应头[头名: 头值\r\n]   Content-Type: text/html;charset=utf-8\r\n     Server: BWS/1.1\r\n
+  	    3、空行[\r\n]   "\r\n"
+  	    4、响应体[html文本或者资源数据, 即网页内容]
 
 注意：记住以上格式即可，**不需要背诵响应头头中的属性**
 
@@ -278,7 +278,7 @@ func();
 
 ## 六、谷歌浏览器开发者工具的使用（掌握！）
 
-![开发工具的使用](assets/开发工具的使用.png)
+![开发工具的使用](../assets/开发工具的使用.png)
 
 - 元素(Elements):用于查看或修改HTML元素的属性、CSS属性、监听事件、断点等.
 - 控制台(Console):控制台一般用于执行一次性代码, 查看JavaScript对象, 查看调试日志信息或异常信息.
@@ -293,11 +293,11 @@ http协议是基于TCP/IP协议的，TCP/IP协议是一个可靠的传输协议�
 
 浏览器(客户端)和服务器**建立**连接的时候，发生三次握手：
 
-![tcp三次握手](assets/tcp三次握手.png)
+![tcp三次握手](../assets/tcp三次握手.png)
 
 浏览器(客户端)和服务器**断开**连接的时候，发生四次挥手：
 
-![tcp四次挥手](assets/tcp四次挥手.png)
+![tcp四次挥手](../assets/tcp四次挥手.png)
 
 
 
@@ -307,4 +307,4 @@ http协议是基于TCP/IP协议的，TCP/IP协议是一个可靠的传输协议�
 
 说白了，就是两台计算机之间进行通信的时候，经历了哪些工作。
 
-![å¨è¿éæå¥å¾çæè¿°](assets/20190105164025264.png) 
+![å¨è¿éæå¥å¾çæè¿°](../assets/20190105164025264.png) 

@@ -76,7 +76,7 @@ AJAX 对象有 4 个属性：
 
 综合以上，在状态改变的处理函数一般针对 readyState == 4 且 status == 200 的情况才处理，再根据后台返回的数据类型决定从 responseText 或者 responseXML 获取服务器响应回去来的数据。
 
-![AJAX请求流程图](assets/AJAX请求流程图.png)
+![AJAX请求流程图](../assets/AJAX请求流程图.png)
 
 ## 四、使用ajax发送get请求
 
