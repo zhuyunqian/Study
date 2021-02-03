@@ -3,98 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>each遍历</title>
-    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="./jquery-3.4.1.js"></script>
 </head>
 <body>
-<ul>
-    <li>111111</li>
-    <li>222222</li>
-    <li>333333</li>
-    <li>444444</li>
-    <li>555555</li>
-    <li>fdfsafdsaf</li>
-    <li>fdbsghtegre</li>
-    <li>jkiuliuyliuyli</li>
-    <li></li>
-    <li></li>
-    <li>zvfdhgfdb</li>
-    <li></li>
-    <li>vczvcxzxc</li>
-    <li></li>
-    <li></li>
-    <li>vhktrh</li>
-    <li></li>
-    <li>bgyerbhj</li>
-    <li></li>
-    <li>gdjkfgjk</li>
-</ul>
+<div class="title">
+    <ul>
+        <li>
+            <input type="checkbox">地区1
+        </li>
+        <li>
+            <input type="checkbox">地区2
+        </li>
+    </ul>
+</div>
+<div class="content">
+    <ul>
+        <li>
+            <input type="checkbox" checked>地区1-1
+        </li>
+        <li>
+            <input type="checkbox">地区1-2
+        </li>
+        <li>
+            <input type="checkbox" checked>地区1-3
+        </li>
+        <li>
+            <input type="checkbox">地区1-4
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <input type="checkbox" checked>地区2-1
+        </li>
+        <li>
+            <input type="checkbox" checked>地区2-2
+        </li>
+        <li>
+            <input type="checkbox" checked>地区2-3
+        </li>
+        <li>
+            <input type="checkbox">地区2-4
+        </li>
+    </ul>
+</div>
+
 </body>
 </html>
 <script>
 
-    //数组遍历
 
-    let arr = ['张三', '2222','里斯','王武','3333'];
+    $.each($('.title li'), function(index,element) {
+        $(element).children('input').attr('data-index',index)
+        $(element).children('input').click(function() {
+            let idx = $(this).data('index');
+            if($(this).attr('checked') == 'checked'){
+                $(this).removeAttr("checked");
+                $('.content ul').eq(idx).hide();
+            }else{
+                $(this).attr('checked','checked');
+                $('.content ul').eq(idx).show();
+                
+                $.each($('.content ul').eq(idx).children('li'),function (index,element) {
+                    $(element).children('input').attr('data-index',index)
+                    $(element).children('input').click(function() {
+                        if($(this).attr('checked') == 'checked'){
+                            $(this).removeAttr("checked");
+                        }else{
+                            $(this).attr('checked','checked');
+                        }
+                    })
 
-    $.each(arr,function(index,element){
-
-        //输出索引
-        console.log(index);
-
-        //输出键值
-        console.log(element);
-
+                    if($(element).children('input').attr('checked') == 'checked'){
+                        console.log($(element).html())
+                    }
+                })
+            }
+        })
     })
-
-
-    //节点遍历
-    $('li').each(function(index,element){
-
-        //输出索引
-        console.log(index)
-        //输出节点
-        console.log(element)
-        //输出文本节点
-        console.log($(element).html());
-
-    })
-
-    //替换节点内容，数组替换节点内容
-    $.each(arr,function(index,element){
-
-        //注意遍历的是数组节点，请不要当成文本节点一样赋值
-        $('li').eq(index).html(element);
-
-    })
-
-
-    //对象遍历
-    let obj = {
-        name:'mary',
-        age:'20',
-        arr:['11','22','33','44','55']
-    }
-
-    $.each(obj,function(key,value){
-
-        //输出键
-        console.log(key)
-
-        //输出键值
-        console.log(value)
-
-        //输出数组
-        //判断不为字符串，输出
-        if(value !== String){
-            console.log(value)
-
-            //数组遍历，map，因为是对象吗？所以需要加$()
-            $(value).map(function(index,element){
-                console.log(element)
-            })
-        }
-
-    })
-
 
 </script>
