@@ -459,6 +459,7 @@ class Header extends React.Component{
     render(){
         return (
             <div style={{height:60, backgroundColor:this.props.bgc, textAlign:"center", color:"#fff"}}>
+            	//获取父组件数据 -- 父传子
                 {this.props.title}
                 <p>{this.props.children}</p>
             </div>
@@ -472,6 +473,7 @@ export default class hello extends React.Component{
     render(){
         return (
             <div>
+            //父组件数据
                 <Header title="首页" bgc="green"/>
                 <Header title="列表页" bgc="red"/>
                 <Header/>
@@ -500,18 +502,20 @@ this.props基本使用 总结：
 
 3、在子组件内部可以定义默认值，格式如下：
 
-    //定义默认值
+    //定义默认值 -- 这里很重要 -- 设置无父亲传参默认的数据
     static defaultProps = {
         属性名：默认值,
         bgc : "blue",
         title : "默认标题"
     }
+    //默认值||
 
 4、子元素的使用(了解)
     在父组件中，以<组件名 属性名=值></组件名>方式使用子组件的时候，可以添加子元素：
     <组件名 属性名=值>子元素</组件名>     
+    //子元素使用
     例如：<Header bgc="pink">Header子元素</Header>
-
+		
     在子组件内部，通过  this.props.children  来获取这个子元素
 */
 ```
