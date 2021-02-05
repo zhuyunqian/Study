@@ -266,16 +266,19 @@ export default class App3 extends Component {
     render() {
         return (
             <div>
+            	  // jsx插值语法
                 {/* 这是注释的格式 */}
                 {/* JSX中引用变量需要加单花括号 */}
                 <p>{name}</p>
                
+            		// 三元表达式使用
                 {/* 三目运算符的使用 */}
                 <p>num1和num2中比较大的是：{num1>num2? num1: num2}</p>
-
-
+			
+								// 配合ul li 的 循环便利使用
                 {/* for循环的使用 */}
                 <ul>
+                  //方法1:
                     {/* 数组名.map(函数) */}
                     {
                         //格式1：
@@ -284,6 +287,7 @@ export default class App3 extends Component {
                             )
                         )
                     }
+                  //方法2:
                     {
                         //格式2：可以把上面的大括号和return换成小括号
                         arr.map((v,k)=>{    
