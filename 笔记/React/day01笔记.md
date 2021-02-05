@@ -199,11 +199,13 @@ ReactDOM.render(
 
 ```jsx
 		   <div>
+  							//想要写js，在{}内加入对象
                 <p  style={{backgroundColor: "#ccc"}}>
                     hello world !!! 我是组件2223
                 </p>
-                
+                //引入MyImg=图片 class=className
                 <img src={MyImg} alt="" className="img1" /> <br/>
+  							// htmlfor = for
                 <label htmlFor="username">用户名：
                     <input type="text" id="username"/>
                 </label>
