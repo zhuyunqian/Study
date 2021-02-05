@@ -287,7 +287,7 @@ export default class App3 extends Component {
                             )
                         )
                     }
-                  //方法2:
+                  //方法
                     {
                         //格式2：可以把上面的大括号和return换成小括号
                         arr.map((v,k)=>{    
@@ -381,6 +381,7 @@ export default class App4 extends Component {
     handleChange(e){
         console.log(e)
         console.log(e.target)
+      //双向数据绑定，这里和vue不一样，需要自己手写数据绑定
         this.setState({
             str1: e.target.value
         })
