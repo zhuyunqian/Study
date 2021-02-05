@@ -3,7 +3,7 @@
 // 引入核心模块
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app.js'
+import App from './app1.js'
 
 // 通过jsx语法将组件、标签渲染到标签上
 ReactDOM.render(
