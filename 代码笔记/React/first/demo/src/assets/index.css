@@ -1,5 +1,22 @@
-
+.title div{
+    width:100px;
+    height:40px;
+    float:left;
+}
 .active{
     display: block;
     background:pink;
+}
+.content{
+    width:100%;
+    overflow:auto;
+}
+.content div{
+    display:none;
+}
+.content .current{
+    width:200px;
+    height:200px;
+    display: block;
+    background: cyan;
 }
