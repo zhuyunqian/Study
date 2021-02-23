@@ -42,6 +42,7 @@ export default class app extends Component{
             this.setState({
                 num1 : 30
             })
+            document.addEventListener("click", this.closeMenu);
         },2000)
     }
 
@@ -49,6 +50,15 @@ export default class app extends Component{
         this.setState({
             num : this.state.num + 1,
         })
+    }
+
+    closeMenu(){
+        console.log('close事件')
+    }
+
+    componentWillUnmount(){
+        console.log('回收操作，卸载')
+        document.removeEventListener("click", this.closeMenu);
     }
 
     UNSAFE_componentWillReceiveProps(){
