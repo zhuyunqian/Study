@@ -3,7 +3,7 @@
 // 引入核心模块
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './生命周期-更新'
+import App from './不受控组件'
 
 // 通过jsx语法将组件、标签渲染到标签上
 ReactDOM.render(
