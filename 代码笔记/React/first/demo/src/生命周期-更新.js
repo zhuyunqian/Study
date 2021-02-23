@@ -1,5 +1,26 @@
 import React , {Component} from 'react'
 
+class Child extends Component{
+    static defaultProps = {
+        num1 : 1
+    }
+    UNSAFE_componentWillReceiveProps(nextProps,nextState){
+        console.log(nextProps)
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        console.log(nextProps)
+        //props修改这里 需要return出去true or false
+        return this.props.num1 !== nextProps.num1
+    }
+    render(){
+        return(
+            <div>
+                {this.props.num1}
+            </div>
+        )
+    }
+}
+
 export default class app extends Component{
     constructor(props){
         // 声明周期 -- 挂载初始
@@ -9,11 +30,19 @@ export default class app extends Component{
 
         this.state = {
             num:1,
-            num1:10
+            num1:10,
         }
 
         // 访问this必须先访问调用超级构造函数super（props）
         this.handClick = this.handClick.bind(this)
+    }
+
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({
+                num1 : 30
+            })
+        },2000)
     }
 
     handClick(){
@@ -30,7 +59,8 @@ export default class app extends Component{
         console.log('更新')
         console.log(this.state.num)
         console.log(nextState.num)
-        return this.state.num !== nextState.num
+        //这里num1修改后，需要更新
+        return this.state.num !== nextState.num  || this.state.num1 !== nextState.num1
         // if(this.state.num !== nextState.num){
         //     return nextState.num
         // }else{
@@ -51,6 +81,7 @@ export default class app extends Component{
         return(
             <div >
                 <div onClick={this.handClick}> 点击事件 {this.state.num}</div>
+                <Child num1 = {this.state.num1}></Child>
             </div>
         )
     }
