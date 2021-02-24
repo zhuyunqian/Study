@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <ul>
           <li><a href="#/home">首页</a></li>
-          <li><a href="#/list">列表页</a></li>
+          <li><a href="#/list/111">列表页</a></li>
         </ul>
         <hr/>
         <div>
@@ -34,7 +34,7 @@ let routes = <Router history={hashHistory}>
     {/* 相对路径 */}
     <Route path="home" component={Home}></Route>
     {/* 绝对路径 */}
-    <Route path="/list" component={List}></Route>
+    <Route path="/list/:newId" component={List}></Route>
   </Route>
 </Router>
 
