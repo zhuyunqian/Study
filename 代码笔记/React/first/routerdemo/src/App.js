@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory} from 'react-router'
+import { Router, Route, hashHistory, IndexRoute, IndexRedirect, Link} from 'react-router'
 import Home from './Home';
 import List from './List';
 
@@ -9,8 +9,12 @@ class App extends Component {
     return (
       <div>
         <ul>
-          <li><a href="#/home">首页</a></li>
-          <li><a href="#/list/111">列表页</a></li>
+          {/* <li><a href="#/home">首页</a></li>
+          <li><a href="#/list/111">列表页</a></li> */}
+
+          {/* link 组件， 代替href，直接使用链接即可 */}
+          <li><Link to="/home">首页</Link></li>
+          <li><Link to="/list/111">列表页</Link></li>
         </ul>
         <hr/>
         <div>
@@ -32,6 +36,10 @@ let routes = <Router history={hashHistory}>
   {/* 路径定义 */}
   <Route path="/" component={App}>
     {/* 相对路径 */}
+    {/* 默认展示视图 {this.props.children}*/}
+    <IndexRoute component={Home}></IndexRoute>
+    {/* 重定向组件 */}
+    {/* <IndexRedirect to="Home"/> */}
     <Route path="home" component={Home}></Route>
     {/* 绝对路径 */}
     <Route path="/list/:newId" component={List}></Route>
