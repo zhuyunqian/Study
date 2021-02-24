@@ -18,17 +18,26 @@ class ChildChild extends Component{
 }
 
 class Child extends Component{
+    handclk(){
+        this.props.fatherclk(20)
+    }
     render(){
         return(
             <div>
                 <ChildChild></ChildChild>
-                <div>{this.props.con}</div>
+                <div onClick={this.handclk.bind(this)}>{this.props.con}</div>
             </div>
         )
     }
 }
 
 export default class app2 extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            con : 10
+        }
+    }
     // 父组件 -- 声明上下文数据类型
     static childContextTypes = {
         title:PropsTypes.string
@@ -39,11 +48,16 @@ export default class app2 extends Component {
             title:'55555'
         }
     }
+    fatherclk(e){
+        this.setState({
+            con : e
+        })
+    }
 
     render() {
         return(
             <div>
-                <Child con="1111"></Child>
+                <Child fatherclk={this.fatherclk.bind(this)} con={this.state.con}></Child>
             </div> 
         )
     }
